@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "url": "https://example.com/",
+    "hostname": "example.com",
+    "audited_at": "2023-12-01T12:00:00Z",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-13T11:20:37Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=8"
+    ]
+  },
+  "executive_summary": {
+    "summary": "The website https://example.com/ has been audited, with a focus on performance. The score is 99, indicating excellent performance."
+  },
+  "severity_overview": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "key_findings": {
+    "performance": {
+      "score": 99,
+      "dimension": "performance"
+    }
+  },
+  "prioritized_roadmap": {
+    "short_term": [
+      "Analyze accessibility",
+      "Analyze seo"
+    ],
+    "mid_term": [
+      "Analyze security",
+      "Analyze best-practices"
+    ],
+    "long_term": [
+      "Implement recommendations from analysis"
+    ]
+  },
+  "quick_wins": {
+    "optimize_images": "Optimizing images can improve page load times",
+    "minify_code": "Minifying code can reduce file sizes and improve performance"
+  },
+  "long_term_improvements": {
+    "implement_cdn": "Implementing a content delivery network can improve page load times",
+    "use_caching": "Using caching can reduce the load on the server and improve performance"
+  },
+  "action_items": {
+    "total": 8,
+    "items": [
+      "Analyze accessibility",
+      "Analyze seo",
+      "Analyze security",
+      "Analyze best-practices",
+      "Optimize images",
+      "Minify code",
+      "Implement recommendations from analysis",
+      "Monitor performance regularly"
+    ]
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "executive_summary": {
+    "summary": "The website https://plausible.io/ has a perfect performance score with no major issues detected.",
+    "top_issues": [],
+    "next_step": {
+      "title": "No major issues detected",
+      "description": "The website appears healthy based on the analyzed dimensions.",
+      "recommendation": "Continue monitoring performance and maintain current best practices.",
+      "priority": "info"
+    }
+  },
+  "severity_overview": {
+    "total_findings": 0,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "dimension": "performance",
+      "title": "Largest Contentful Paint (LCP)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "The page's Largest Contentful Paint (LCP) is within the recommended budget of 2.5 seconds.",
+      "recommendation": "No action needed; the page is already meeting the LCP budget."
+    },
+    {
+      "dimension": "performance",
+      "title": "Cumulative Layout Shift (CLS)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "The page has no Cumulative Layout Shift (CLS), which is ideal for user experience.",
+      "recommendation": "No action needed; the page has no layout shifts."
+    },
+    {
+      "dimension": "performance",
+      "title": "Total Blocking Time (TBT)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "The page has no Total Blocking Time (TBT), which is ideal for user experience.",
+      "recommendation": "No action needed; the page has no blocking time."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": []
+  },
+  "quick_wins": {
+    "items": []
+  },
+  "long_term_improvements": [
+    {
+      "dimension": "accessibility",
+      "title": "Conduct accessibility audit",
+      "priority": "high",
+      "description": "Conduct a thorough accessibility audit to identify and address any accessibility issues."
+    },
+    {
+      "dimension": "seo",
+      "title": "Conduct SEO audit",
+      "priority": "medium",
+      "description": "Conduct a thorough SEO audit to identify and address any SEO issues."
+    },
+    {
+      "dimension": "security",
+      "title": "Conduct security audit",
+      "priority": "high",
+      "description": "Conduct a thorough security audit to identify and address any security issues."
+    },
+    {
+      "dimension": "best-practices",
+      "title": "Conduct best practices audit",
+      "priority": "medium",
+      "description": "Conduct a thorough best practices audit to identify and address any best practices issues."
+    }
+  ],
+  "action_items": {
+    "total": 0,
+    "items": []
+  },
+  "meta": {
+    "audited_at": "2024-09-16T14:30:00Z",
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-14T09:01:12Z",
+    "build_warnings": []
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page has a perfect performance score, with no major issues detected.",
+      "findings": [
+        {
+          "category": "core-web-vitals",
+          "severity": "pass",
+          "priority": "low",
+          "evidence": "LCP: 1.5 s mobile / 0.4 s desktop; budget 2.5 s",
+          "impact": "The page's Largest Contentful Paint (LCP) is within the recommended budget of 2.5 seconds.",
+          "recommendation": "No action needed; the page is already meeting the LCP budget."
+        },
+        {
+          "category": "core-web-vitals",
+          "severity": "pass",
+          "priority": "low",
+          "evidence": "CLS: 0 mobile / 0 desktop",
+          "impact": "The page has no Cumulative Layout Shift (CLS), which is ideal for user experience.",
+          "recommendation": "No action needed; the page has no layout shifts."
+        },
+        {
+          "category": "core-web-vitals",
+          "severity": "pass",
+          "priority": "low",
+          "evidence": "TBT: 0 ms mobile / 0 ms desktop",
+          "impact": "The page has no Total Blocking Time (TBT), which is ideal for user experience.",
+          "recommendation": "No action needed; the page has no blocking time."
+        },
+        {
+          "category": "network",
+          "severity": "informative",
+          "priority": "low",
+          "evidence": "Estimated savings of 14 KiB from efficient cache lifetimes",
+          "impact": "The page can benefit from efficient cache lifetimes to reduce network latency.",
+          "recommendation": "Consider implementing efficient cache lifetimes to reduce network latency."
+        },
+        {
+          "category": "main-thread",
+          "severity": "informative",
+          "priority": "low",
+          "evidence": "DOM size: 660 elements",
+          "impact": "The page has a moderate DOM size, which may impact page responsiveness.",
+          "recommendation": "Consider optimizing the DOM size to improve page responsiveness."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "dimension": "seo",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 92,
+  "summary": "The page has a good SEO score, with some minor issues. The score is adjusted from 92 to 92 as there are no crawlability issues found.",
+  "findings": [
+    {
+      "category": "metadata",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "The page has a meta description, but it's not explicitly mentioned in the audit results.",
+      "impact": "Meta descriptions may be included in search results to concisely summarize page content.",
+      "recommendation": "Consider adding a meta description to the page to improve search engine results."
+    },
+    {
+      "category": "content",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "Image elements do not have [alt] attributes.",
+      "impact": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute.",
+      "recommendation": "Add alt attributes to image elements to improve accessibility and search engine understanding."
+    }
+  ],
+  "metadata": {
+    "gaps": [],
+    "references": [
+      "https://developer.chrome.com/docs/lighthouse/seo/is-crawlable/",
+      "https://dequeuniversity.com/rules/axe/4.11/document-title",
+      "https://developer.chrome.com/docs/lighthouse/seo/meta-description/",
+      "https://developer.chrome.com/docs/lighthouse/seo/http-status-code/",
+      "https://developer.chrome.com/docs/lighthouse/seo/link-text/",
+      "https://support.google.com/webmasters/answer/9112205",
+      "https://dequeuniversity.com/rules/axe/4.11/image-alt"
+    ]
+  }
+}

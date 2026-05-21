@@ -1,0 +1,30 @@
+{
+  "dimension": "seo",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 87,
+  "summary": "Score adjusted from 92 to 87 to reflect a missing sitemap and a link without descriptive text, which Lighthouse does not weight.",
+  "findings": [
+    {
+      "category": "crawlability",
+      "severity": "medium",
+      "priority": "high",
+      "evidence": "The sitemap.xml file was not found (404 status code).",
+      "impact": "Search engines may have difficulty discovering all pages on the site.",
+      "recommendation": "Create and publish a sitemap.xml file to help search engines discover all pages on the site."
+    },
+    {
+      "category": "content",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "1 link was found without descriptive text.",
+      "impact": "Search engines may have difficulty understanding the content of the link.",
+      "recommendation": "Add descriptive text to the link to help search engines understand its content."
+    }
+  ],
+  "metadata": {
+    "gaps": [
+      "canonical link"
+    ]
+  }
+}

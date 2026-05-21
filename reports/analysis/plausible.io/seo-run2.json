@@ -1,0 +1,21 @@
+{
+  "dimension": "seo",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 92,
+  "summary": "The page has a good SEO score, but there are some areas for improvement. The page is crawlable, has a valid title and meta description, and uses canonical links. However, there are some issues with image alt text.",
+  "findings": [
+    {
+      "category": "content",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "Lighthouse audit 'image-alt' score: 0",
+      "impact": "Search engines may have difficulty understanding the content of images on the page.",
+      "recommendation": "Add descriptive alt text to all images on the page."
+    }
+  ],
+  "metadata": {
+    "gaps": [],
+    "references": []
+  }
+}

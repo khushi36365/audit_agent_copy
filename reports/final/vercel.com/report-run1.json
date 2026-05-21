@@ -1,0 +1,400 @@
+{
+  "meta": {
+    "audited_at": "2023-12-31T00:00:00Z",
+    "url": "https://vercel.com/",
+    "hostname": "vercel.com",
+    "dimensions_analyzed": [
+      "accessibility",
+      "performance",
+      "seo"
+    ],
+    "dimensions_missing": [
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-20T10:52:04Z",
+    "audited_at_human": "Sun, 31 Dec 2023 00:00:00 UTC",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=2",
+      "1 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ],
+    "logo_url": "https://www.google.com/s2/favicons?domain=vercel.com&sz=128",
+    "initial": "V"
+  },
+  "executive_summary": {
+    "summary": "The website has significant performance issues, with a score of 46. The Largest Contentful Paint (LCP) and Total Blocking Time (TBT) are the primary contributors to this score.",
+    "top_issues": [
+      {
+        "title": "Optimize images",
+        "description": "Convert large assets to WebP and implement responsive image sizing.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Convert large assets to WebP and implement responsive image sizing.",
+        "impact": "Convert large assets to WebP and implement responsive image sizing."
+      },
+      {
+        "title": "Remove focusable elements",
+        "description": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "category": "Remove focusable elements",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "impact": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility."
+      }
+    ],
+    "next_step": {
+      "title": "Optimize images",
+      "description": "Convert large assets to WebP and implement responsive image sizing.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Convert large assets to WebP and implement responsive image sizing.",
+      "impact": "Convert large assets to WebP and implement responsive image sizing."
+    },
+    "headline_score": 76
+  },
+  "severity_overview": {
+    "total_findings": 2,
+    "by_severity": {
+      "critical": 0,
+      "high": 2,
+      "medium": 1,
+      "low": 0,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 2,
+      "P2": 0,
+      "P3": 0
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "title": "Optimize images",
+      "description": "Convert large assets to WebP and implement responsive image sizing.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Convert large assets to WebP and implement responsive image sizing.",
+      "impact": "Convert large assets to WebP and implement responsive image sizing."
+    },
+    {
+      "title": "Remove focusable elements",
+      "description": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "accessibility",
+      "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+      "category": "Remove focusable elements",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+      "impact": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Optimize images",
+        "description": "Convert large assets to WebP and implement responsive image sizing.",
+        "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Remove focusable elements",
+        "description": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "accessibility",
+        "estimated_effort": "1 day"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Optimize images",
+        "description": "Convert large assets to WebP and implement responsive image sizing.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Convert large assets to WebP and implement responsive image sizing.",
+        "impact": "Convert large assets to WebP and implement responsive image sizing."
+      },
+      {
+        "title": "Remove focusable elements",
+        "description": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "category": "Remove focusable elements",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "impact": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Improve accessibility",
+        "description": "Improve accessibility by removing focusable elements from within the `[aria-hidden=\"true\"]` section or adjusting the ARIA attributes to ensure proper accessibility."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Improve performance",
+        "description": "Improve performance by optimizing images, reducing render-blocking resources, and leveraging browser caching to improve LCP.",
+        "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "medium",
+        "dimension": "Architecture",
+        "estimated_effort": "1–2 weeks"
+      }
+    ]
+  },
+  "action_items": {
+    "total": 2,
+    "items": [
+      {
+        "title": "Optimize images",
+        "description": "Convert large assets to WebP and implement responsive image sizing.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Convert large assets to WebP and implement responsive image sizing.",
+        "impact": "Convert large assets to WebP and implement responsive image sizing."
+      },
+      {
+        "title": "Remove focusable elements",
+        "description": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "category": "Remove focusable elements",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+        "impact": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility."
+      }
+    ]
+  },
+  "appendix": {
+    "methodology": "The audit combined Lighthouse analysis with automated accessibility, SEO, security, and performance inspection.",
+    "artifacts_consumed": [
+      "accessibility-run1.json",
+      "performance-run1.json",
+      "seo-run1.json"
+    ]
+  },
+  "recommendations_combined": [
+    {
+      "title": "Optimize images",
+      "description": "Convert large assets to WebP and implement responsive image sizing.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use WebP images and implement responsive image sizing to improve LCP.",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Convert large assets to WebP and implement responsive image sizing.",
+      "impact": "Convert large assets to WebP and implement responsive image sizing."
+    },
+    {
+      "title": "Remove focusable elements",
+      "description": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "accessibility",
+      "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+      "category": "Remove focusable elements",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+      "impact": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility."
+    }
+  ],
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://vercel.com/",
+      "hostname": "vercel.com",
+      "score": 46,
+      "summary": "The page has significant performance issues, with a score of 46. The Largest Contentful Paint (LCP) and Total Blocking Time (TBT) are the primary contributors to this score.",
+      "findings": [
+        {
+          "category": "core-web-vitals",
+          "evidence": "LCP: 5.3 s (mobile) / 1.5 s (desktop); budget 2.5 s",
+          "impact": "Slow page loads can lead to higher bounce rates and negatively impact user experience.",
+          "recommendation": "Optimize images, reduce render-blocking resources, and leverage browser caching to improve LCP.",
+          "severity": "high",
+          "priority": "high",
+          "extensions": {
+            "cwv_metric": "lcp"
+          }
+        },
+        {
+          "category": "render-blocking",
+          "evidence": "Total Blocking Time: 1,190 ms (mobile) / 30 ms (desktop)",
+          "impact": "Excessive blocking time can delay page interactivity and hinder user engagement.",
+          "recommendation": "Minify and compress CSS, JavaScript, and HTML files to reduce blocking time.",
+          "severity": "high",
+          "priority": "medium",
+          "extensions": {
+            "savings_ms": 1191
+          }
+        },
+        {
+          "category": "network",
+          "evidence": "Document request latency: estimated savings of 210 ms (mobile) / 190 ms (desktop)",
+          "impact": "Slow document request latency can increase page load times and affect search engine rankings.",
+          "recommendation": "Enable text compression, avoid redirects, and ensure a fast server response to reduce latency.",
+          "severity": "medium",
+          "priority": "low",
+          "extensions": {
+            "savings_ms": 210
+          }
+        },
+        {
+          "category": "dom-size",
+          "evidence": "DOM size: 1,709 elements (mobile) / 1,693 elements (desktop)",
+          "impact": "Excessive DOM size can increase memory usage and slow down page rendering.",
+          "recommendation": "Optimize DOM size by removing unnecessary elements, using a virtual DOM, or implementing lazy loading.",
+          "severity": "low",
+          "priority": "low",
+          "extensions": {
+            "savings_bytes": 0
+          }
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    },
+    "accessibility": {
+      "dimension": "accessibility",
+      "url": "https://vercel.com/",
+      "hostname": "vercel.com",
+      "score": 83,
+      "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The site scored 83 on desktop and 87 on mobile, with issues found in ARIA attributes and hidden focusable elements.",
+      "findings": [
+        {
+          "category": "aria-hidden-focus",
+          "evidence": "The `[aria-hidden=\"true\"]` element contains focusable descendents, affecting 5 elements on the page.",
+          "impact": "Screen reader users may not be able to access interactive elements within the hidden section, affecting their ability to navigate the site.",
+          "recommendation": "Remove focusable elements from within the `[aria-hidden=\"true\"]` section or adjust the ARIA attributes to ensure proper accessibility.",
+          "severity": "high",
+          "priority": "high",
+          "extensions": {
+            "wcag": [
+              "2.1.1"
+            ]
+          }
+        }
+      ],
+      "metadata": {
+        "gaps": [],
+        "manual_review_required": [
+          "Screen-reader announcement quality",
+          "Focus order beyond DOM order",
+          "Video and audio captions",
+          "Error-message clarity",
+          "Motion and animation sensitivity",
+          "Cognitive load and reading level"
+        ]
+      }
+    },
+    "seo": {
+      "dimension": "seo",
+      "url": "https://vercel.com/",
+      "hostname": "vercel.com",
+      "score": 100,
+      "summary": "The website has a perfect SEO score, with no issues detected in crawlability, indexability, metadata, mobile usability, or structured data.",
+      "findings": [
+        {
+          "category": "crawlability",
+          "evidence": "The website has a valid robots.txt file, allowing search engines to crawl the site.",
+          "impact": "This ensures that search engines can discover and index the website's content.",
+          "recommendation": "No action needed, as the website already has a valid robots.txt file.",
+          "severity": "none",
+          "priority": "none"
+        },
+        {
+          "category": "indexability",
+          "evidence": "The website has a valid canonical link, specifying the preferred version of the page.",
+          "impact": "This helps search engines understand the website's structure and avoid duplicate content issues.",
+          "recommendation": "No action needed, as the website already has a valid canonical link.",
+          "severity": "none",
+          "priority": "none"
+        },
+        {
+          "category": "metadata",
+          "evidence": "The website has a descriptive title and meta description, providing context for search engines and users.",
+          "impact": "This improves the website's visibility in search results and helps users understand the content.",
+          "recommendation": "No action needed, as the website already has descriptive metadata.",
+          "severity": "none",
+          "priority": "none"
+        },
+        {
+          "category": "mobile",
+          "evidence": "The website is mobile-friendly, with a responsive design and proper viewport settings.",
+          "impact": "This ensures a good user experience for mobile users and helps with search engine rankings.",
+          "recommendation": "No action needed, as the website is already mobile-friendly.",
+          "severity": "none",
+          "priority": "none"
+        },
+        {
+          "category": "structured-data",
+          "evidence": "The website has valid hreflang links, specifying the language and region for each page.",
+          "impact": "This helps search engines understand the website's content and provide relevant results for users.",
+          "recommendation": "No action needed, as the website already has valid hreflang links.",
+          "severity": "none",
+          "priority": "none"
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    }
+  }
+}

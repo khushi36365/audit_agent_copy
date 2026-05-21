@@ -1,0 +1,323 @@
+{
+  "meta": {
+    "audited_at": "2023-12-01T12:00:00Z",
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-15T06:14:36Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=8",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ]
+  },
+  "executive_summary": {
+    "summary": "The website https://plausible.io/ scores 100/100 on performance, with all metrics meeting the recommended thresholds.",
+    "top_issues": [
+      {
+        "title": "Analyze accessibility",
+        "description": "Identify accessibility issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "accessibility",
+        "recommendation": "Implement accessibility measures to ensure website accessibility",
+        "category": "Analyze accessibility",
+        "evidence": "Identify accessibility issues and provide recommendations for improvement",
+        "impact": "Identify accessibility issues and provide recommendations for improvement"
+      },
+      {
+        "title": "Analyze SEO",
+        "description": "Identify SEO issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "seo",
+        "recommendation": "Implement SEO measures to improve website search engine ranking",
+        "category": "Analyze SEO",
+        "evidence": "Identify SEO issues and provide recommendations for improvement",
+        "impact": "Identify SEO issues and provide recommendations for improvement"
+      },
+      {
+        "title": "Analyze security",
+        "description": "Identify security issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "security",
+        "recommendation": "Implement security measures to ensure website security",
+        "category": "Analyze security",
+        "evidence": "Identify security issues and provide recommendations for improvement",
+        "impact": "Identify security issues and provide recommendations for improvement"
+      }
+    ],
+    "next_step": {
+      "title": "Analyze accessibility",
+      "description": "Identify accessibility issues and provide recommendations for improvement",
+      "priority": "high",
+      "severity": "warn",
+      "dimension": "accessibility",
+      "recommendation": "Implement accessibility measures to ensure website accessibility",
+      "category": "Analyze accessibility",
+      "evidence": "Identify accessibility issues and provide recommendations for improvement",
+      "impact": "Identify accessibility issues and provide recommendations for improvement"
+    }
+  },
+  "severity_overview": {
+    "total_findings": 8,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 4,
+      "P2": 2,
+      "P3": 2
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "dimension": "performance",
+      "title": "Largest Contentful Paint (LCP)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "LCP: 1.5 s (mobile) / 0.4 s (desktop); budget 2.5 s",
+      "recommendation": "No action needed; LCP is within the recommended threshold."
+    },
+    {
+      "dimension": "performance",
+      "title": "Cumulative Layout Shift (CLS)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "CLS: 0 (mobile and desktop); budget 0.1",
+      "recommendation": "No action needed; CLS is within the recommended threshold."
+    },
+    {
+      "dimension": "performance",
+      "title": "Total Blocking Time (TBT)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "TBT: 0 ms (mobile and desktop); budget 200 ms",
+      "recommendation": "No action needed; TBT is within the recommended threshold."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Analyze accessibility",
+        "description": "Identify accessibility issues and provide recommendations for improvement",
+        "recommendation": "Implement accessibility measures to ensure website accessibility",
+        "priority": "high",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Analyze SEO",
+        "description": "Identify SEO issues and provide recommendations for improvement",
+        "recommendation": "Implement SEO measures to improve website search engine ranking",
+        "priority": "high",
+        "dimension": "seo"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Analyze security",
+        "description": "Identify security issues and provide recommendations for improvement",
+        "recommendation": "Implement security measures to ensure website security",
+        "priority": "high",
+        "dimension": "security"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Analyze best-practices",
+        "description": "Identify best-practices issues and provide recommendations for improvement",
+        "recommendation": "Implement best-practices measures to ensure website stability and ease of maintenance",
+        "priority": "high",
+        "dimension": "best-practices"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Infer monitoring improvements",
+        "description": "Implement monitoring tools to track website performance and identify areas for improvement",
+        "recommendation": "Implement monitoring tools to track website performance",
+        "priority": "medium",
+        "dimension": "performance"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Infer scalability improvements",
+        "description": "Implement scalability measures to ensure website performance under heavy traffic",
+        "recommendation": "Implement scalability measures to ensure website performance",
+        "priority": "medium",
+        "dimension": "performance"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Implement maintainability measures",
+        "description": "Implement maintainability measures to ensure website stability and ease of maintenance",
+        "priority": "low",
+        "severity": "info",
+        "dimension": "maintainability",
+        "recommendation": "Implement maintainability measures to ensure website stability and ease of maintenance",
+        "category": "Implement maintainability measures",
+        "evidence": "Implement maintainability measures to ensure website stability and ease of maintenance",
+        "impact": "Implement maintainability measures to ensure website stability and ease of maintenance"
+      },
+      {
+        "title": "Implement observability measures",
+        "description": "Implement observability measures to track website performance and identify areas for improvement",
+        "priority": "low",
+        "severity": "info",
+        "dimension": "observability",
+        "recommendation": "Implement observability measures to track website performance",
+        "category": "Implement observability measures",
+        "evidence": "Implement observability measures to track website performance and identify areas for improvement",
+        "impact": "Implement observability measures to track website performance and identify areas for improvement"
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Maintainability",
+        "description": "Implement maintainability measures to ensure website stability and ease of maintenance"
+      },
+      {
+        "title": "Observability",
+        "description": "Implement observability measures to track website performance and identify areas for improvement"
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Future optimization opportunities",
+        "description": "Identify and implement future optimization opportunities to improve website performance",
+        "recommendation": "Continuously monitor website performance and identify areas for improvement"
+      }
+    ]
+  },
+  "action_items": {
+    "total": 8,
+    "items": [
+      {
+        "title": "Analyze accessibility",
+        "description": "Identify accessibility issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "accessibility",
+        "recommendation": "Implement accessibility measures to ensure website accessibility"
+      },
+      {
+        "title": "Analyze SEO",
+        "description": "Identify SEO issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "seo",
+        "recommendation": "Implement SEO measures to improve website search engine ranking"
+      },
+      {
+        "title": "Analyze security",
+        "description": "Identify security issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "security",
+        "recommendation": "Implement security measures to ensure website security"
+      },
+      {
+        "title": "Analyze best-practices",
+        "description": "Identify best-practices issues and provide recommendations for improvement",
+        "priority": "high",
+        "severity": "warn",
+        "dimension": "best-practices",
+        "recommendation": "Implement best-practices measures to ensure website stability and ease of maintenance"
+      },
+      {
+        "title": "Infer monitoring improvements",
+        "description": "Implement monitoring tools to track website performance and identify areas for improvement",
+        "priority": "medium",
+        "severity": "info",
+        "dimension": "performance",
+        "recommendation": "Implement monitoring tools to track website performance"
+      },
+      {
+        "title": "Infer scalability improvements",
+        "description": "Implement scalability measures to ensure website performance under heavy traffic",
+        "priority": "medium",
+        "severity": "info",
+        "dimension": "performance",
+        "recommendation": "Implement scalability measures to ensure website performance"
+      },
+      {
+        "title": "Implement maintainability measures",
+        "description": "Implement maintainability measures to ensure website stability and ease of maintenance",
+        "priority": "low",
+        "severity": "info",
+        "dimension": "maintainability",
+        "recommendation": "Implement maintainability measures to ensure website stability and ease of maintenance"
+      },
+      {
+        "title": "Implement observability measures",
+        "description": "Implement observability measures to track website performance and identify areas for improvement",
+        "priority": "low",
+        "severity": "info",
+        "dimension": "observability",
+        "recommendation": "Implement observability measures to track website performance"
+      }
+    ]
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page scores 100/100 on performance, with all metrics meeting the recommended thresholds.",
+      "findings": [
+        {
+          "title": "Largest Contentful Paint (LCP)",
+          "severity": "pass",
+          "description": "LCP: 1.5 s (mobile) / 0.4 s (desktop); budget 2.5 s",
+          "recommendation": "No action needed; LCP is within the recommended threshold."
+        },
+        {
+          "title": "Cumulative Layout Shift (CLS)",
+          "severity": "pass",
+          "description": "CLS: 0 (mobile and desktop); budget 0.1",
+          "recommendation": "No action needed; CLS is within the recommended threshold."
+        },
+        {
+          "title": "Total Blocking Time (TBT)",
+          "severity": "pass",
+          "description": "TBT: 0 ms (mobile and desktop); budget 200 ms",
+          "recommendation": "No action needed; TBT is within the recommended threshold."
+        },
+        {
+          "title": "Cache Insight",
+          "severity": "low",
+          "description": "Estimated savings of 14 KiB by using efficient cache lifetimes",
+          "recommendation": "Consider implementing efficient cache lifetimes to reduce repeat visit load times."
+        },
+        {
+          "title": "DOM Size Insight",
+          "severity": "low",
+          "description": "DOM size: 660 elements; recommended < 1500",
+          "recommendation": "Consider optimizing DOM size to improve page responsiveness and reduce memory usage."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    }
+  }
+}

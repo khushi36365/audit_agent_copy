@@ -1,0 +1,46 @@
+{
+  "dimension": "security",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 55,
+  "summary": "Multiple security issues were found, including missing security headers and potential information disclosure through the robots.txt file.",
+  "findings": [
+    {
+      "category": "transport",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "TLS protocol version is TLSv1.3, which is the current standard.",
+      "impact": "No significant impact, but it's recommended to keep the TLS protocol up to date.",
+      "recommendation": "No action required, as the current TLS protocol version is sufficient."
+    },
+    {
+      "category": "headers",
+      "severity": "high",
+      "priority": "high",
+      "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy, permissions-policy.",
+      "impact": "The website is vulnerable to various attacks, such as XSS and clickjacking, due to the lack of security headers.",
+      "recommendation": "Implement the missing security headers to protect against potential attacks."
+    },
+    {
+      "category": "information-disclosure",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "The robots.txt file contains information about the website's content signals, which could potentially be used to gather sensitive information.",
+      "impact": "The information in the robots.txt file could be used to gather sensitive information about the website's content.",
+      "recommendation": "Review the robots.txt file and remove any sensitive information to prevent potential information disclosure."
+    },
+    {
+      "category": "redirect",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "The website upgrades to HTTPS correctly, but the redirect status code is 200, which is not the recommended 301 or 308.",
+      "impact": "No significant impact, but it's recommended to use a 301 or 308 status code for the redirect.",
+      "recommendation": "Update the redirect status code to 301 or 308 to follow best practices."
+    }
+  ],
+  "metadata": {
+    "analyzed_at": "2026-05-19T08:23:58Z",
+    "lighthouse_version": "unknown",
+    "security_scan_version": "unknown"
+  }
+}

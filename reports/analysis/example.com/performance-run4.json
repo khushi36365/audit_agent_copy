@@ -1,0 +1,67 @@
+{
+  "dimension": "performance",
+  "url": "https://example.com/",
+  "hostname": "example.com",
+  "score": 100,
+  "summary": "The page has a perfect performance score, with all metrics meeting the recommended thresholds.",
+  "findings": [
+    {
+      "id": "perf-lcp",
+      "category": "core-web-vitals",
+      "title": "Largest Contentful Paint",
+      "description": "LCP measures the time it takes for the largest content element to be painted.",
+      "evidence": "LCP: 860.02 ms (mobile) / 307.74 ms (desktop); budget 2500 ms",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "lcp"
+      }
+    },
+    {
+      "id": "perf-cls",
+      "category": "core-web-vitals",
+      "title": "Cumulative Layout Shift",
+      "description": "CLS measures the movement of visible elements within the viewport.",
+      "evidence": "CLS: 0 (mobile and desktop); budget 0.1",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "cls"
+      }
+    },
+    {
+      "id": "perf-fcp",
+      "category": "core-web-vitals",
+      "title": "First Contentful Paint",
+      "description": "FCP measures the time it takes for the first content element to be painted.",
+      "evidence": "FCP: 860.02 ms (mobile) / 307.74 ms (desktop); budget 2000 ms",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "fcp"
+      }
+    },
+    {
+      "id": "perf-tbt",
+      "category": "core-web-vitals",
+      "title": "Total Blocking Time",
+      "description": "TBT measures the total time spent on tasks that block the main thread.",
+      "evidence": "TBT: 0 ms (mobile and desktop); budget 200 ms",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "tbt"
+      }
+    },
+    {
+      "id": "perf-speed-index",
+      "category": "core-web-vitals",
+      "title": "Speed Index",
+      "description": "Speed Index measures how quickly the contents of a page are visibly populated.",
+      "evidence": "Speed Index: 1606.47 ms (mobile) / 740.23 ms (desktop); budget 3000 ms",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "speed-index"
+      }
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

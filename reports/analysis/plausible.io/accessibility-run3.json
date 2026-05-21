@@ -1,0 +1,38 @@
+{
+  "dimension": "accessibility",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 64,
+  "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The page has an accessibility score of 64, indicating some barriers to accessibility.",
+  "findings": [
+    {
+      "category": "perceivable",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "The page has some inaccessible elements, including missing accessible names for some interactive elements.",
+      "impact": "Screen reader users may have difficulty navigating the page due to missing accessible names.",
+      "recommendation": "Add accessible names to all interactive elements, such as buttons and links."
+    },
+    {
+      "category": "operable",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "The page has some elements with ARIA attributes that do not match their roles.",
+      "impact": "Users of assistive technologies may experience inconsistent behavior due to mismatched ARIA attributes.",
+      "recommendation": "Ensure that all ARIA attributes match their corresponding roles."
+    }
+  ],
+  "metadata": {
+    "gaps": [],
+    "extensions": {
+      "manual_review_required": [
+        "Screen-reader announcement quality",
+        "Focus order beyond DOM order",
+        "Video and audio captions",
+        "Error-message clarity",
+        "Motion and animation sensitivity",
+        "Cognitive load and reading level"
+      ]
+    }
+  }
+}

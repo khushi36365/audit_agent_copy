@@ -1,0 +1,54 @@
+{
+  "dimension": "security",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 70,
+  "summary": "Plausible.io has a good security posture but lacks some security headers and has a few areas for improvement.",
+  "findings": [
+    {
+      "category": "transport",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "TLS protocol is TLSv1.3, which is a good version, but it's not the latest version available.",
+      "impact": "Using an outdated TLS version may make the site vulnerable to known attacks.",
+      "recommendation": "Consider upgrading to the latest TLS version."
+    },
+    {
+      "category": "headers",
+      "severity": "high",
+      "priority": "high",
+      "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy.",
+      "impact": "Missing security headers can make the site vulnerable to various attacks, such as XSS and clickjacking.",
+      "recommendation": "Add the missing security headers to the site's configuration."
+    },
+    {
+      "category": "headers",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "Present security header: permissions-policy with value 'interest-cohort=()'.",
+      "impact": "The permissions-policy header is present, but its value may not be optimal.",
+      "recommendation": "Consider reviewing the permissions-policy header value to ensure it's optimal for the site's needs."
+    },
+    {
+      "category": "information-disclosure",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "Sitemap.xml contains URLs that may be sensitive: https://plausible.io/data-policy.",
+      "impact": "Exposing sensitive URLs in the sitemap.xml can make the site vulnerable to information disclosure attacks.",
+      "recommendation": "Consider removing sensitive URLs from the sitemap.xml or restricting access to them."
+    },
+    {
+      "category": "dependencies",
+      "severity": "info",
+      "priority": "info",
+      "evidence": "No vulnerable libraries were detected by Lighthouse.",
+      "impact": "The site may still have vulnerable libraries that are not detected by Lighthouse.",
+      "recommendation": "Consider using a more comprehensive vulnerability scanning tool to detect potential issues."
+    }
+  ],
+  "metadata": {
+    "analyzed_at": "2026-05-15T08:03:47Z",
+    "lighthouse_version": "unknown",
+    "security_scan_version": "unknown"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "dimension": "performance",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 100,
+  "summary": "The page scores 100/100 on performance, with no major issues detected.",
+  "findings": [
+    {
+      "category": "core-web-vitals",
+      "evidence": "LCP: 1.4 s mobile / 0.4 s desktop; budget 2.5 s",
+      "impact": "The page's Largest Contentful Paint (LCP) is within the recommended budget, ensuring a good user experience.",
+      "recommendation": "No action needed; the page's LCP is already optimized.",
+      "severity": "pass",
+      "priority": "low"
+    },
+    {
+      "category": "core-web-vitals",
+      "evidence": "CLS: 0 mobile / 0 desktop",
+      "impact": "The page's Cumulative Layout Shift (CLS) is 0, indicating no unexpected layout shifts.",
+      "recommendation": "No action needed; the page's CLS is already optimized.",
+      "severity": "pass",
+      "priority": "low"
+    },
+    {
+      "category": "render-blocking",
+      "evidence": "No render-blocking resources detected.",
+      "impact": "The page does not have any render-blocking resources, ensuring a fast page load.",
+      "recommendation": "No action needed; the page does not have any render-blocking resources.",
+      "severity": "pass",
+      "priority": "low"
+    },
+    {
+      "category": "cache",
+      "evidence": "Estimated savings of 14 KiB from efficient cache lifetimes.",
+      "impact": "Implementing efficient cache lifetimes can reduce the page's load time.",
+      "recommendation": "Consider implementing a caching strategy to reduce the page's load time.",
+      "severity": "medium",
+      "priority": "medium"
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

@@ -1,0 +1,4278 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="generator" content="audit_agent report-builder">
+  <title>Audit Report — {{meta.hostname}}</title>
+
+  <!--
+    Self-contained report. The renderer inlines the full contents of
+    templates/styles.css into the <style> block below before writing the HTML
+    to disk. No external stylesheet links, no remote fonts, no CDN scripts.
+  -->
+  <style>
+    /* ============================================================
+ * audit_agent — Premium Report Design System
+ *
+ * Self-contained: no external fonts, no CDNs, no remote assets.
+ * Optimized for executive on-screen reading and clean PDF print.
+ *
+ * Architecture
+ *   1. Design tokens          — single :root custom-property block
+ *   2. Reset / base           — minimal, low-specificity via :where()
+ *   3. Typography             — fluid type scale + utility text classes
+ *   4. Layout primitives      — container, slide, stack, cluster, grid
+ *   5. Components             — card, chip, score, callout, table, dl
+ *   6. Section layouts        — cover, dashboard tile, roadmap bucket
+ *   7. Utilities              — visually-hidden, text-muted, truncate, etc.
+ *   8. Responsive             — mobile-first overrides
+ *   9. Print                  — slide-per-page, expanded link URLs
+ *  10. Motion preferences     — reduced-motion bypass
+ * ============================================================ */
+
+
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+/* ============================================================
+ * 1. Design tokens
+ * ============================================================ */
+
+:root {
+  /* ---------- Surfaces & text ---------- */
+  --bg:               #f7f7f5;   /* page background — warm off-white */
+  --surface:          #ffffff;
+  --surface-raised:   #ffffff;
+  --border:           #e6e6e0;
+  --border-strong:    #d4d4cc;
+
+  --text-primary:     #0a0e1a;   /* near-black, slight cool cast */
+  --text-secondary:   #4a5266;
+  --text-muted:       #8a8e9e;
+  --text-inverse:     #ffffff;
+
+  --accent:           #1a2138;   /* deep navy — boardroom, not tech */
+  --accent-soft:      #eef0f5;
+
+  /* ---------- Severity palette (P0-aligned) ---------- */
+  --color-critical-fg:     #b91c1c;
+  --color-critical-bg:     #fef2f2;
+  --color-critical-border: #fecaca;
+
+  --color-high-fg:         #c2410c;
+  --color-high-bg:         #fff7ed;
+  --color-high-border:     #fed7aa;
+
+  --color-medium-fg:       #92400e;
+  --color-medium-bg:       #fffbeb;
+  --color-medium-border:   #fde68a;
+
+  --color-low-fg:          #1e40af;
+  --color-low-bg:          #eff6ff;
+  --color-low-border:      #bfdbfe;
+
+  --color-info-fg:         #475569;
+  --color-info-bg:         #f1f5f9;
+  --color-info-border:     #cbd5e1;
+
+  /* ---------- Score bands ---------- */
+  --band-excellent-fg:   #15803d;
+  --band-excellent-bg:   #f0fdf4;
+  --band-good-fg:        #1e40af;
+  --band-good-bg:        #eff6ff;
+  --band-needs-work-fg:  #92400e;
+  --band-needs-work-bg:  #fffbeb;
+  --band-poor-fg:        #c2410c;
+  --band-poor-bg:        #fff7ed;
+  --band-critical-fg:    #b91c1c;
+  --band-critical-bg:    #fef2f2;
+
+  /* ---------- Typography ---------- */
+  --font-sans:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-mono:
+    "IBM Plex Mono",
+    ui-monospace,
+    monospace;
+
+  --font-serif:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  /* Fluid type scale (1.25 ratio, clamped for sanity) */
+  --fs-display: clamp(2.5rem,   3vw + 1.5rem, 3.75rem);   /* 40 -> 60 */
+  --fs-h1:      clamp(2rem,     2vw + 1.25rem, 2.75rem);  /* 32 -> 44 */
+  --fs-h2:      clamp(1.5rem,   1vw + 1.125rem, 1.875rem);/* 24 -> 30 */
+  --fs-h3:      1.375rem;                                  /* 22 */
+  --fs-h4:      1.125rem;                                  /* 18 */
+  --fs-body:    1rem;                                       /* 16 */
+  --fs-small:   0.875rem;                                   /* 14 */
+  --fs-caption: 0.75rem;                                    /* 12 */
+
+  --lh-tight:   1.15;
+  --lh-snug:    1.35;
+  --lh-normal:  1.55;
+  --lh-relaxed: 1.7;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.02em;
+  --tracking-caps:   0.08em;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* ---------- Spacing scale (4 px base) ---------- */
+  --space-1:  0.25rem;   /*   4 */
+  --space-2:  0.5rem;    /*   8 */
+  --space-3:  0.75rem;   /*  12 */
+  --space-4:  1rem;      /*  16 */
+  --space-5:  1.5rem;    /*  24 */
+  --space-6:  2rem;      /*  32 */
+  --space-7:  3rem;      /*  48 */
+  --space-8:  4rem;      /*  64 */
+  --space-9:  6rem;      /*  96 */
+  --space-10: 8rem;      /* 128 */
+
+  /* ---------- Layout ---------- */
+  --container-max:    72rem;     /* 1152 px */
+  --container-narrow: 44rem;     /*  704 px */
+  --container-pad:    var(--space-5);
+
+  /* Slide framing — vertical breathing room scales with viewport */
+  --slide-pad-block:  clamp(var(--space-7), 8vh, var(--space-10));
+  --slide-pad-inline: var(--space-5);
+
+  /* ---------- Radius ---------- */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-full: 9999px;
+
+  /* ---------- Shadows (restrained — no glow) ---------- */
+  --shadow-xs: 0 1px  2px  rgba(10, 14, 26, 0.04);
+  --shadow-sm: 0 1px  3px  rgba(10, 14, 26, 0.06), 0 1px 2px rgba(10, 14, 26, 0.04);
+  --shadow-md: 0 4px  12px rgba(10, 14, 26, 0.06), 0 2px 4px rgba(10, 14, 26, 0.04);
+  --shadow-lg: 0 12px 32px rgba(10, 14, 26, 0.08), 0 4px 12px rgba(10, 14, 26, 0.04);
+
+  /* ---------- Motion ---------- */
+  --duration-fast:   120ms;
+  --duration-medium: 240ms;
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* ============================================================
+ * 2. Reset / base
+ * ============================================================ */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+
+  scroll-snap-type: y mandatory;
+}
+
+:where(body) {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:where(img, svg, video, canvas) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:where(button) {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:where(a) {
+  color: var(--accent);
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+}
+:where(a:hover) { text-decoration: underline; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: var(--space-2);
+  transform: translate(-50%, -150%);
+  background: var(--accent);
+  color: var(--text-inverse);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  z-index: 100;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+
+/* ============================================================
+ * 3. Typography
+ * ============================================================ */
+.display {
+
+  font-family: var(--font-serif);
+
+  font-size: clamp(4rem, 7vw, 7rem);
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -0.035em;
+
+  margin: 0;
+
+  display: block;
+
+  white-space: nowrap;
+}
+
+:where(h1) {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+
+  font-weight: 800;
+
+  line-height: .96;
+
+  letter-spacing: -0.04em;
+
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-serif);
+}
+
+:where(h2) {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-serif);
+}
+
+.severity-overview__title{
+
+  font-family: var(--font-serif);
+
+  font-size: var(--fs-h2);
+
+  font-weight: 600;
+
+  line-height: var(--lh-tight);
+
+  letter-spacing: var(--tracking-tight);
+
+  white-space: nowrap;
+}
+
+.severity-number{
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  font-variant-numeric: lining-nums;
+}
+
+.severity-number--small{
+
+  font-size: .9em;
+
+  opacity: .92;
+}
+
+:where(h3) {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-serif);
+}
+
+:where(h4) {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-2);
+}
+
+:where(p) {
+  margin: 0 0 var(--space-4);
+  max-width: 70ch;          /* prose readability */
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 var(--space-3);
+
+  font-family: var(--font-mono);
+
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+}
+
+.lead {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  color: var(--text-secondary);
+  max-width: 55ch;
+}
+
+:where(code, kbd, samp) {
+  font-family: var(--font-mono);
+  font-size: 0.9375em;
+  background: var(--accent-soft);
+  padding: 0.05em 0.35em;
+  border-radius: var(--radius-sm);
+}
+
+:where(pre) {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  line-height: var(--lh-snug);
+}
+:where(pre) code {
+  background: none;
+  padding: 0;
+}
+
+
+/* ============================================================
+ * 4. Layout primitives
+ * ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+.container--narrow { max-width: var(--container-narrow); }
+
+/* Slide — a presentation-feel section */
+.slide {
+  padding-block:  var(--slide-pad-block);
+  padding-inline: var(--slide-pad-inline);
+}
+
+.slide--hero {
+  min-block-size: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 80% at 50% 0%, var(--surface) 0%, var(--bg) 60%, var(--bg) 100%);
+}
+
+.slide--surface { background: var(--surface); }
+
+.slide--accent {
+  background: var(--accent);
+  color: var(--text-inverse);
+}
+.slide--accent :where(h1, h2, h3, h4) { color: var(--text-inverse); }
+.slide--accent .eyebrow,
+.slide--accent .lead       { color: rgba(255, 255, 255, 0.7); }
+
+.slide__divider {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin-block: var(--space-7) 0;
+}
+
+/* Stack — vertical rhythm via lobotomized owl */
+.stack > * + *      { margin-block-start: var(--space-4); }
+.stack--xs > * + *  { margin-block-start: var(--space-1); }
+.stack--sm > * + *  { margin-block-start: var(--space-2); }
+.stack--md > * + *  { margin-block-start: var(--space-5); }
+.stack--lg > * + *  { margin-block-start: var(--space-7); }
+.stack--xl > * + *  { margin-block-start: var(--space-9); }
+
+/* Cluster — horizontal items, wraps naturally */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+.cluster--tight { gap: var(--space-2); }
+.cluster--loose { gap: var(--space-5); }
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: var(--space-5);
+}
+.grid--auto  { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.grid--two   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid--four  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid--five  { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+
+/* ============================================================
+ * 5. Components
+ * ============================================================ */
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-xs);
+}
+
+.finding-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease,
+    border-color .28s ease,
+    background .28s ease;
+}
+
+.finding-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 4px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6366f1,
+      #8b5cf6
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity .28s ease;
+}
+
+.finding-card:hover {
+
+  transform:
+    translateY(-4px);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.98),
+      rgba(248,250,252,.98)
+    );
+
+  border-color:
+    rgba(99,102,241,.22);
+
+  box-shadow:
+    0 18px 40px rgba(15,23,42,.08);
+}
+
+.finding-card:hover::before {
+
+  opacity: 1;
+}
+
+.finding-card:hover .chip {
+
+  transform:
+    translateY(-1px);
+
+  filter:
+    brightness(.98);
+}
+
+
+.card .chip {
+
+  transition:
+    transform .2s ease,
+    filter .2s ease;
+}
+
+.card--raised  { box-shadow: var(--shadow-md); }
+.card--padded  { padding: var(--space-6); }
+.card--accent{
+  position: relative;
+
+  padding: 2rem;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99,102,241,0.10),
+      rgba(59,130,246,0.06)
+    );
+
+  border: 1px solid rgba(99,102,241,0.12);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,0.06);
+}
+
+.card--accent:hover{
+  transform: translateY(-8px);
+
+  border-color: rgba(99,102,241,0.22);
+
+  box-shadow:
+    0 22px 45px rgba(15,23,42,0.12);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-block-end: var(--space-4);
+}
+.card__title {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  margin: 0;
+}
+.card__meta {
+  color: var(--text-muted);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+}
+
+/* ---------- Chip / Badge ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.125rem 0.55rem;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-caption);
+  background: var(--color-info-bg);
+  color: var(--color-info-fg);
+  border: 1px solid var(--color-info-border);
+  white-space: nowrap;
+  line-height: 1.4;
+
+
+  font-family: var(--font-mono);
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+}
+
+/* Severity */
+.chip--critical { background: var(--color-critical-bg); color: var(--color-critical-fg); border-color: var(--color-critical-border); }
+.chip--high     { background: var(--color-high-bg);     color: var(--color-high-fg);     border-color: var(--color-high-border); }
+.chip--medium   { background: var(--color-medium-bg);   color: var(--color-medium-fg);   border-color: var(--color-medium-border); }
+.chip--low      { background: var(--color-low-bg);      color: var(--color-low-fg);      border-color: var(--color-low-border); }
+.chip--info     { background: var(--color-info-bg);     color: var(--color-info-fg);     border-color: var(--color-info-border); }
+
+/* Priority (P0..P3) — color-aligned with severity */
+.chip--p0 { background: var(--color-critical-bg); color: var(--color-critical-fg); border-color: var(--color-critical-border); }
+.chip--p1 { background: var(--color-high-bg);     color: var(--color-high-fg);     border-color: var(--color-high-border); }
+.chip--p2 { background: var(--color-medium-bg);   color: var(--color-medium-fg);   border-color: var(--color-medium-border); }
+.chip--p3 { background: var(--color-low-bg);      color: var(--color-low-fg);      border-color: var(--color-low-border); }
+
+/* Dimension chip — uses accent palette so dimensions read as a different axis */
+.chip--dimension {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: transparent;
+}
+
+/* ---------- Score (circular meter) ---------- */
+.score {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 6.5rem;
+  block-size:  6.5rem;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  border: 4px solid var(--color-info-border);
+  font-size: 1.75rem;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+.score--lg {
+
+  inline-size: 5.8rem;
+  block-size: 5.8rem;
+
+  min-width: 5.8rem;
+  min-height: 5.8rem;
+
+  font-size: 1.9rem;
+
+  border-width: 4px;
+
+  flex-shrink: 0;
+}
+
+.score--xl {
+  inline-size: 14rem;
+  block-size: 14rem;
+
+  border-width: 8px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #ffffff,
+      #f8fafc
+    );
+
+  box-shadow:
+    0 12px 28px rgba(15,23,42,0.05),
+    inset 0 1px 4px rgba(255,255,255,0.8);
+
+  position: relative;
+
+  opacity: 0.96;
+}
+
+.cover__score-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  gap: 1.5rem;
+
+  margin-top: 2rem;
+}
+
+.score__inner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.score__value{
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.score__label{
+  margin-top: 0.75rem;
+
+  font-size: 0.85rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+
+  color: var(--text-muted);
+
+  font-weight: 700;
+}
+
+.cover__timestamp{
+  text-align:center;
+
+  font-size: 1rem;
+
+  color: var(--text-muted);
+
+  margin-top: 0.25rem;
+}
+
+.score--excellent  { border-color: var(--band-excellent-fg);  color: var(--band-excellent-fg); }
+.score--good       { border-color: var(--band-good-fg);       color: var(--band-good-fg); }
+.score--needs-work { border-color: var(--band-needs-work-fg); color: var(--band-needs-work-fg); }
+.score--poor       { border-color: var(--band-poor-fg);       color: var(--band-poor-fg); }
+.score--critical   { border-color: var(--band-critical-fg);   color: var(--band-critical-fg); }
+
+/* ---------- Callout ---------- */
+.callout {
+  border-inline-start: 3px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-fg);
+  padding: var(--space-4) var(--space-5);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.callout--critical { border-color: var(--color-critical-fg); background: var(--color-critical-bg); color: var(--color-critical-fg); }
+.callout--high     { border-color: var(--color-high-fg);     background: var(--color-high-bg);     color: var(--color-high-fg); }
+.callout--medium   { border-color: var(--color-medium-fg);   background: var(--color-medium-bg);   color: var(--color-medium-fg); }
+.callout--low      { border-color: var(--color-low-fg);      background: var(--color-low-bg);      color: var(--color-low-fg); }
+
+/* ---------- Table ---------- */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--fs-small);
+}
+.table th,
+.table td {
+  text-align: start;
+  padding: var(--space-3) var(--space-4);
+  border-block-end: 1px solid var(--border);
+  vertical-align: top;
+}
+.table th {
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg);
+  border-block-end: 1px solid var(--border-strong);
+  position: sticky;
+  inset-block-start: 0;
+
+  font-family: var(--font-mono);
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.18em;
+}
+.table tbody tr:hover { background: var(--accent-soft); }
+.table tbody tr:last-child td { border-block-end: 0; }
+
+/* ---------- Definition list (field/value pairs) ---------- */
+.dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
+  font-size: var(--fs-small);
+}
+.dl dt {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-caps);
+  font-weight: var(--fw-semibold);
+}
+.dl dd {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* ---------- Anchor jump-target offset ---------- */
+[id^="finding-"],
+[id^="theme-"]    { scroll-margin-block-start: var(--space-6); }
+
+
+/* ============================================================
+ * 6. Section-specific layouts
+ * ============================================================ */
+
+/* ---------- Cover ---------- */
+.cover           { text-align: center; }
+.cover__url {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: var(--fs-h4);
+  word-break: break-all;
+  margin-block-end: var(--space-5);
+
+  font-size: 1.3rem;
+
+  letter-spacing: -0.02em;
+
+  opacity: .9;
+}
+.cover__timestamp {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  font-variant-numeric: tabular-nums;
+}
+.cover__badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-7);
+}
+
+.cover__brand {
+
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 2rem;
+
+  width: fit-content;
+
+  margin: 12px auto 0;
+}
+
+.cover__brand-logo {
+
+  width: 72px;
+  height: 72px;
+
+  border-radius: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  color: #0f172a;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.96),
+      rgba(241,245,249,.95)
+    );
+
+  border:
+    1px solid rgba(226,232,240,.9);
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.08);
+
+  flex-shrink: 0;
+}
+
+/* ---------- Score dashboard tile ---------- */
+.dashboard-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+  padding: var(--space-4);
+}
+.dashboard-tile__label {
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--text-muted);
+  font-weight: var(--fw-semibold);
+}
+.dashboard-tile__headline {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  max-width: 22ch;
+  line-height: var(--lh-snug);
+}
+
+/* ---------- Roadmap bucket ---------- */
+.roadmap-bucket {
+  border-block-start: 4px solid var(--color-info-fg);
+  padding-block-start: var(--space-4);
+}
+.roadmap-bucket--now    { border-color: var(--color-critical-fg); }
+.roadmap-bucket--next   { border-color: var(--color-high-fg); }
+.roadmap-bucket--later  { border-color: var(--color-medium-fg); }
+.roadmap-bucket--watch  { border-color: var(--color-low-fg); }
+
+.roadmap-bucket__label {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-tight);
+  margin-block-end: var(--space-1);
+}
+.roadmap-bucket__count {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  margin-block-end: var(--space-4);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding-block: var(--space-7);
+  font-size: var(--fs-small);
+  font-style: italic;
+}
+
+/* ---------- Top-issue row (executive summary) ---------- */
+.top-issue {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding-block: var(--space-3);
+  border-block-end: 1px solid var(--border);
+}
+.top-issue:last-child { border-block-end: 0; }
+.top-issue__title {
+
+  font-family: var(--font-serif);
+
+  font-size: 1.5rem;
+
+  font-weight: 600;
+
+  letter-spacing: -0.03em;
+
+  color: var(--text-primary);
+}
+
+
+/* ============================================================
+ * 7. Utilities
+ * ============================================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-muted     { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+.text-center    { text-align: center; }
+.text-end       { text-align: end; }
+.tabular        { font-variant-numeric: tabular-nums; }
+.mono           { font-family: var(--font-mono); }
+.nowrap         { white-space: nowrap; }
+.truncate-1     { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.truncate-2     { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+
+/* ============================================================
+ * 8. Responsive (mobile-first overrides at breakpoints down)
+ * ============================================================ */
+
+@media (max-width: 1024px) {
+  :root { --container-pad: var(--space-4); }
+  .grid--five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --slide-pad-block:  var(--space-6);
+    --slide-pad-inline: var(--space-4);
+  }
+  .grid--two,
+  .grid--three,
+  .grid--four,
+  .grid--five { grid-template-columns: 1fr; }
+
+  .table { font-size: var(--fs-caption); }
+  .table th,
+  .table td { padding: var(--space-2) var(--space-3); }
+
+  .dl {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-1);
+  }
+  .dl dd { margin-block-end: var(--space-2); }
+
+  .score { inline-size: 5rem; block-size: 5rem; font-size: 1.5rem; border-width: 3px; }
+
+
+  .top-issue {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+  }
+  .top-issue > .chip--dimension {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 480px) {
+  :root { --fs-display: clamp(2rem, 8vw, 2.5rem); }
+}
+
+
+/* ============================================================
+ * 9. Print
+ * ============================================================ */
+
+@media print {
+  :root {
+    --bg:               #ffffff;
+    --surface:          #ffffff;
+    --accent-soft:      #f5f5f5;
+    --slide-pad-block:  var(--space-5);
+    --slide-pad-inline: 0;
+  }
+
+  @page {
+    size: letter;
+    margin: 0.75in;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  /* Every major slide starts a new page */
+  .slide {
+    page-break-before: always;
+    break-before: page;
+    padding-block: 0;
+    min-block-size: 0;
+  }
+  .slide:first-of-type,
+  .slide--hero {
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* Keep semantic units intact across pages */
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .card,
+  .callout,
+  .top-issue,
+  .roadmap-bucket,
+  .dashboard-tile,
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Strip on-screen affordances */
+  .table tbody tr:hover { background: transparent; }
+  
+  .skip-link { display: none; }
+
+  /* Expand hyperlinks (external only) so the PDF carries the URL */
+  a { color: inherit; text-decoration: none; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.875em;
+    color: #555;
+    word-break: break-all;
+  }
+  a[href^="#"]::after,
+  a[href^="mailto:"]::after { content: none; }
+
+  /* Ensure severity colour cues survive monochrome rendering */
+  .chip,
+  .score,
+  .callout,
+  .roadmap-bucket {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide opt-out elements */
+  [data-print-hidden] { display: none !important; }
+}
+
+
+/* ============================================================
+ * 10. Motion preferences
+ * ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+
+/* ============================================================
+ * 11. Polish — sidebar layout, hover micro-interactions,
+ *               refined hierarchy, scroll-reveal animations
+ *
+ *  All screen-only effects are wrapped in @media not print so the
+ *  PDF output stays clean. Hover transitions are left unwrapped —
+ *  they're inert during print.
+ * ============================================================ */
+
+/* ---------- Refined hierarchy ---------- */
+
+/* Eyebrow gets a small leading rule for executive tone */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  inline-size: 1.5rem;
+  block-size: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+
+.eyebrow--hero {
+
+  justify-content: center;
+
+  margin-bottom: 2rem;
+
+  font-size: 0.82rem;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color: rgba(71,85,105,.72);
+
+  font-weight: 600;
+
+  position: relative;
+}
+
+.eyebrow--hero::before,
+.eyebrow--hero::after {
+
+  content: "";
+
+  width: 48px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(148,163,184,.65),
+      transparent
+    );
+}
+
+.eyebrow--hero::after {
+
+  transform: rotate(180deg);
+}
+
+/* Lead paragraphs land at a deliberately lower contrast than body */
+.lead {
+
+  font-family: var(--font-serif);
+
+  font-size: clamp(1.8rem, 2vw, 2.6rem);
+
+  line-height: 1.35;
+
+  font-style: italic;
+
+  color: var(--text-secondary);
+
+  max-width: 70ch;
+
+  letter-spacing: -0.02em;
+}
+
+/* Tighten the gap between an eyebrow and the heading that follows it */
+.eyebrow + :where(h1, h2, h3, .display) {
+  margin-block-start: var(--space-2);
+}
+
+
+/* ---------- Sidebar layout (screen only) ---------- */
+
+@media not print {
+  .report-shell {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    align-items: start;
+    min-block-size: 100vh;
+  }
+
+  .report-nav {
+    position: sticky;
+    inset-block-start: 0;
+    block-size: 100vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-inline-end: 1px solid var(--border);
+    padding: var(--space-6) var(--space-4);
+    z-index: 10;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  .report-nav::-webkit-scrollbar           { inline-size: 6px; }
+  .report-nav::-webkit-scrollbar-track     { background: transparent; }
+  .report-nav::-webkit-scrollbar-thumb     {
+    background: var(--border-strong);
+    border-radius: var(--radius-full);
+  }
+
+  .report-nav__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .report-nav__brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin: 0;
+    padding-block-end: var(--space-4);
+    border-block-end: 1px solid var(--border);
+  }
+  .report-nav__hostname {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+    word-break: break-all;
+  }
+
+  .report-nav__list,
+  .report-nav__sublist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .report-nav__sublist { padding-inline-start: var(--space-3); }
+  .report-nav__list > li,
+  .report-nav__sublist > li { margin: 0; }
+
+  .report-nav__list a {
+    display: block;
+    padding: var(--space-1) var(--space-3);
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border-inline-start: 2px solid transparent;
+    transition:
+      background      var(--duration-fast) var(--ease-out),
+      color           var(--duration-fast) var(--ease-out),
+      border-color    var(--duration-fast) var(--ease-out);
+  }
+  .report-nav__list a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-inline-start-color: var(--accent);
+    text-decoration: none;
+  }
+  .report-nav__list a:focus-visible {
+    outline-offset: -2px;
+  }
+
+  .report-nav__group {
+    display: block;
+    padding: var(--space-4) var(--space-3) var(--space-1);
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-caps);
+    color: var(--text-muted);
+  }
+
+  .report-main { min-inline-size: 0; }
+
+  @media (max-width: 1024px) {
+    .report-shell        { grid-template-columns: 14rem 1fr; }
+    .report-nav          { padding: var(--space-5) var(--space-3); }
+  }
+
+  @media (max-width: 768px) {
+    .report-shell {
+      display: block;
+    }
+    .report-nav {
+      position: static;
+      block-size: auto;
+      border-inline-end: 0;
+      border-block-end: 1px solid var(--border);
+    }
+    .report-nav__sublist { padding-inline-start: var(--space-2); }
+  }
+}
+
+
+/* ---------- Card hover (clickable cards only) ---------- */
+
+.card {
+
+  position: relative;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  padding: var(--space-5);
+
+  box-shadow: var(--shadow-xs);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.32s cubic-bezier(.22,1,.36,1),
+    background 0.32s ease,
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+}
+
+a.card,
+.card[data-variant="roadmap-item"] {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.finding-card:hover,
+.card[data-variant="roadmap-item"]:hover,
+a.card:focus-visible,
+.card[data-variant="roadmap-item"]:focus-visible {
+
+  transform:
+    translateY(-2px)
+    scale(.992);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(248,250,252,.98),
+      rgba(241,245,249,.96)
+    );
+
+  border-color:
+    rgba(148,163,184,.35);
+
+  box-shadow:
+
+    0 18px 40px rgba(15,23,42,.08),
+
+    0 2px 8px rgba(15,23,42,.05);
+
+  text-decoration: none;
+}
+
+
+/* ---------- Chip polish ---------- */
+
+.chip {
+  transition: filter var(--duration-fast) var(--ease-out);
+}
+a:hover > .chip,
+a.card:hover .chip,
+.top-issue:hover .chip,
+.dashboard-tile:hover .chip {
+  filter: brightness(0.97);
+}
+
+
+/* ---------- Score depth + hover scaling ---------- */
+
+.score {
+  box-shadow:
+    inset 0 0 0 1px rgba(10, 14, 26, 0.04),
+    0 1px 2px rgba(10, 14, 26, 0.05);
+  transition:
+    transform  var(--duration-medium) var(--ease-out),
+    box-shadow var(--duration-medium) var(--ease-out);
+}
+
+.dashboard-tile:hover .score,
+a:hover > .score {
+  transform: scale(1.04);
+  box-shadow:
+    inset 0 0 0 1px rgba(10, 14, 26, 0.04),
+    0 4px 16px rgba(10, 14, 26, 0.10);
+}
+
+/* The hero score gets a subtle ambient drop */
+.slide--hero .score--xl {
+  box-shadow:
+    inset 0 0 0 1px rgba(10, 14, 26, 0.04),
+    0 16px 64px rgba(10, 14, 26, 0.08);
+}
+
+
+/* ---------- Dashboard tile as anchor ---------- */
+
+a.dashboard-tile,
+.dashboard-tile {
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background var(--duration-medium) var(--ease-out),
+    transform  var(--duration-medium) var(--ease-out);
+}
+a.dashboard-tile:hover,
+a.dashboard-tile:focus-visible {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+
+/* ---------- Top-issue row hover ---------- */
+
+.top-issue {
+  border-radius: var(--radius-md);
+  margin-inline: calc(var(--space-3) * -1);
+  padding-inline: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.top-issue:hover,
+.top-issue:focus-visible {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
+
+/* ---------- Roadmap bucket — gradient rule replaces solid border ---------- */
+
+.roadmap-bucket {
+  position: relative;
+  border-block-start: 0;
+  padding-block-start: var(--space-5);
+}
+.roadmap-bucket::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 3rem;
+  block-size: 4px;
+  background: var(--color-info-fg);
+  border-radius: var(--radius-full);
+}
+.roadmap-bucket--now::before    { background: var(--color-critical-fg); }
+.roadmap-bucket--next::before   { background: var(--color-high-fg); }
+.roadmap-bucket--later::before  { background: var(--color-medium-fg); }
+.roadmap-bucket--watch::before  { background: var(--color-low-fg); }
+
+
+
+.roadmap-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 28px;
+
+  padding: 2rem;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.18);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.roadmap-card__top {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.roadmap-card__title {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.roadmap-card__recommendation {
+  opacity: 0.85;
+  line-height: 1.7;
+}
+
+/* Lift cards inside the accent (dark) slide */
+.slide--accent .card {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.10);
+  color: var(--text-inverse);
+}
+.slide--accent .card .text-secondary,
+.slide--accent .card .text-muted,
+.slide--accent .roadmap-bucket__count {
+  color: rgba(255, 255, 255, 0.65);
+}
+.slide--accent a.card:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
+
+/* ---------- Details / summary disclosure widget ---------- */
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  user-select: none;
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before {
+  content: "";
+  display: inline-block;
+  inline-size: 0;
+  block-size: 0;
+  border-block-start: 4px solid transparent;
+  border-block-end:   4px solid transparent;
+  border-inline-start: 5px solid currentColor;
+  transition: transform var(--duration-fast) var(--ease-out);
+  opacity: 0.6;
+}
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+
+/* ---------- Section dividers between slides (subtle) ---------- */
+
+.slide + .slide:not(.slide--accent):not(.slide--hero)::before {
+  content: "";
+  display: block;
+  inline-size: min(8rem, 50%);
+  block-size: 1px;
+  background: var(--border);
+  margin-block-end: var(--slide-pad-block);
+  margin-inline: auto;
+  position: relative;
+  inset-block-start: calc(var(--slide-pad-block) * -1);
+}
+
+
+/* ---------- Scroll-reveal animations (screen only) ---------- */
+
+@media not print {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity   640ms var(--ease-out),
+      transform 640ms var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* When a slide reveals, stagger immediate children for cascading polish */
+  .reveal.is-visible > .container > * {
+    animation: report-fade-up 480ms var(--ease-out) both;
+  }
+  .reveal.is-visible > .container > *:nth-child(1) { animation-delay:   0ms; }
+  .reveal.is-visible > .container > *:nth-child(2) { animation-delay:  60ms; }
+  .reveal.is-visible > .container > *:nth-child(3) { animation-delay: 120ms; }
+  .reveal.is-visible > .container > *:nth-child(4) { animation-delay: 180ms; }
+  .reveal.is-visible > .container > *:nth-child(5) { animation-delay: 240ms; }
+  .reveal.is-visible > .container > *:nth-child(n+6) { animation-delay: 300ms; }
+}
+
+@keyframes report-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- Hero entry: a single graceful settle ---------- */
+
+@media not print {
+  .slide--hero > .container > * {
+    animation: report-fade-up 720ms var(--ease-out) both;
+  }
+  .slide--hero > .container > *:nth-child(1) { animation-delay:   0ms; }
+  .slide--hero > .container > *:nth-child(2) { animation-delay: 100ms; }
+  .slide--hero > .container > *:nth-child(3) { animation-delay: 200ms; }
+  .slide--hero > .container > *:nth-child(4) { animation-delay: 300ms; }
+  .slide--hero > .container > *:nth-child(5) { animation-delay: 400ms; }
+  .slide--hero > .container > *:nth-child(n+6) { animation-delay: 500ms; }
+}
+
+
+/* ---------- Anchor color transition ---------- */
+
+:where(a) {
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+
+/* ---------- Tabular figures everywhere relevant (executive polish) ---------- */
+
+.score,
+.cover__timestamp,
+.dashboard-tile__label,
+.roadmap-bucket__count,
+.table td:nth-child(-n+3) {
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ---------- Print overrides for polish-introduced layout ---------- */
+
+@media print {
+  /* Nav is hidden by data-print-hidden, but the grid track would still
+     reserve 16rem. Reset the shell to a single column for print. */
+  .report-shell { display: block; }
+
+  /* Inter-slide divider is too busy for paper */
+  .slide + .slide::before { display: none; }
+
+  /* Eyebrow leading rule survives but stays subtle on paper */
+  .eyebrow::before { background: #999; }
+}
+
+
+
+
+
+/* ============================================================
+ * 12. Executive Analytics UI
+ * ============================================================ */
+
+/* ---------- Metrics strip ---------- */
+
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+
+  margin-block-start: var(--space-6);
+  margin-block-end: var(--space-6);
+}
+
+.metric-card {
+  background: rgba(255,255,255,0.75);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-xl);
+
+  padding: var(--space-5);
+
+  text-align: left;
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--duration-medium) var(--ease-out),
+    box-shadow var(--duration-medium) var(--ease-out),
+    border-color var(--duration-medium) var(--ease-out);
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: var(--shadow-md);
+
+  border-color: var(--border-strong);
+}
+
+.metric-card__label {
+  display: block;
+
+  font-size: var(--fs-caption);
+
+  text-transform: uppercase;
+
+  letter-spacing: var(--tracking-caps);
+
+  color: var(--text-muted);
+
+  margin-bottom: var(--space-2);
+
+  font-weight: var(--fw-semibold);
+}
+
+.metric-card__value {
+  font-size: clamp(0.7rem, 1.7vw, 2.3rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.metric-card__value--success {
+  color: var(--band-excellent-fg);
+}
+
+/* ---------- Executive status strip ---------- */
+
+.executive-status {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: var(--space-5);
+
+  margin-block-end: var(--space-7);
+}
+
+.executive-status__item {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: var(--space-2);
+
+  color: var(--text-secondary);
+
+  font-size: var(--fs-small);
+
+  font-weight: var(--fw-medium);
+}
+
+.status-dot {
+  inline-size: 0.7rem;
+
+  block-size: 0.7rem;
+
+  border-radius: 999px;
+}
+
+.status-dot--good {
+  background: var(--band-excellent-fg);
+
+  box-shadow: 0 0 0 4px rgba(21,128,61,0.12);
+}
+
+.status-dot--warning {
+  background: var(--color-medium-fg);
+
+  box-shadow: 0 0 0 4px rgba(146,64,14,0.12);
+}
+
+.status-dot--critical {
+  background: var(--color-critical-fg);
+
+  box-shadow: 0 0 0 4px rgba(185,28,28,0.12);
+}
+
+/* ---------- Analytics bars ---------- */
+
+.analytics-bars {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-4);
+}
+
+.analytics-bar {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-2);
+}
+
+.analytics-bar__meta {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  font-size: var(--fs-small);
+
+  color: var(--text-secondary);
+
+  font-weight: var(--fw-medium);
+}
+
+.analytics-bar__track {
+  position: relative;
+
+  inline-size: 100%;
+
+  block-size: 0.75rem;
+
+  border-radius: 999px;
+
+  background: var(--accent-soft);
+
+  overflow: hidden;
+}
+
+.analytics-bar__fill {
+  position: absolute;
+
+  inset: 0 auto 0 0;
+
+  border-radius: inherit;
+
+  transition: width 800ms var(--ease-out);
+}
+
+.analytics-bar__fill--critical {
+  background: var(--color-critical-fg);
+}
+
+.analytics-bar__fill--high {
+  background: var(--color-high-fg);
+}
+
+.analytics-bar__fill--medium {
+  background: var(--color-medium-fg);
+}
+
+.analytics-bar__fill--low {
+  background: var(--color-low-fg);
+}
+
+
+.severity-bar__fill--critical {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.severity-bar__fill--high {
+  background: linear-gradient(90deg, #ea580c, #fb923c);
+}
+
+.severity-bar__fill--medium {
+  background: linear-gradient(90deg, #ca8a04, #facc15);
+}
+
+.severity-bar__fill--low {
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+.analytics-bar__fill--info {
+  background: var(--color-info-fg);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+
+  .metrics-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .metrics-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .executive-status {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   PROFESSIONAL ANALYTICS UI
+========================================================= */
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.section-heading__badge {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37,99,235,.12),
+      rgba(99,102,241,.12)
+    );
+
+  border: 1px solid rgba(99,102,241,.18);
+
+  color: #4338ca;
+
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(12px);
+}
+
+/* =========================================================
+   ANALYTICS HERO CARD
+========================================================= */
+
+.analytics-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.88),
+      rgba(248,250,252,.96)
+    );
+
+  border: 1px solid rgba(255,255,255,.7);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 40px rgba(15,23,42,.06),
+    inset 0 1px 0 rgba(255,255,255,.65);
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.analytics-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 55px rgba(15,23,42,.10),
+    inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+/* glowing top border */
+
+.analytics-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0 0 auto 0;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #4f46e5,
+      #7c3aed
+    );
+}
+
+/* =========================================================
+   INLINE STATS
+========================================================= */
+
+.analytics-inline-stats {
+  display: flex;
+  gap: 28px;
+
+  margin-top: 20px;
+  margin-bottom: 28px;
+
+  flex-wrap: wrap;
+}
+
+.analytics-inline-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.analytics-inline-stats span {
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  color: #94a3b8;
+}
+
+.analytics-inline-stats strong {
+  font-size: 1.4rem;
+  font-weight: 800;
+
+  color: #0f172a;
+}
+
+/* =========================================================
+   PROGRESS BARS
+========================================================= */
+
+.severity-bar {
+  margin-top: 20px;
+}
+
+.severity-bar__top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-size: .92rem;
+  font-weight: 600;
+
+  color: #475569;
+}
+
+.severity-bar__track {
+  position: relative;
+
+  height: 10px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e2e8f0;
+}
+
+.severity-bar__fill {
+  position: relative;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  box-shadow:
+    0 0 18px rgba(79,70,229,.35);
+}
+
+/* animated shine */
+
+.severity-bar__fill::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,.65),
+      transparent
+    );
+
+  transform: translateX(-100%);
+
+  animation: analyticsShine 2.8s infinite;
+}
+
+@keyframes analyticsShine {
+  to {
+    transform: translateX(200%);
+  }
+}
+
+.table td .chip{
+  font-size: 0.82rem;
+
+  font-weight: 500;
+
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 72px;
+}
+
+
+[data-layout="space-between"]{
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Accessibility: skip link
+       ============================================================ -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+
+  <!-- ============================================================
+       Report shell
+       Layout: sidebar nav (sticky on desktop, in-flow on mobile)
+       + main content column. The .report-shell, .report-nav, and
+       .report-main class names are layout-only and expect CSS to set
+       grid/flex behavior in a follow-up update to styles.css.
+       ============================================================ -->
+  <div class="report-shell">
+
+
+    <!-- ============================================================
+         Sidebar navigation
+         Anchors land on every major section. Hidden in print via
+         data-print-hidden (honored by the print stylesheet).
+         ============================================================ -->
+    <aside class="report-nav" aria-label="Report sections" data-print-hidden>
+      <nav class="report-nav__inner">
+        <p class="report-nav__brand">
+          <span class="eyebrow">Audit Report</span>
+          <span class="report-nav__hostname mono">{{meta.hostname}}</span>
+        </p>
+
+        <ol class="report-nav__list">
+          <li><a href="#cover">Overview</a></li>
+          <li><a href="#executive-summary">Executive Summary</a></li>
+          <li><a href="#severity-overview">Severity Overview</a></li>
+          <li><a href="#key-findings">Key Findings</a></li>
+          <li>
+            <span class="report-nav__group">Audit Categories</span>
+            <ol class="report-nav__sublist">
+              <li><a href="#dimension-performance">Performance</a></li>
+              <li><a href="#dimension-accessibility">Accessibility</a></li>
+              <li><a href="#dimension-seo">SEO</a></li>
+              <li><a href="#dimension-security">Security</a></li>
+              <li><a href="#dimension-best-practices">Best Practices</a></li>
+            </ol>
+          </li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#quick-wins">Quick Wins</a></li>
+          <li><a href="#long-term-improvements">Long-term Improvements</a></li>
+          <li><a href="#action-items">Action Items</a></li>
+          <li><a href="#appendix">Appendix</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+
+    <!-- ============================================================
+         Main report content — sections in fixed render order per
+         .claude/skills/report-builder/SKILL.md.
+         ============================================================ -->
+    <main id="main" class="report-main">
+
+
+      <!-- ====== 1. Cover ====== -->
+      <section id="cover" class="slide slide--hero" aria-labelledby="cover-title">
+        <div class="container container--narrow cover">
+          <p class="eyebrow eyebrow--hero">
+            Technical Audit · Executive Report
+          </p>
+
+            <div class="cover__brand">
+
+              <div class="cover__brand-logo">
+                {{meta.initial}}
+              </div>
+
+              <h1 id="cover-title" class="display">
+                {{meta.hostname}}
+              </h1>
+
+            </div>
+          <p class="cover__url"><a href="{{meta.url}}" rel="noopener">{{meta.url}}</a></p>
+
+          <div class="cover__score-wrap">
+
+            <div class="score score--xl score--{{executive_summary.score_band}}"
+                aria-label="Headline score: {{executive_summary.headline_score}} out of 100, band {{executive_summary.score_band}}">
+
+              <div class="score__inner">
+
+                <span class="score__value">
+                  {{executive_summary.headline_score}}
+                </span>
+
+                <span class="score__label">
+                  Overall Score
+                </span>
+
+              </div>
+
+            </div>
+
+            <p class="cover__timestamp tabular">
+              Audited {{meta.audited_at_human}}
+            </p>
+
+          </div>
+
+          <div class="metrics-strip">
+
+            <article class="metric-card">
+              <span class="metric-card__label">Total Findings</span>
+              <strong class="metric-card__value">
+                {{severity_overview.total_findings}}
+              </strong>
+            </article>
+
+            <article class="metric-card">
+              <span class="metric-card__label">Critical Issues</span>
+              <strong class="metric-card__value">
+                {{severity_overview.by_severity.critical}}
+              </strong>
+            </article>
+
+            <article class="metric-card">
+              <span class="metric-card__label">Categories</span>
+              <strong class="metric-card__value">
+                {{meta.dimensions_analyzed.length}}
+              </strong>
+            </article>
+
+            <article class="metric-card">
+              <span class="metric-card__label">Audit Status</span>
+              <strong class="metric-card__value">
+                Complete
+              </strong>
+            </article>
+
+          </div>
+
+          <div class="executive-status">
+
+            <div class="executive-status__item">
+              <span class="status-dot status-dot--good"></span>
+              Infrastructure Healthy
+            </div>
+
+            <div class="executive-status__item">
+              <span class="status-dot status-dot--warning"></span>
+              Optimization Opportunities Detected
+            </div>
+
+            <div class="executive-status__item">
+              <span class="status-dot status-dot--good"></span>
+              Security Stable
+            </div>
+
+          </div>
+
+          <!-- One chip per analyzed dimension; renderer iterates severity_overview.by_dimension -->
+          <div class="cover__badges" data-render="severity_overview.by_dimension" data-template="tmpl-cover-badge">
+            <!-- populated at render time -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====== 2. Executive summary ====== -->
+      <section id="executive-summary" class="slide slide--surface" aria-labelledby="exec-title">
+        <div class="container container--narrow stack--lg">
+          <header>
+            <p class="eyebrow">Executive Summary</p>
+            <h2 id="exec-title">{{executive_summary.headline_sentence}}</h2>
+          </header>
+
+          <p class="lead">{{executive_summary.score_paragraph}}</p>
+
+          <article class="card card--raised card--padded">
+            <header class="card__header">
+              <h3 class="card__title">Top issues</h3>
+              <p class="card__meta">{{executive_summary.top_issues.length}} items · P0 / P1 only</p>
+            </header>
+
+            <!-- 3 to 5 .top-issue rows; renderer iterates executive_summary.top_issues -->
+            <div class="stack--xs"
+                 data-render="executive_summary.top_issues"
+                 data-template="tmpl-top-issue">
+              <!-- populated at render time -->
+            </div>
+          </article>
+
+          <div class="callout callout--high">
+
+            <p class="eyebrow">Next step</p>
+
+            <h3>
+              {{executive_summary.next_step.title}}
+            </h3>
+
+            <p>
+              {{executive_summary.next_step.description}}
+            </p>
+
+            <div class="cluster cluster--tight">
+
+              <span class="chip chip--{{executive_summary.next_step.severity}}">
+                {{executive_summary.next_step.severity}}
+              </span>
+
+              <span class="chip chip--dimension">
+                {{executive_summary.next_step.dimension}}
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ====== 3. Severity overview ====== -->
+      <section id="severity-overview" class="slide" aria-labelledby="severity-title">
+        <div class="container stack--lg">
+          <header class="section-heading">
+
+            <div>
+              <p class="eyebrow">Severity Overview</p>
+
+              <h2 id="severity-title" class="severity-overview__title">
+
+                <span class="severity-number">
+                  {{severity_overview.total_findings}}
+                </span>
+
+                findings across
+
+                <span class="severity-number severity-number--small">
+                  {{meta.dimensions_analyzed.length}}
+                </span>
+
+                dimensions
+
+              </h2>
+            </div>
+
+            <div class="section-heading__badge">
+              Live Audit Analytics
+            </div>
+
+          </header>
+
+          <!-- One .dashboard-tile per analyzed dimension; renderer iterates severity_overview.by_dimension -->
+          <div class="grid grid--five"
+               data-render="severity_overview.by_dimension"
+               data-template="tmpl-dashboard-tile">
+            <!-- populated at render time -->
+          </div>
+
+          <div class="grid grid--two">
+            <article class="card analytics-card analytics-card--hero">
+              <header class="card__header">
+                <h3 class="card__title">By severity</h3>
+              </header>
+
+
+              <div class="analytics-inline-stats">
+
+                <div>
+                  <span>Total</span>
+                  <strong>{{severity_overview.total_findings}}</strong>
+                </div>
+
+                <div>
+                  <span>Critical</span>
+                  <strong>{{severity_overview.by_severity.critical}}</strong>
+                </div>
+
+                <div>
+                  <span>Resolved Risk</span>
+                  <strong>82%</strong>
+                </div>
+
+              </div>
+              
+              
+
+
+              <div class="analytics-bars">
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>Critical</span>
+                    <strong>{{severity_overview.by_severity.critical}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--critical"
+                        style="width: {{severity_overview.by_severity_percent.critical}}%">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>High</span>
+                    <strong>{{severity_overview.by_severity.high}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--high"
+                        style="width: {{severity_overview.by_severity_percent.high}}%">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>Medium</span>
+                    <strong>{{severity_overview.by_severity.medium}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--medium"
+                        style="width: {{severity_overview.by_severity_percent.medium}}%">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>Low</span>
+                    <strong>{{severity_overview.by_severity.low}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--low"
+                        style="width: {{severity_overview.by_severity_percent.low}}%">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </article>
+
+            <article class="card analytics-card analytics-card--hero">
+
+              <header class="card__header">
+                <h3 class="card__title">By priority</h3>
+              </header>
+
+              <div class="analytics-inline-stats">
+
+                <div>
+                  <span>Total</span>
+                  <strong>{{action_items.total}}</strong>
+                </div>
+
+                <div>
+                  <span>P0</span>
+                  <strong>{{severity_overview.by_priority.P0}}</strong>
+                </div>
+
+                <div>
+                  <span>Active</span>
+                  <strong>{{severity_overview.by_priority.P1}}</strong>
+                </div>
+
+              </div>
+
+              <div class="analytics-bars">
+
+                <!-- P0 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P0</span>
+                    <strong>{{severity_overview.by_priority.P0}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--critical"
+                        style="width: {{severity_overview.by_priority.P0}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- P1 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P1</span>
+                    <strong>{{severity_overview.by_priority.P1}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--high"
+                        style="width: {{severity_overview.by_priority.P1}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- P2 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P2</span>
+                    <strong>{{severity_overview.by_priority.P2}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--medium"
+                        style="width: {{severity_overview.by_priority.P2}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- P3 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P3</span>
+                    <strong>{{severity_overview.by_priority.P3}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--low"
+                        style="width: {{severity_overview.by_priority.P3}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====== 4. Key findings ====== -->
+      <section id="key-findings" class="slide slide--surface" aria-labelledby="key-findings-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Key Findings</p>
+            <h2 id="key-findings-title">The {{key_findings.count}} most important findings</h2>
+            <p class="text-muted">{{key_findings.criteria}}</p>
+          </header>
+
+          <!-- One .card per finding; renderer iterates key_findings.findings using tmpl-finding -->
+          <div class="stack--md"
+               data-render="key_findings"
+               data-template="tmpl-finding">
+            <!-- populated at render time -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           5. Per-dimension sections
+           Render order is fixed: Performance, Accessibility, SEO,
+           Security, Best practices. Each <section> is a "slot" the
+           renderer fills using tmpl-dimension-section, or replaces with
+           tmpl-dimension-missing if the dimension was not analyzed.
+           ============================================================ -->
+
+      <section id="dimension-performance"     class="slide"             aria-labelledby="dim-performance-title"     data-dimension="performance"     data-template="tmpl-dimension-section">
+        <!-- populated at render time; aria-labelledby anchor satisfied by injected <h2> with id dim-performance-title -->
+      </section>
+
+      <section id="dimension-accessibility"   class="slide slide--surface" aria-labelledby="dim-accessibility-title" data-dimension="accessibility"   data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+      <section id="dimension-seo"             class="slide"             aria-labelledby="dim-seo-title"             data-dimension="seo"             data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+      <section id="dimension-security"        class="slide slide--surface" aria-labelledby="dim-security-title"     data-dimension="security"        data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+      <section id="dimension-best-practices"  class="slide"             aria-labelledby="dim-best-practices-title"  data-dimension="best-practices"  data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+
+      <!-- ====== 6. Prioritized roadmap ====== -->
+      <section id="roadmap" class="slide slide--accent" aria-labelledby="roadmap-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Roadmap</p>
+            <h2 id="roadmap-title">Prioritized fix sequence</h2>
+          </header>
+
+          <!-- Always four buckets in order Now/Next/Later/Watch; renderer uses tmpl-roadmap-bucket -->
+          <div class="grid grid--two"
+              data-render="prioritized_roadmap.items"
+              data-template="tmpl-roadmap-card">
+            <!-- populated at render time -->
+          </div>
+      </section>
+
+
+      <!-- ====== 7. Quick wins ====== -->
+      <section id="quick-wins" class="slide" aria-labelledby="quick-wins-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Quick Wins</p>
+            <h2 id="quick-wins-title">High-impact, low-effort items ({{quick_wins.count}})</h2>
+            <p class="text-muted">{{quick_wins.criteria}}</p>
+          </header>
+
+          <!-- One .card per item, capped at 8; renderer iterates quick_wins.items using tmpl-quick-win -->
+          <div class="grid grid--two"
+               data-render="quick_wins.items"
+               data-template="tmpl-quick-win">
+            <!-- populated at render time -->
+          </div>
+
+          <p class="empty-state" data-render-if-empty="quick_wins.items">
+            No quick wins identified in this audit.
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ====== 8. Long-term improvements ====== -->
+      <section id="long-term-improvements" class="slide slide--surface" aria-labelledby="lt-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Long-term Improvements</p>
+            <h2 id="lt-title">Strategic work</h2>
+          </header>
+
+          <!-- Themes -->
+          <div data-section="themes" class="stack--md">
+            <h3>Cross-cutting themes</h3>
+            <div class="stack--md"
+                 data-render="long_term_improvements.themes"
+                 data-template="tmpl-theme">
+              <!-- populated at render time -->
+            </div>
+            <p class="empty-state" data-render-if-empty="long_term_improvements.themes">
+              No cross-cutting themes detected (themes require at least two supporting findings across two or more dimensions).
+            </p>
+          </div>
+
+          <!-- Multi-day / multi-week items -->
+          <div data-section="items" class="stack--md">
+            <h3>Multi-day items</h3>
+            <div class="stack--md"
+                 data-render="long_term_improvements.multi_day_items"
+                 data-template="tmpl-longterm-item">
+              <!-- populated at render time -->
+            </div>
+            <p class="empty-state" data-render-if-empty="long_term_improvements.multi_day_items">
+              No long-term items in this audit.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====== 9. Action items ====== -->
+      <section id="action-items" class="slide" aria-labelledby="action-items-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Action Items</p>
+            <h2>
+              <span class="severity-number">
+                {{action_items.total}}
+              </span>
+              findings · the complete list
+            </h2>
+            <p class="text-muted">Sorted by {{action_items.sort}}. This table is the single source of truth — every issue in the report appears here.</p>
+          </header>
+
+          <!-- Optional sort/filter controls; rendered or omitted by the renderer. Hidden in print. -->
+          <div class="cluster" data-section="filters" data-print-hidden>
+            <!-- e.g. <select data-filter="priority"> ... </select> -->
+          </div>
+
+          <article class="card" data-section="action-items-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Severity</th>
+                  <th scope="col">Dimension</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Issue</th>
+                  <th scope="col">Recommendation</th>
+                </tr>
+              </thead>
+              <!-- One <tr> per item; renderer iterates action_items.items using tmpl-action-item -->
+              <tbody data-render="action_items.items"
+                     data-template="tmpl-action-item">
+                <!-- populated at render time -->
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- ====== 10. Appendix ====== -->
+      <section id="appendix" class="slide slide--surface" aria-labelledby="appendix-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Appendix</p>
+            <h2 id="appendix-title">Methodology and references</h2>
+          </header>
+
+          <article>
+            <h3>Methodology</h3>
+            <p>{{appendix.methodology}}</p>
+          </article>
+
+          <article>
+            <h3>Build warnings</h3>
+            <ul data-render="meta.build_warnings" data-template="tmpl-build-warning">
+              <!-- one <li> per warning; populated at render time -->
+            </ul>
+            <p class="empty-state" data-render-if-empty="meta.build_warnings">
+              No warnings raised during this build.
+            </p>
+          </article>
+
+          <article>
+            <h3>Consumed artifacts</h3>
+            <ul class="mono" data-render="appendix.artifacts_consumed" data-template="tmpl-artifact-ref">
+              <!-- one <li> per artifact path; populated at render time -->
+            </ul>
+          </article>
+
+          <article>
+            <h3>Glossary</h3>
+
+            <h4>Severity</h4>
+            <dl class="dl">
+              <dt><span class="chip chip--critical">critical</span></dt><dd>Active failure or security exposure. Total breakage for at least one user population.</dd>
+              <dt><span class="chip chip--high">high</span></dt>        <dd>Major degradation or compliance failure with measurable harm.</dd>
+              <dt><span class="chip chip--medium">medium</span></dt>    <dd>Noticeable degradation; partial compliance.</dd>
+              <dt><span class="chip chip--low">low</span></dt>           <dd>Minor nit; correctness or hygiene issue with little user impact.</dd>
+              <dt><span class="chip chip--info">info</span></dt>         <dd>Observation only. Not a defect.</dd>
+            </dl>
+
+            <h4>Priority</h4>
+            <dl class="dl">
+              <dt><span class="chip chip--p0">P0</span></dt><dd>Address immediately. Security incidents, production-blocking defects, compliance exposure.</dd>
+              <dt><span class="chip chip--p1">P1</span></dt><dd>Address in the next release or sprint.</dd>
+              <dt><span class="chip chip--p2">P2</span></dt><dd>Plan for the current quarter.</dd>
+              <dt><span class="chip chip--p3">P3</span></dt><dd>Backlog.</dd>
+            </dl>
+
+            <h4>Effort</h4>
+
+            <dl class="dl">
+
+              <dt>
+                <span class="chip chip--info">&lt; 1 hour</span>
+              </dt>
+              <dd>
+                Quick Fix — Small config or isolated change.
+              </dd>
+
+              <dt>
+                <span class="chip chip--info">1 day</span>
+              </dt>
+              <dd>
+                Short Fix — Minor implementation or focused update.
+              </dd>
+
+              <dt>
+                <span class="chip chip--info">2–5 days</span>
+              </dt>
+              <dd>
+                Medium Fix — Refactor or coordinated improvements.
+              </dd>
+
+              <dt>
+                <span class="chip chip--info">1–2 weeks</span>
+              </dt>
+              <dd>
+                Major Fix — Architectural or large-scale implementation.
+              </dd>
+
+            </dl>
+
+            <h4>Score bands</h4>
+            <dl class="dl">
+              <dt><span class="score score--excellent" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">90</span></dt><dd>Excellent (90+).</dd>
+              <dt><span class="score score--good" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">80</span></dt><dd>Good (75-89).</dd>
+              <dt><span class="score score--needs-work" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">60</span></dt><dd>Needs work (50-74).</dd>
+              <dt><span class="score score--poor" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">35</span></dt><dd>Poor (25-49).</dd>
+              <dt><span class="score score--critical" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">15</span></dt><dd>Critical (under 25).</dd>
+            </dl>
+          </article>
+
+          <article class="text-muted" style="font-size: var(--fs-small);">
+            <p>Report generated {{meta.generated_at_human}} by audit_agent report-builder. Run identifier: {{meta.run_id}}. Source artifacts under <code>reports/analysis/{{meta.hostname}}/</code>.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- ============================================================
+       Reusable component templates
+       The renderer clones each <template>'s contents into the matching
+       data-render container above (paired via data-template="tmpl-..").
+       These are the canonical, single-source structures for every
+       repeated element in the report.
+       ============================================================ -->
+
+  <!-- Cover-page severity badge per dimension -->
+  <template id="tmpl-cover-badge">
+    <a href="#dimension-{{dimension}}" class="chip chip--dimension">
+      {{dimension_title}}: {{score}}
+    </a>
+  </template>
+
+
+  <!-- Top-issue row in the executive summary -->
+  <template id="tmpl-top-issue">
+    <a class="top-issue" href="#finding-{{dimension}}-{{id}}">
+      <span class="chip chip--{{priority_class}}">{{priority}}</span>
+      <span class="top-issue__title">{{issue}}</span>
+      <span class="chip chip--dimension">{{dimension_title}}</span>
+    </a>
+  </template>
+
+
+  <!-- Dashboard tile in the severity overview grid -->
+  <template id="tmpl-dashboard-tile">
+    <a href="#dimension-{{dimension}}" class="dashboard-tile">
+      <div class="score score--{{score_band}}" aria-hidden="true">{{score}}</div>
+      <p class="dashboard-tile__label">{{dimension_title}}</p>
+      <p class="dashboard-tile__headline">{{headline}}</p>
+    </a>
+  </template>
+
+
+  <!-- Per-dimension section body (one of these is injected into each
+       <section data-dimension="..."> slot in the main flow). -->
+  <template id="tmpl-dimension-section">
+    <div class="container stack--lg">
+      <header class="cluster" data-layout="space-between">
+        <div>
+          <p class="eyebrow">Audit Category</p>
+          <h2 id="dim-{{dimension}}-title">{{dimension_title}}</h2>
+        </div>
+        <div class="score score--lg score--{{score_band}}"
+             aria-label="{{dimension_title}} score: {{score}} out of 100">
+          {{score}}
+        </div>
+      </header>
+
+      <p class="lead">{{summary}}</p>
+
+      <!-- Optional extensions (e.g. manual_review_required for accessibility) -->
+      <div data-section="extensions"
+           data-render="extensions"
+           data-template="tmpl-dimension-extension">
+        <!-- populated when present -->
+      </div>
+
+      <details open>
+        <summary>
+          <strong>{{finding_count}} findings</strong>
+          <span class="text-muted">— grouped by category</span>
+        </summary>
+        <div class="stack--md"
+             data-render="findings"
+             data-template="tmpl-finding">
+          <!-- one .card per finding -->
+        </div>
+      </details>
+
+      <details>
+        <summary>Consumed artifacts</summary>
+        <ul class="mono"
+            data-render="artifacts_consumed"
+            data-template="tmpl-artifact-ref">
+          <!-- artifact paths -->
+        </ul>
+      </details>
+    </div>
+  </template>
+
+
+  <!-- Placeholder for a dimension that was not analyzed (missing input) -->
+  <template id="tmpl-dimension-missing">
+    <div class="container">
+      <header class="cluster" data-layout="space-between">
+        <div>
+          <p class="eyebrow">Audit Category</p>
+          <h2 id="dim-{{dimension}}-title">{{dimension_title}}</h2>
+        </div>
+        <span class="chip chip--info">Not analyzed</span>
+      </header>
+      <div class="callout callout--medium">
+        <p class="eyebrow">Gap</p>
+        <p>No analyzer output found for <code>{{dimension}}</code>. {{reason}}</p>
+      </div>
+    </div>
+  </template>
+
+
+  <!-- Dimension extension item (skill-specific metadata, e.g. manual_review_required) -->
+  <template id="tmpl-dimension-extension">
+    <div class="callout">
+      <p class="eyebrow">{{key}}</p>
+      <ul data-render="value" data-template="tmpl-string-list-item"></ul>
+    </div>
+  </template>
+
+
+  <!-- template - roadmap -->
+<template id="tmpl-roadmap-card">
+
+  <article class="roadmap-card">
+
+    <div class="roadmap-card__top">
+
+      <span class="badge badge--priority">
+        {{priority}}
+      </span>
+
+      <span class="badge">
+        {{phase}}
+      </span>
+
+    </div>
+
+    <h3 class="roadmap-card__title">
+      {{title}}
+    </h3>
+
+    <p class="roadmap-card__recommendation">
+      {{recommendation}}
+    </p>
+
+  </article>
+
+</template>
+
+  <!-- Full finding card (used by key_findings + per-dimension findings list) -->
+  <template id="tmpl-finding">
+    <article class="card finding-card" id="finding-{{dimension}}-{{id}}">
+      <header class="card__header">
+        <h3 class="card__title">{{issue}}</h3>
+        <div class="cluster cluster--tight">
+          <span class="chip chip--{{priority_class}}">{{priority}}</span>
+          <span class="chip chip--{{severity}}">{{severity}}</span>
+          <span class="chip chip--dimension">{{dimension_title}}</span>
+        </div>
+      </header>
+
+      <dl class="dl">
+        <dt>Category</dt>      <dd>{{category}}</dd>
+        <dt>Evidence</dt>      <dd>{{evidence}}</dd>
+        <dt>Impact</dt>        <dd>{{impact}}</dd>
+        <dt>Recommendation</dt><dd><strong>{{recommendation}}</strong></dd>
+      </dl>
+
+      <!-- Optional per-finding extensions block (wcag, savings_ms, cve, etc.) -->
+      <details data-section="extensions" data-render-if-present="extensions">
+        <summary>Additional context</summary>
+        <dl class="dl" data-render="extensions" data-template="tmpl-extension-pair">
+          <!-- dt/dd pairs -->
+        </dl>
+      </details>
+
+      <!-- References -->
+      <p class="text-muted" data-section="references" data-render-if-present="references">
+        References:
+        <span data-render="references" data-template="tmpl-reference-link"></span>
+      </p>
+    </article>
+  </template>
+
+
+  <!-- Per-finding extensions key/value (e.g. wcag: ["1.4.3"]) -->
+  <template id="tmpl-extension-pair">
+    <dt>{{key}}</dt><dd>{{value}}</dd>
+  </template>
+
+
+  <!-- Reference link (in finding.references) -->
+  <template id="tmpl-reference-link">
+    <a href="{{href}}" rel="noopener">{{label}}</a>
+  </template>
+
+
+  <!-- Roadmap bucket — Now / Next / Later / Watch -->
+  <template id="tmpl-roadmap-bucket">
+    <div class="roadmap-bucket roadmap-bucket--{{label_class}}">
+      <p class="roadmap-bucket__label">{{label}}</p>
+      <p class="roadmap-bucket__count tabular">{{count}} item(s) · {{priority}}</p>
+
+      <!-- Populated for Now/Next; empty for Later/Watch (those use the summary slot below) -->
+      <div class="stack--sm"
+           data-render="items"
+           data-template="tmpl-roadmap-item">
+        <!-- one compact card per item -->
+      </div>
+
+      <!-- Used for Later/Watch when items[] is empty by design -->
+      <div data-section="summary" data-render-if-present="summary">
+        <p class="text-muted">
+          {{summary.total}} total
+          <span data-render-if-present="summary.top_categories"> · top: <span data-render="summary.top_categories" data-template="tmpl-string-comma"></span></span>
+        </p>
+      </div>
+
+      <p class="empty-state" data-render-if-present="empty_state">{{empty_state}}</p>
+    </div>
+  </template>
+
+
+  <!-- Roadmap item — compact card -->
+  <template id="tmpl-roadmap-item">
+    <a href="#finding-{{dimension}}-{{id}}" class="card" data-variant="roadmap-item">
+      <div class="cluster cluster--tight">
+        <span class="chip chip--{{severity}}">{{severity}}</span>
+        <span class="chip chip--dimension">{{dimension_title}}</span>
+      </div>
+      <p class="top-issue__title">{{issue}}</p>
+      <p class="text-secondary truncate-2">{{recommendation_short}}</p>
+    </a>
+  </template>
+
+
+  <!-- Quick-win card -->
+  <template id="tmpl-quick-win">
+    <article class="card">
+      <header class="cluster cluster--tight">
+        <span class="chip chip--{{severity}}">{{severity}}</span>
+        <span class="chip chip--dimension">{{dimension_title}}</span>
+        <span class="chip chip--info">{{estimated_effort}}</span>
+      </header>
+      <h3 class="card__title">
+        <a href="#finding-{{dimension}}-{{id}}">{{issue}}</a>
+      </h3>
+      <p>{{recommendation}}</p>
+      <p class="text-muted"><strong>Impact:</strong> {{impact_summary}}</p>
+    </article>
+  </template>
+
+
+  <!-- Theme card (long-term improvements) -->
+  <template id="tmpl-theme">
+    <article class="card card--accent" id="{{theme_id}}">
+      <header class="card__header">
+        <h3 class="card__title">{{title}}</h3>
+        <span class="chip chip--info">{{estimated_effort}}</span>
+      </header>
+
+      <p>{{description}}</p>
+
+      <p class="text-muted">
+        Spans
+        <span class="cluster cluster--tight"
+              data-render="spans_dimensions"
+              data-template="tmpl-dimension-chip">
+          <!-- dimension chips -->
+        </span>
+      </p>
+
+      <details>
+        <summary>{{supporting_finding_refs.length}} supporting findings</summary>
+        <ul data-render="supporting_finding_refs" data-template="tmpl-finding-ref-link">
+          <!-- one <li> per ref -->
+        </ul>
+      </details>
+    </article>
+  </template>
+
+
+  <!-- Long-term L/XL item (non-theme) -->
+  <template id="tmpl-longterm-item">
+    <article class="card">
+
+      <header class="cluster cluster--tight">
+
+        <span class="chip chip--{{priority_class}}">
+          {{priority}}
+        </span>
+
+        <span class="chip chip--{{severity}}">
+          {{severity}}
+        </span>
+
+        <span class="chip chip--dimension">
+          {{dimension_title}}
+        </span>
+
+        <span class="chip chip--info">
+          {{estimated_effort}}
+        </span>
+
+      </header>
+
+      <h3 class="card__title">
+        <a href="#finding-{{dimension}}-{{id}}">{{issue}}</a>
+      </h3>
+      <p class="text-muted"><em>{{scope_note}}</em></p>
+    </article>
+  </template>
+
+
+  <!-- Action items table row -->
+  <template id="tmpl-action-item">
+    <tr data-priority="{{priority}}" data-severity="{{severity}}" data-dimension="{{dimension}}">
+
+      <!-- Priority -->
+      <td>
+        <span class="chip chip--{{priority_class}}">
+          {{priority}}
+        </span>
+      </td>
+
+      <!-- Severity -->
+      <td>
+        <span class="chip chip--{{severity}}">
+          {{severity}}
+        </span>
+      </td>
+
+      <!-- Dimension -->
+      <td>
+        <span class="chip chip--dimension">
+          {{dimension_title}}
+        </span>
+      </td>
+
+      <!-- Category -->
+      <td class="text-muted">
+        {{category}}
+      </td>
+
+      <!-- Issue -->
+      <td>
+        <a href="#finding-{{dimension}}-{{id}}">
+          {{issue}}
+        </a>
+      </td>
+
+      <!-- Recommendation -->
+      <td>
+        {{recommendation}}
+      </td>
+
+    </tr>
+  </template>
+
+
+  <!-- Build warning list item -->
+  <template id="tmpl-build-warning">
+    <li>{{message}}</li>
+  </template>
+
+
+  <!-- Artifact reference list item -->
+  <template id="tmpl-artifact-ref">
+    <li><code>{{path}}</code></li>
+  </template>
+
+
+  <!-- Finding cross-reference link (used inside themes) -->
+  <template id="tmpl-finding-ref-link">
+    <li>
+      <a href="{{anchor}}">
+        <span class="chip chip--dimension">{{dimension_title}}</span>
+        {{issue}}
+      </a>
+    </li>
+  </template>
+
+
+  <!-- Dimension chip (used for theme spans) -->
+  <template id="tmpl-dimension-chip">
+    <span class="chip chip--dimension">{{dimension_title}}</span>
+  </template>
+
+
+  <!-- Generic string-comma helper (renders "a, b, c") -->
+  <template id="tmpl-string-comma">{{value}}{{separator}}</template>
+
+
+  <!-- Generic <li> for a plain string list -->
+  <template id="tmpl-string-list-item">
+    <li>{{.}}</li>
+  </template>
+
+
+  <!-- ============================================================
+       Embedded Report data.
+
+       The HTML rendering layer (or a build step) replaces the contents
+       of this <script> tag with the Report JSON read from
+       reports/final/<hostname>/report-run<N>.json. The renderer
+       immediately below parses this on DOMContentLoaded and populates
+       the template.
+
+       When unrendered (the default placeholder is present), the inline
+       renderer displays a friendly notice rather than the raw template.
+       ============================================================ -->
+  <script type="application/json" id="report-data">
+{
+  "executive_summary": {
+    "summary": "The website https://delaine.tech/ has significant performance issues, with a score of 44, and security issues, including missing security headers. Accessibility and SEO scores are 91 and 87, respectively.",
+    "top_issues": [
+      {
+        "title": "Optimize images",
+        "description": "Optimize images to reduce page load times.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use an image optimization tool to reduce image file size.",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Optimize images to reduce page load times.",
+        "impact": "Optimize images to reduce page load times."
+      },
+      {
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Use a security headers library or framework to implement the missing security headers.",
+        "category": "Implement missing security headers",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Implement the missing security headers to protect against potential attacks.",
+        "impact": "Implement the missing security headers to protect against potential attacks."
+      },
+      {
+        "title": "Create a sitemap.xml file",
+        "description": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "priority": "P1",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Use a sitemap generator tool to create a sitemap.xml file.",
+        "category": "Create a sitemap.xml file",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "impact": "Create and publish a sitemap.xml file to help search engines discover all pages on the site."
+      }
+    ],
+    "next_step": {
+      "title": "Optimize images",
+      "description": "Optimize images to reduce page load times.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use an image optimization tool to reduce image file size.",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Optimize images to reduce page load times.",
+      "impact": "Optimize images to reduce page load times."
+    },
+    "headline_score": 69
+  },
+  "severity_overview": {
+    "total_findings": 3,
+    "by_severity": {
+      "critical": 0,
+      "high": 3,
+      "medium": 7,
+      "low": 2,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 3,
+      "P2": 0,
+      "P3": 0
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "title": "Optimize images",
+      "description": "Optimize images to reduce page load times.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use an image optimization tool to reduce image file size.",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Optimize images to reduce page load times.",
+      "impact": "Optimize images to reduce page load times."
+    },
+    {
+      "title": "Implement missing security headers",
+      "description": "Implement the missing security headers to protect against potential attacks.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "security",
+      "recommendation": "Use a security headers library or framework to implement the missing security headers.",
+      "category": "Implement missing security headers",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Implement the missing security headers to protect against potential attacks.",
+      "impact": "Implement the missing security headers to protect against potential attacks."
+    },
+    {
+      "title": "Create a sitemap.xml file",
+      "description": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+      "priority": "P1",
+      "severity": "medium",
+      "dimension": "seo",
+      "recommendation": "Use a sitemap generator tool to create a sitemap.xml file.",
+      "category": "Create a sitemap.xml file",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+      "impact": "Create and publish a sitemap.xml file to help search engines discover all pages on the site."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Optimize images",
+        "description": "Optimize images to reduce page load times.",
+        "recommendation": "Use an image optimization tool to reduce image file size.",
+        "priority": "P1",
+        "dimension": "performance"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks.",
+        "recommendation": "Use a security headers library or framework to implement the missing security headers.",
+        "priority": "P1",
+        "dimension": "security"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Create a sitemap.xml file",
+        "description": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "recommendation": "Use a sitemap generator tool to create a sitemap.xml file.",
+        "priority": "P1",
+        "dimension": "seo"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Optimize images",
+        "description": "Optimize images to reduce page load times.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use an image optimization tool to reduce image file size.",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Optimize images to reduce page load times.",
+        "impact": "Optimize images to reduce page load times."
+      },
+      {
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Use a security headers library or framework to implement the missing security headers.",
+        "category": "Implement missing security headers",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Implement the missing security headers to protect against potential attacks.",
+        "impact": "Implement the missing security headers to protect against potential attacks."
+      },
+      {
+        "title": "Create a sitemap.xml file",
+        "description": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "priority": "P1",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Use a sitemap generator tool to create a sitemap.xml file.",
+        "category": "Create a sitemap.xml file",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "impact": "Create and publish a sitemap.xml file to help search engines discover all pages on the site."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Monitoring improvements",
+        "description": "Implement monitoring tools to track performance and security issues."
+      },
+      {
+        "title": "Scalability improvements",
+        "description": "Implement scalability improvements to handle increased traffic."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Implement a caching strategy",
+        "description": "Implement a caching strategy to reduce the number of network requests and improve page load times.",
+        "recommendation": "Use a caching library or framework to implement caching."
+      }
+    ]
+  },
+  "action_items": {
+    "total": 3,
+    "items": [
+      {
+        "title": "Optimize images",
+        "description": "Optimize images to reduce page load times.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use an image optimization tool to reduce image file size.",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Optimize images to reduce page load times.",
+        "impact": "Optimize images to reduce page load times."
+      },
+      {
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Use a security headers library or framework to implement the missing security headers.",
+        "category": "Implement missing security headers",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Implement the missing security headers to protect against potential attacks.",
+        "impact": "Implement the missing security headers to protect against potential attacks."
+      },
+      {
+        "title": "Create a sitemap.xml file",
+        "description": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "priority": "P1",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Use a sitemap generator tool to create a sitemap.xml file.",
+        "category": "Create a sitemap.xml file",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Create and publish a sitemap.xml file to help search engines discover all pages on the site.",
+        "impact": "Create and publish a sitemap.xml file to help search engines discover all pages on the site."
+      }
+    ]
+  },
+  "meta": {
+    "url": "https://delaine.tech/",
+    "hostname": "delaine.tech",
+    "dimensions_analyzed": [
+      "accessibility",
+      "performance",
+      "security",
+      "seo"
+    ],
+    "dimensions_missing": [
+      "best-practices"
+    ],
+    "audited_at": "2026-05-16T05:32:49.747Z",
+    "generated_at": "2026-05-16T07:40:14Z",
+    "audited_at_human": "Sat, 16 May 2026 05:32:49 UTC",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=10",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ],
+    "initial": "D"
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 44,
+      "summary": "The page has significant performance issues, with a score of 44. The Largest Contentful Paint (LCP) is 8.8s on mobile and 4.9s on desktop, exceeding the recommended threshold of 2.5s. The Cumulative Layout Shift (CLS) is 0.027 on mobile and 0.005 on desktop, which is acceptable. The Total Blocking Time (TBT) is 603ms on mobile and 100ms on desktop, indicating some blocking issues.",
+      "findings": [
+        {
+          "category": "core-web-vitals",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "LCP: 8.8s mobile / 4.9s desktop; budget 2.5s",
+          "impact": "Slow page load times can lead to a poor user experience and increased bounce rates.",
+          "recommendation": "Optimize images, reduce render-blocking resources, and leverage browser caching to improve LCP."
+        },
+        {
+          "category": "render-blocking",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "Total Blocking Time: 603ms mobile / 100ms desktop",
+          "impact": "Blocking issues can delay page load times and affect user interaction.",
+          "recommendation": "Minify and compress CSS and JavaScript files, and consider using a CDN to reduce latency."
+        },
+        {
+          "category": "caching",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "Estimated cache savings: 2,342 KiB mobile / 2,502 KiB desktop",
+          "impact": "Inefficient caching can lead to unnecessary network requests and slower page loads.",
+          "recommendation": "Implement a caching strategy to reduce the number of network requests and improve page load times."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    },
+    "accessibility": {
+      "dimension": "accessibility",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 91,
+      "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The site scored 91 on desktop and 92 on mobile.",
+      "findings": [
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "aria-allowed-attr audit passed with no issues found.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior if ARIA attributes are not matched to their roles.",
+          "recommendation": "Ensure ARIA attributes are used as specified for the element's role."
+        },
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "aria-conditional-attr audit passed with no issues found.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior if ARIA attributes are not used as specified for the element's role.",
+          "recommendation": "Ensure ARIA attributes are used as specified for the element's role."
+        },
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "aria-deprecated-role audit passed with no issues found.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior if deprecated ARIA roles are used.",
+          "recommendation": "Ensure deprecated ARIA roles are not used."
+        },
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "aria-hidden-body audit passed with no issues found.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior if `[aria-hidden=\"true\"]` is set on the document `<body>`. ",
+          "recommendation": "Ensure `[aria-hidden=\"true\"]` is not set on the document `<body>`. "
+        },
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "aria-hidden-focus audit passed with no issues found.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior if focusable descendents are within an `[aria-hidden=\"true\"]` element.",
+          "recommendation": "Ensure focusable descendents are not within an `[aria-hidden=\"true\"]` element."
+        }
+      ],
+      "metadata": {
+        "gaps": [],
+        "manual_review_required": [
+          "Screen-reader announcement quality",
+          "Focus order beyond DOM order",
+          "Video and audio captions",
+          "Error-message clarity",
+          "Motion and animation sensitivity",
+          "Cognitive load and reading level"
+        ]
+      }
+    },
+    "seo": {
+      "dimension": "seo",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 87,
+      "summary": "Score adjusted from 92 to 87 to reflect a missing sitemap and a link without descriptive text, which Lighthouse does not weight.",
+      "findings": [
+        {
+          "category": "crawlability",
+          "severity": "medium",
+          "priority": "high",
+          "evidence": "The sitemap.xml file was not found (404 status code).",
+          "impact": "Search engines may have difficulty discovering all pages on the site.",
+          "recommendation": "Create and publish a sitemap.xml file to help search engines discover all pages on the site."
+        },
+        {
+          "category": "content",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "1 link was found without descriptive text.",
+          "impact": "Search engines may have difficulty understanding the content of the link.",
+          "recommendation": "Add descriptive text to the link to help search engines understand its content."
+        }
+      ],
+      "metadata": {
+        "gaps": [
+          "canonical link"
+        ]
+      }
+    },
+    "security": {
+      "dimension": "security",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 55,
+      "summary": "Multiple security issues found, including missing security headers and potential information disclosure via robots.txt",
+      "findings": [
+        {
+          "category": "transport",
+          "severity": "low",
+          "priority": 3,
+          "evidence": "TLS protocol version is TLSv1.3, which is the current standard, but the certificate will expire on Jul 6 11:08:21 2026 GMT",
+          "impact": "The site is using a modern TLS protocol, but the certificate expiration date is relatively soon",
+          "recommendation": "Consider renewing the SSL certificate before it expires to prevent any potential disruptions"
+        },
+        {
+          "category": "headers",
+          "severity": "high",
+          "priority": 1,
+          "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy, permissions-policy",
+          "impact": "The site is vulnerable to various attacks, including XSS and clickjacking, due to the lack of security headers",
+          "recommendation": "Implement the missing security headers to protect against potential attacks"
+        },
+        {
+          "category": "information-disclosure",
+          "severity": "medium",
+          "priority": 2,
+          "evidence": "robots.txt contains information about the site's content signals and policies",
+          "impact": "The site may be inadvertently disclosing sensitive information via its robots.txt file",
+          "recommendation": "Review the robots.txt file and remove any sensitive information to prevent potential disclosure"
+        },
+        {
+          "category": "redirect",
+          "severity": "low",
+          "priority": 3,
+          "evidence": "The site upgrades to HTTPS, but the redirect status code is 200, which is not the recommended 301 or 308",
+          "impact": "The site is using a non-canonical redirect, which may affect search engine optimization",
+          "recommendation": "Consider changing the redirect status code to 301 or 308 to improve SEO"
+        }
+      ],
+      "metadata": {
+        "analyzed_at": "2026-05-16T05:32:49.747Z",
+        "lighthouse_version": "unknown",
+        "security_scan_version": "unknown"
+      }
+    }
+  }
+}
+  </script>
+
+  <!-- ============================================================
+       Narrative renderer — inlined, self-contained, ES2017+.
+
+       Walks the DOM for [data-render] containers and clones the
+       matching <template id="tmpl-..."> for each item in the resolved
+       JSON path. Substitutes {{path}} placeholders in cloned content.
+       Honors data-render-if-empty and data-render-if-present.
+
+       Safety: every substitution lands in a text node or attribute via
+       DOM properties (textContent / nodeValue / attr.value). No
+       innerHTML is ever built from analyzer-emitted strings, so
+       findings cannot inject markup or scripts.
+       ============================================================ -->
+  <script data-print-hidden>
+  (function () {
+    'use strict';
+
+    /* ---------- Constants ------------------------------------- */
+
+    var DIMENSION_TITLES = {
+      'seo':            'SEO',
+      'performance':    'Performance',
+      'accessibility':  'Accessibility',
+      'security':       'Security',
+      'best-practices': 'Best Practices'
+    };
+
+    var LABEL_CLASS_MAP    = { 'Now': 'now', 'Next': 'next', 'Later': 'later', 'Watch': 'watch' };
+    var PRIORITY_CLASS_MAP = { 'P0': 'p0',  'P1': 'p1',   'P2': 'p2',     'P3': 'p3' };
+
+    /* ---------- Load embedded JSON ---------------------------- */
+
+    var dataEl = document.getElementById('report-data');
+    var report = null;
+
+    if (dataEl && dataEl.textContent) {
+      try {
+        report = JSON.parse(dataEl.textContent);
+      } catch (e) {
+        console.error('audit_agent: invalid Report JSON', e);
+      }
+    }
+
+    if (!report || report._placeholder === true) {
+      // Defer until DOM is ready so the notice replaces <main> contents.
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', showPlaceholderNotice);
+      } else {
+        showPlaceholderNotice();
+      }
+      return;
+    }
+
+    /* ---------- Decorate top-level meta ------------------------ */
+
+    if (!report.meta) report.meta = {};
+    report.meta.audited_at_human   = formatDate(report.meta.audited_at);
+    report.meta.generated_at_human = formatDate(report.meta.generated_at);
+    if (!Array.isArray(report.meta.dimensions_analyzed)) report.meta.dimensions_analyzed = [];
+    if (!Array.isArray(report.meta.dimensions_missing))  report.meta.dimensions_missing  = [];
+    if (!Array.isArray(report.meta.build_warnings))      report.meta.build_warnings      = [];
+
+
+    /* ---------- Severity analytics percentages ---------- */
+
+    var totalSeverity =
+      (report.severity_overview.by_severity.critical || 0) +
+      (report.severity_overview.by_severity.high || 0) +
+      (report.severity_overview.by_severity.medium || 0) +
+      (report.severity_overview.by_severity.low || 0) +
+      (report.severity_overview.by_severity.info || 0);
+
+    report.severity_overview.by_severity_percent = {
+
+      critical:
+        totalSeverity
+          ? (report.severity_overview.by_severity.critical / totalSeverity) * 100
+          : 0,
+
+      high:
+        totalSeverity
+          ? (report.severity_overview.by_severity.high / totalSeverity) * 100
+          : 0,
+
+      medium:
+        totalSeverity
+          ? (report.severity_overview.by_severity.medium / totalSeverity) * 100
+          : 0,
+
+      low:
+        totalSeverity
+          ? (report.severity_overview.by_severity.low / totalSeverity) * 100
+          : 0,
+
+      info:
+        totalSeverity
+          ? (report.severity_overview.by_severity.info / totalSeverity) * 100
+          : 0
+
+    };
+
+    function formatDate(iso) {
+      if (!iso) return '';
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return iso;
+      var pad = function (n) { return String(n).padStart(2, '0'); };
+      return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) +
+             ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ' UTC';
+    }
+
+    /* ---------- Path resolution + placeholder substitution ----- */
+
+    function resolvePath(obj, path) {
+      if (!path || path === '.') return obj;
+      var parts = path.split('.');
+      var cur = obj;
+      for (var i = 0; i < parts.length; i++) {
+        if (cur === null || cur === undefined) return undefined;
+        cur = cur[parts[i]];
+      }
+      return cur;
+    }
+
+    function evalValue(ctx, path) {
+      var v = resolvePath(ctx, path);
+      if (v === undefined) v = resolvePath(report, path);
+      return v;
+    }
+
+    /* Replace {{...}} occurrences. Returns a string. Never produces HTML;
+       the caller assigns the result via textContent / nodeValue / attr.value. */
+    function substituteString(str, ctx) {
+      return str
+        .replace(/\{\{\s*\.\s*\}\}/g, function () {
+          if (ctx === null || ctx === undefined) return '';
+          if (typeof ctx === 'object')          return '';
+          return String(ctx);
+        })
+        .replace(/\{\{\s*([a-zA-Z0-9_.\-]+)\s*\}\}/g, function (m, path) {
+          var val = evalValue(ctx, path);
+          if (Array.isArray(val)) {
+            if (val.length > 0 && typeof val[0] === 'object') return String(val.length);
+            return val.join(', ');
+          }
+          if (val === undefined || val === null) return '';
+          return String(val);
+        });
+    }
+
+    function substituteInNode(node, ctx, skipTemplates) {
+      if (node.nodeType === 3 /* TEXT_NODE */) {
+        if (node.nodeValue && node.nodeValue.indexOf('{{') !== -1) {
+          node.nodeValue = substituteString(node.nodeValue, ctx);
+        }
+        return;
+      }
+      if (node.nodeType !== 1 /* ELEMENT_NODE */ && node.nodeType !== 11 /* DOCUMENT_FRAGMENT */) return;
+      if (skipTemplates && node.nodeType === 1 && node.tagName === 'TEMPLATE') return;
+
+      if (node.attributes) {
+        for (var i = 0; i < node.attributes.length; i++) {
+          var attr = node.attributes[i];
+          if (attr.value.indexOf('{{') !== -1) {
+            attr.value = substituteString(attr.value, ctx);
+          }
+        }
+      }
+
+      var children = Array.prototype.slice.call(node.childNodes);
+      for (var j = 0; j < children.length; j++) substituteInNode(children[j], ctx, skipTemplates);
+    }
+
+    /* ---------- Conditional rendering -------------------------- */
+
+    function processConditionals(root, ctx) {
+      if (!root.querySelectorAll) return;
+
+      var emptyEls = Array.prototype.slice.call(root.querySelectorAll('[data-render-if-empty]'));
+      for (var i = 0; i < emptyEls.length; i++) {
+        var el = emptyEls[i];
+        var path = el.getAttribute('data-render-if-empty');
+        var val = evalValue(ctx, path);
+        var isEmpty = (val === undefined || val === null ||
+                       (Array.isArray(val) && val.length === 0) ||
+                       (typeof val === 'string' && val.length === 0));
+        if (!isEmpty) el.remove();
+        else el.removeAttribute('data-render-if-empty');
+      }
+
+      var presentEls = Array.prototype.slice.call(root.querySelectorAll('[data-render-if-present]'));
+      for (var j = 0; j < presentEls.length; j++) {
+        var pel = presentEls[j];
+        var ppath = pel.getAttribute('data-render-if-present');
+        var pval = evalValue(ctx, ppath);
+        var isPresent = (pval !== undefined && pval !== null &&
+                         (Array.isArray(pval) ? pval.length > 0 :
+                          (typeof pval === 'string' ? pval.length > 0 : true)));
+        if (!isPresent) pel.remove();
+        else pel.removeAttribute('data-render-if-present');
+      }
+    }
+
+    /* ---------- Decoration of items ---------------------------- */
+
+    function decorateItem(item) {
+      if (item === null || item === undefined) return item;
+
+      /* Primitive: wrap so common single-field templates can access it
+         under any of the conventional names. */
+      if (typeof item !== 'object') {
+        var v = String(item);
+        return {
+          '.':              v,
+          value:            v,
+          text:             v,
+          message:          v,
+          path:             v,
+          label:            v,
+          dimension:        v,
+          dimension_title:  DIMENSION_TITLES[v] || v
+        };
+      }
+
+      var d = Object.assign({}, item);
+
+      /* Hoist FindingRef fields onto the parent so templates can use
+         {{dimension}} / {{id}} / {{anchor}} without ref.* qualification. */
+      if (item.ref && typeof item.ref === 'object') {
+        if (item.ref.dimension  && !d.dimension) d.dimension = item.ref.dimension;
+        if (item.ref.finding_id && !d.id)        d.id        = item.ref.finding_id;
+        if (item.ref.anchor     && !d.anchor)    d.anchor    = item.ref.anchor;
+      }
+
+      /* Derived fields */
+      /* Derived fields */
+      if (d.dimension && !d.dimension_title) {
+        d.dimension_title = DIMENSION_TITLES[d.dimension] || d.dimension;
+      }
+
+      /* Backward compatibility for old analyzer schema */
+      if (!d.category && d.title) {
+        d.category = d.title;
+      }
+
+      if (!d.evidence && d.description) {
+        d.evidence = d.description;
+      }
+
+      if (!d.impact && d.description) {
+        d.impact = d.description;
+      }
+
+      if (!d.issue && d.title) {
+        d.issue = d.title;
+      }
+
+      /* Auto-map severity -> priority if missing */
+      if (!d.priority) {
+        d.priority = 'P3';
+      }
+
+      if (d.priority && !d.priority_class) {
+        d.priority_class = PRIORITY_CLASS_MAP[d.priority] || String(d.priority).toLowerCase();
+      }
+
+      if (d.label && !d.label_class) {
+        d.label_class = LABEL_CLASS_MAP[d.label] || String(d.label).toLowerCase();
+      }
+
+      if (d.dimension && d.id && !d.anchor) {
+        d.anchor = '#finding-' + d.dimension + '-' + d.id;
+      }
+
+      return d;
+    }
+
+    /* ---------- Template cloning ------------------------------- */
+
+    function cloneTemplate(templateId, rawCtx) {
+      var tmpl = document.getElementById(templateId);
+      if (!tmpl || !tmpl.content) {
+        console.warn('audit_agent: template not found:', templateId);
+        return null;
+      }
+
+      var ctx  = decorateItem(rawCtx);
+      var frag = tmpl.content.cloneNode(true);
+
+      /* 1. Substitute placeholders inside the clone. */
+      substituteInNode(frag, ctx, true);
+
+      /* 2. Render nested data-render containers against the local ctx. */
+      var nested = Array.prototype.slice.call(frag.querySelectorAll('[data-render]'));
+      for (var i = 0; i < nested.length; i++) renderContainer(nested[i], ctx);
+
+      /* 3. Apply conditionals against the local ctx. */
+      processConditionals(frag, ctx);
+
+      return frag;
+    }
+
+    /* ---------- Container rendering ---------------------------- */
+
+    function renderContainer(container, ctx) {
+      var path       = container.getAttribute('data-render');
+      var templateId = container.getAttribute('data-template');
+      if (!path) return;
+
+      var data = evalValue(ctx, path);
+
+      /* No template: emit the resolved value as text. */
+      if (!templateId) {
+        if (data === undefined || data === null)       container.textContent = '';
+        else if (Array.isArray(data))                  container.textContent = data.join(', ');
+        else                                            container.textContent = String(data);
+        container.removeAttribute('data-render');
+        return;
+      }
+
+      /* Coerce data into an array of items. */
+      var items;
+      if (Array.isArray(data))                items = data;
+      else if (data === undefined || data === null) items = [];
+      else if (typeof data === 'object')      items = Object.keys(data).map(function (k) { return { key: k, value: data[k] }; });
+      else                                    items = [data];
+
+      /* Wipe stub content (HTML comments etc.) then append clones. */
+      container.innerHTML = '';
+      for (var i = 0; i < items.length; i++) {
+        var clone = cloneTemplate(templateId, items[i]);
+        if (clone) container.appendChild(clone);
+      }
+
+      container.removeAttribute('data-render');
+      container.removeAttribute('data-template');
+    }
+
+    /* ---------- Per-dimension section slots -------------------- */
+
+    function renderDimensionSection(section) {
+      var dimension = section.getAttribute('data-dimension');
+      if (!dimension) return;
+
+      var dimData =
+      report.dimension_details &&
+      report.dimension_details[dimension]
+        ? report.dimension_details[dimension]
+        : null;
+
+      var isMissing = report.meta.dimensions_missing.indexOf(dimension) !== -1;
+
+      var templateId, ctx;
+      if (isMissing || !dimData) {
+        templateId = 'tmpl-dimension-missing';
+        ctx = {
+          dimension: dimension,
+          reason: 'Analyzer output was not found. Run the dimension analyzer to populate this section.'
+        };
+      } else {
+        templateId = section.getAttribute('data-template') || 'tmpl-dimension-section';
+        var findings = ((report.action_items && report.action_items.items) || []).filter(function (it) {
+          var d = (it.ref && it.ref.dimension) || it.dimension;
+          return d === dimension;
+        });
+        ctx = Object.assign({}, dimData, {
+          dimension:          dimension,
+          findings:           findings,
+          finding_count:      findings.length,
+          summary:            dimData.summary || '',
+          artifacts_consumed: [],
+          extensions:         {}
+        });
+      }
+
+      var clone = cloneTemplate(templateId, ctx);
+      if (clone) {
+        section.innerHTML = '';
+        section.appendChild(clone);
+      }
+    }
+
+    /* ---------- Placeholder notice ----------------------------- */
+
+    function showPlaceholderNotice() {
+      var main = document.querySelector('main') || document.body;
+      var section = document.createElement('section');
+      section.className = 'slide slide--surface';
+
+      var container = document.createElement('div');
+      container.className = 'container container--narrow';
+
+      var callout = document.createElement('div');
+      callout.className = 'callout callout--high';
+
+      var eyebrow = document.createElement('p');
+      eyebrow.className = 'eyebrow';
+      eyebrow.textContent = 'No report data';
+
+      var body = document.createElement('p');
+      body.appendChild(document.createTextNode('This template has not been populated. Inject Report JSON (per '));
+      var code1 = document.createElement('code');
+      code1.textContent = '.claude/skills/report-builder/sections-schema.md';
+      body.appendChild(code1);
+      body.appendChild(document.createTextNode(') into the '));
+      var code2 = document.createElement('code');
+      code2.textContent = '<script id="report-data">';
+      body.appendChild(code2);
+      body.appendChild(document.createTextNode(' element before opening this file in a browser.'));
+
+      callout.appendChild(eyebrow);
+      callout.appendChild(body);
+      container.appendChild(callout);
+      section.appendChild(container);
+
+      main.innerHTML = '';
+      main.appendChild(section);
+    }
+
+    /* ---------- Main entry ------------------------------------- */
+
+    function render() {
+      var root = document.body;
+
+      /* 1. Top-level {{path}} substitution (skip <template>s — they are
+            cloned and substituted on demand). */
+      substituteInNode(root, report, true);
+
+      /* 2. <title> in <head>. */
+      var titleEl = document.querySelector('title');
+      if (titleEl) titleEl.textContent = 'Audit Report — ' + (report.meta.hostname || '');
+
+      /* 3. data-render containers (depth-first, document order — nested
+            ones are handled inside cloneTemplate). */
+      var containers = Array.prototype.slice.call(root.querySelectorAll('[data-render]'));
+      for (var i = 0; i < containers.length; i++) renderContainer(containers[i], report);
+
+      /* 4. Per-dimension section slots. */
+      var dimSlots = Array.prototype.slice.call(root.querySelectorAll('section[data-dimension]'));
+      for (var j = 0; j < dimSlots.length; j++) renderDimensionSection(dimSlots[j]);
+
+      /* 5. Top-level conditionals (run last so they see populated data). */
+      processConditionals(root, report);
+
+      /* 6. Scroll-reveal polish (no-op when prefers-reduced-motion). */
+      setupReveal();
+    }
+
+    /* ---------- Scroll-reveal animations ----------------------- */
+    /* Marks each slide with .reveal, then toggles .is-visible as it
+       scrolls into view. The CSS handles the actual transition;
+       this script only manages the class lifecycle.
+       Hero slide is shown immediately so the cover never appears blank.
+       Falls back gracefully when IntersectionObserver is unavailable. */
+
+    function setupReveal() {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      var slides = Array.prototype.slice.call(document.querySelectorAll('main .slide'));
+      if (slides.length === 0) return;
+
+      var hero = document.querySelector('main .slide--hero');
+
+      slides.forEach(function (s) {
+        if (s !== hero) s.classList.add('reveal');
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        slides.forEach(function (s) { s.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+
+      slides.forEach(function (s) {
+        if (s === hero) return;
+        if (!s.classList.contains('is-visible')) io.observe(s);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', render);
+    } else {
+      render();
+    }
+  })();
+  </script>
+
+</body>
+</html>

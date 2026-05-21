@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "audited_at": "2024-09-16T10:00:00Z",
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-13T12:37:57Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=8"
+    ]
+  },
+  "executive_summary": {
+    "summary": "The website https://plausible.io/ has a perfect performance score of 100.",
+    "recommendations": "Focus on improving accessibility, SEO, security, and best practices to further enhance the website."
+  },
+  "severity_overview": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0
+  },
+  "key_findings": {
+    "performance": {
+      "score": 100,
+      "findings": "The website has a perfect performance score, indicating optimal loading times and responsiveness."
+    }
+  },
+  "prioritized_roadmap": {
+    "short_term": [
+      "Improve accessibility",
+      "Enhance SEO"
+    ],
+    "long_term": [
+      "Implement security measures",
+      "Adopt best practices"
+    ]
+  },
+  "quick_wins": {
+    "wins": [
+      "Optimize images",
+      "Minify CSS and JavaScript files"
+    ]
+  },
+  "long_term_improvements": {
+    "improvements": [
+      "Implement a content delivery network (CDN)",
+      "Use a website builder with built-in security features"
+    ]
+  },
+  "action_items": {
+    "total": 8,
+    "items": [
+      "Conduct an accessibility audit",
+      "Improve website loading times",
+      "Enhance SEO metadata",
+      "Implement security measures",
+      "Adopt best practices for coding and development",
+      "Optimize images",
+      "Minify CSS and JavaScript files",
+      "Implement a content delivery network (CDN)"
+    ]
+  }
+}

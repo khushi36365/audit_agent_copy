@@ -1,0 +1,76 @@
+{
+  "dimension": "accessibility",
+  "url": "https://stripe.com/in",
+  "hostname": "stripe.com",
+  "score": 100,
+  "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The page has a perfect accessibility score, but this does not guarantee full accessibility.",
+  "findings": [
+    {
+      "category": "aria-allowed-attr",
+      "evidence": "The page uses ARIA attributes that match their roles.",
+      "impact": "Screen readers can accurately interpret the page's interactive elements.",
+      "recommendation": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    },
+    {
+      "category": "aria-conditional-attr",
+      "evidence": "The page uses ARIA attributes as specified for the element's role.",
+      "impact": "Assistive technologies can process the page's interactive elements correctly.",
+      "recommendation": "Maintain the correct usage of ARIA attributes to ensure accessibility.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    },
+    {
+      "category": "aria-deprecated-role",
+      "evidence": "The page does not use deprecated ARIA roles.",
+      "impact": "Assistive technologies can process the page's interactive elements correctly.",
+      "recommendation": "Continue to avoid using deprecated ARIA roles to maintain accessibility.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    },
+    {
+      "category": "aria-hidden-body",
+      "evidence": "The page does not have `[aria-hidden=\"true\"]` set on the document `<body>`.",
+      "impact": "Assistive technologies can work consistently with the page.",
+      "recommendation": "Maintain this practice to ensure accessibility.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    },
+    {
+      "category": "aria-hidden-focus",
+      "evidence": "The page does not have focusable descendents within `[aria-hidden=\"true\"]` elements.",
+      "impact": "Interactive elements are available to users of assistive technologies like screen readers.",
+      "recommendation": "Continue to ensure that focusable elements are not hidden from assistive technologies.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    }
+  ],
+  "metadata": {
+    "extensions": {
+      "manual_review_required": [
+        "Screen-reader announcement quality",
+        "Focus order beyond DOM order",
+        "Video and audio captions",
+        "Error-message clarity",
+        "Motion and animation sensitivity",
+        "Cognitive load and reading level"
+      ]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "dimension": "performance",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 100,
+  "summary": "The page scores 100/100 on performance, with all metrics meeting the recommended thresholds.",
+  "findings": [
+    {
+      "category": "core-web-vitals",
+      "severity": "pass",
+      "priority": "low",
+      "evidence": "LCP: 1.3 s mobile / 0.4 s desktop; budget 2.5 s. INP: not reported. CLS: 0 mobile / 0 desktop; budget 0.1.",
+      "impact": "The page meets all Core Web Vitals thresholds.",
+      "recommendation": "No action needed."
+    },
+    {
+      "category": "render-blocking",
+      "severity": "pass",
+      "priority": "low",
+      "evidence": "No render-blocking resources detected.",
+      "impact": "The page does not have any render-blocking resources.",
+      "recommendation": "No action needed."
+    },
+    {
+      "category": "network",
+      "severity": "informative",
+      "priority": "low",
+      "evidence": "Estimated savings of 14 KiB from using efficient cache lifetimes.",
+      "impact": "Using efficient cache lifetimes can improve page load times.",
+      "recommendation": "Consider implementing efficient cache lifetimes to improve page load times."
+    },
+    {
+      "category": "dom-size",
+      "severity": "informative",
+      "priority": "low",
+      "evidence": "DOM size: 660 elements.",
+      "impact": "The page has a moderate DOM size.",
+      "recommendation": "Consider optimizing the DOM size to improve page responsiveness."
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

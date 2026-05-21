@@ -1,0 +1,38 @@
+{
+  "dimension": "seo",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 92,
+  "summary": "Score adjusted from 92 to 92, as no crawlability issues were found. However, the page has 1 link without descriptive text.",
+  "findings": [
+    {
+      "category": "content",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "Lighthouse audit 'link-text' score: 0",
+      "impact": "Search engines may have difficulty understanding the content of the page.",
+      "recommendation": "Add descriptive text to the link to improve accessibility and search engine understanding."
+    },
+    {
+      "category": "crawlability",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "Security audit 'sitemap_xml' status: 404",
+      "impact": "Search engines may have difficulty discovering all pages on the site.",
+      "recommendation": "Create and submit a sitemap to help search engines discover all pages on the site."
+    },
+    {
+      "category": "indexability",
+      "severity": "high",
+      "priority": "high",
+      "evidence": "Lighthouse audit 'canonical' score: null",
+      "impact": "Search engines may not know which version of the page to index.",
+      "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version."
+    }
+  ],
+  "metadata": {
+    "gaps": [
+      "sitemap.xml not found"
+    ]
+  }
+}

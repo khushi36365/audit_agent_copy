@@ -1,0 +1,30 @@
+{
+  "dimension": "seo",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 88,
+  "summary": "Score adjusted from 92 to 88 due to missing sitemap.xml and non-descriptive link text.",
+  "findings": [
+    {
+      "category": "crawlability",
+      "evidence": "sitemap.xml returned a 404 status code",
+      "impact": "Search engines may have difficulty discovering all pages on the site",
+      "recommendation": "Create and submit a valid sitemap.xml to search engines",
+      "severity": "medium",
+      "priority": "high"
+    },
+    {
+      "category": "content",
+      "evidence": "1 link found with non-descriptive text",
+      "impact": "Search engines may struggle to understand the content and context of the link",
+      "recommendation": "Add descriptive text to the link to improve accessibility and search engine understanding",
+      "severity": "low",
+      "priority": "medium"
+    }
+  ],
+  "metadata": {
+    "gaps": [
+      "canonical link tag not found"
+    ]
+  }
+}

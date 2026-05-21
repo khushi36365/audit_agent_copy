@@ -1,0 +1,45 @@
+{
+  "dimension": "performance",
+  "url": "https://example.com/",
+  "hostname": "example.com",
+  "score": 100,
+  "summary": "The page scores 100/100 on performance, with all metrics within the recommended thresholds.",
+  "findings": [
+    {
+      "id": "perf-lcp",
+      "category": "core-web-vitals",
+      "title": "Largest Contentful Paint",
+      "description": "Largest Contentful Paint marks the time at which the largest text or image is painted.",
+      "evidence": "LCP: 0.8 s mobile / 0.5 s desktop; budget 2.5 s",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "lcp"
+      }
+    },
+    {
+      "id": "perf-cls",
+      "category": "core-web-vitals",
+      "title": "Cumulative Layout Shift",
+      "description": "Cumulative Layout Shift measures the movement of visible elements within the viewport.",
+      "evidence": "CLS: 0 mobile / 0 desktop; budget 0.1",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "cls"
+      }
+    },
+    {
+      "id": "perf-tbt",
+      "category": "core-web-vitals",
+      "title": "Total Blocking Time",
+      "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds.",
+      "evidence": "TBT: 10 ms mobile / 0 ms desktop; budget 200 ms",
+      "severity": "pass",
+      "extensions": {
+        "cwv_metric": "tbt"
+      }
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

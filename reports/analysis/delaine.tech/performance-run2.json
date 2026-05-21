@@ -1,0 +1,52 @@
+{
+  "dimension": "performance",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 59,
+  "summary": "The page has significant performance issues, with a Largest Contentful Paint (LCP) of 6.4s on mobile and 4.9s on desktop. The Total Blocking Time (TBT) is 290ms on mobile and 100ms on desktop. The Cumulative Layout Shift (CLS) is 0.023 on mobile and 0.005 on desktop.",
+  "findings": [
+    {
+      "category": "core-web-vitals",
+      "severity": "high",
+      "priority": "high",
+      "evidence": "LCP: 6.4s mobile / 4.9s desktop; budget 2.5s",
+      "impact": "Slow page load times can lead to high bounce rates and negatively impact user experience.",
+      "recommendation": "Optimize images, minify CSS and JavaScript, and leverage browser caching to improve page load times."
+    },
+    {
+      "category": "render-blocking",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "TBT: 290ms mobile / 100ms desktop",
+      "impact": "Render-blocking resources can slow down page load times and impact user experience.",
+      "recommendation": "Minify and compress CSS and JavaScript files, and consider using a CDN to reduce the distance between users and resources."
+    },
+    {
+      "category": "cumulative-layout-shift",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "CLS: 0.023 mobile / 0.005 desktop",
+      "impact": "A low CLS score indicates that the page has minimal layout shifts, which can improve user experience.",
+      "recommendation": "Continue to monitor and optimize the page's layout to ensure a smooth user experience."
+    },
+    {
+      "category": "cache-insight",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "Estimated savings: 31,591 KiB mobile / 2,502 KiB desktop",
+      "impact": "Improving cache lifetimes can reduce the number of requests made to the server and improve page load times.",
+      "recommendation": "Implement a caching strategy to reduce the number of requests made to the server and improve page load times."
+    },
+    {
+      "category": "dom-size-insight",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "DOM size: 1,525 elements mobile / 1,739 elements desktop",
+      "impact": "A large DOM size can impact page performance and increase memory usage.",
+      "recommendation": "Monitor and optimize the page's DOM size to ensure it does not negatively impact performance."
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

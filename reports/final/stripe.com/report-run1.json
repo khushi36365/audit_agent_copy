@@ -1,0 +1,698 @@
+{
+  "meta": {
+    "audited_at": "2026-05-20T08:08:02Z",
+    "url": "https://stripe.com/in",
+    "hostname": "stripe.com",
+    "dimensions_analyzed": [
+      "accessibility",
+      "performance",
+      "security",
+      "seo"
+    ],
+    "dimensions_missing": [
+      "best-practices"
+    ],
+    "generated_at": "2026-05-20T08:09:53Z",
+    "audited_at_human": "Wed, 20 May 2026 08:08:02 UTC",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=7",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ],
+    "logo_url": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "initial": "S"
+  },
+  "executive_summary": {
+    "summary": "The website has significant performance issues, perfect accessibility score, good security posture, and some minor SEO issues.",
+    "top_issues": [
+      {
+        "title": "Optimize Images",
+        "description": "Optimize images to reduce payload size and improve performance.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use image compression and responsive image sizing to optimize images.",
+        "category": "Optimize Images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Optimize images to reduce payload size and improve performance.",
+        "impact": "Optimize images to reduce payload size and improve performance."
+      },
+      {
+        "title": "Add Descriptive Text to Links",
+        "description": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "category": "Add Descriptive Text to Links",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "impact": "Add descriptive text to links to improve search engine understanding and accessibility."
+      },
+      {
+        "title": "Implement Responsive Image Sizing",
+        "description": "Implement responsive image sizing to improve performance and user experience.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+        "category": "Implement Responsive Image Sizing",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Implement responsive image sizing to improve performance and user experience.",
+        "impact": "Implement responsive image sizing to improve performance and user experience."
+      }
+    ],
+    "next_step": {
+      "title": "Optimize Images",
+      "description": "Optimize images to reduce payload size and improve performance.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use image compression and responsive image sizing to optimize images.",
+      "category": "Optimize Images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Optimize images to reduce payload size and improve performance.",
+      "impact": "Optimize images to reduce payload size and improve performance."
+    },
+    "headline_score": 82
+  },
+  "severity_overview": {
+    "total_findings": 7,
+    "by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 2,
+      "low": 5,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 1,
+      "P2": 3,
+      "P3": 3
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "title": "Optimize Images",
+      "description": "Optimize images to reduce payload size and improve performance.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use image compression and responsive image sizing to optimize images.",
+      "category": "Optimize Images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Optimize images to reduce payload size and improve performance.",
+      "impact": "Optimize images to reduce payload size and improve performance."
+    },
+    {
+      "title": "Add Descriptive Text to Links",
+      "description": "Add descriptive text to links to improve search engine understanding and accessibility.",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "seo",
+      "recommendation": "Add descriptive text to links to improve search engine understanding and accessibility.",
+      "category": "Add Descriptive Text to Links",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Add descriptive text to links to improve search engine understanding and accessibility.",
+      "impact": "Add descriptive text to links to improve search engine understanding and accessibility."
+    },
+    {
+      "title": "Implement Responsive Image Sizing",
+      "description": "Implement responsive image sizing to improve performance and user experience.",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "performance",
+      "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+      "category": "Implement Responsive Image Sizing",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Implement responsive image sizing to improve performance and user experience.",
+      "impact": "Implement responsive image sizing to improve performance and user experience."
+    },
+    {
+      "title": "Implement Code Splitting",
+      "description": "Implement code splitting to improve performance and reduce payload size.",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "performance",
+      "recommendation": "Use a code splitting library to split code into smaller chunks and improve performance.",
+      "category": "Implement Code Splitting",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Implement code splitting to improve performance and reduce payload size.",
+      "impact": "Implement code splitting to improve performance and reduce payload size."
+    },
+    {
+      "title": "Maintain ARIA Attributes",
+      "description": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "priority": "P3",
+      "severity": "low",
+      "dimension": "accessibility",
+      "recommendation": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "category": "Maintain ARIA Attributes",
+      "priority_class": "p3",
+      "estimated_effort": "1 day",
+      "evidence": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "impact": "Continue to ensure ARIA attributes are used correctly to maintain accessibility."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Optimize Images",
+        "description": "Optimize images to reduce payload size and improve performance.",
+        "recommendation": "Use image compression and responsive image sizing to optimize images.",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Add Descriptive Text to Links",
+        "description": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "recommendation": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "priority": "P2",
+        "priority_class": "p2",
+        "severity": "medium",
+        "dimension": "seo",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Implement Responsive Image Sizing",
+        "description": "Implement responsive image sizing to improve performance and user experience.",
+        "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+        "priority": "P2",
+        "priority_class": "p2",
+        "severity": "medium",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Implement Code Splitting",
+        "description": "Implement code splitting to improve performance and reduce payload size.",
+        "recommendation": "Use a code splitting library to split code into smaller chunks and improve performance.",
+        "priority": "P2",
+        "priority_class": "p2",
+        "severity": "medium",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Maintain ARIA Attributes",
+        "description": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+        "recommendation": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "low",
+        "dimension": "accessibility",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Monitor Performance",
+        "description": "Continuously monitor performance to identify areas for improvement.",
+        "recommendation": "Use performance monitoring tools to continuously monitor performance and identify areas for improvement.",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "low",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Optimize Images",
+        "description": "Optimize images to reduce payload size and improve performance.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use image compression and responsive image sizing to optimize images.",
+        "category": "Optimize Images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Optimize images to reduce payload size and improve performance.",
+        "impact": "Optimize images to reduce payload size and improve performance."
+      },
+      {
+        "title": "Add Descriptive Text to Links",
+        "description": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "category": "Add Descriptive Text to Links",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "impact": "Add descriptive text to links to improve search engine understanding and accessibility."
+      },
+      {
+        "title": "Implement Responsive Image Sizing",
+        "description": "Implement responsive image sizing to improve performance and user experience.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+        "category": "Implement Responsive Image Sizing",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Implement responsive image sizing to improve performance and user experience.",
+        "impact": "Implement responsive image sizing to improve performance and user experience."
+      },
+      {
+        "title": "Implement Code Splitting",
+        "description": "Implement code splitting to improve performance and reduce payload size.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Use a code splitting library to split code into smaller chunks and improve performance.",
+        "category": "Implement Code Splitting",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Implement code splitting to improve performance and reduce payload size.",
+        "impact": "Implement code splitting to improve performance and reduce payload size."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Performance Optimization",
+        "description": "Continuously monitor and optimize performance to improve user experience."
+      },
+      {
+        "title": "Accessibility Maintenance",
+        "description": "Continuously maintain and improve accessibility to ensure inclusivity."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Implement Responsive Image Sizing",
+        "description": "Implement responsive image sizing to improve performance and user experience.",
+        "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "medium",
+        "dimension": "Architecture",
+        "estimated_effort": "1–2 weeks"
+      },
+      {
+        "title": "Implement Code Splitting",
+        "description": "Implement code splitting to improve performance and reduce payload size.",
+        "recommendation": "Use a code splitting library to split code into smaller chunks and improve performance.",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "medium",
+        "dimension": "Architecture",
+        "estimated_effort": "1–2 weeks"
+      }
+    ]
+  },
+  "action_items": {
+    "total": 7,
+    "items": [
+      {
+        "title": "Optimize Images",
+        "description": "Optimize images to reduce payload size and improve performance.",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Use image compression and responsive image sizing to optimize images.",
+        "category": "Optimize Images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Optimize images to reduce payload size and improve performance.",
+        "impact": "Optimize images to reduce payload size and improve performance."
+      },
+      {
+        "title": "Add Descriptive Text to Links",
+        "description": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "category": "Add Descriptive Text to Links",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Add descriptive text to links to improve search engine understanding and accessibility.",
+        "impact": "Add descriptive text to links to improve search engine understanding and accessibility."
+      },
+      {
+        "title": "Implement Responsive Image Sizing",
+        "description": "Implement responsive image sizing to improve performance and user experience.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+        "category": "Implement Responsive Image Sizing",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Implement responsive image sizing to improve performance and user experience.",
+        "impact": "Implement responsive image sizing to improve performance and user experience."
+      },
+      {
+        "title": "Implement Code Splitting",
+        "description": "Implement code splitting to improve performance and reduce payload size.",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Use a code splitting library to split code into smaller chunks and improve performance.",
+        "category": "Implement Code Splitting",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Implement code splitting to improve performance and reduce payload size.",
+        "impact": "Implement code splitting to improve performance and reduce payload size."
+      },
+      {
+        "title": "Maintain ARIA Attributes",
+        "description": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+        "priority": "P3",
+        "severity": "low",
+        "dimension": "accessibility",
+        "recommendation": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+        "category": "Maintain ARIA Attributes",
+        "priority_class": "p3",
+        "estimated_effort": "1 day",
+        "evidence": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+        "impact": "Continue to ensure ARIA attributes are used correctly to maintain accessibility."
+      },
+      {
+        "title": "Monitor Performance",
+        "description": "Continuously monitor performance to identify areas for improvement.",
+        "priority": "P3",
+        "severity": "low",
+        "dimension": "performance",
+        "recommendation": "Use performance monitoring tools to continuously monitor performance and identify areas for improvement.",
+        "category": "Monitor Performance",
+        "priority_class": "p3",
+        "estimated_effort": "1 day",
+        "evidence": "Continuously monitor performance to identify areas for improvement.",
+        "impact": "Continuously monitor performance to identify areas for improvement."
+      },
+      {
+        "title": "Maintain Accessibility",
+        "description": "Continuously maintain and improve accessibility to ensure inclusivity.",
+        "priority": "P3",
+        "severity": "low",
+        "dimension": "accessibility",
+        "recommendation": "Continuously maintain and improve accessibility to ensure inclusivity.",
+        "category": "Maintain Accessibility",
+        "priority_class": "p3",
+        "estimated_effort": "1 day",
+        "evidence": "Continuously maintain and improve accessibility to ensure inclusivity.",
+        "impact": "Continuously maintain and improve accessibility to ensure inclusivity."
+      }
+    ]
+  },
+  "appendix": {
+    "methodology": "The audit combined Lighthouse analysis with automated accessibility, SEO, security, and performance inspection.",
+    "artifacts_consumed": [
+      "accessibility-run1.json",
+      "performance-run1.json",
+      "security-run1.json",
+      "seo-run1.json"
+    ]
+  },
+  "recommendations_combined": [
+    {
+      "title": "Optimize Images",
+      "description": "Optimize images to reduce payload size and improve performance.",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Use image compression and responsive image sizing to optimize images.",
+      "category": "Optimize Images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Optimize images to reduce payload size and improve performance.",
+      "impact": "Optimize images to reduce payload size and improve performance."
+    },
+    {
+      "title": "Add Descriptive Text to Links",
+      "description": "Add descriptive text to links to improve search engine understanding and accessibility.",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "seo",
+      "recommendation": "Add descriptive text to links to improve search engine understanding and accessibility.",
+      "category": "Add Descriptive Text to Links",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Add descriptive text to links to improve search engine understanding and accessibility.",
+      "impact": "Add descriptive text to links to improve search engine understanding and accessibility."
+    },
+    {
+      "title": "Implement Responsive Image Sizing",
+      "description": "Implement responsive image sizing to improve performance and user experience.",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "performance",
+      "recommendation": "Use the `srcset` attribute to specify multiple image sizes and implement responsive image sizing.",
+      "category": "Implement Responsive Image Sizing",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Implement responsive image sizing to improve performance and user experience.",
+      "impact": "Implement responsive image sizing to improve performance and user experience."
+    },
+    {
+      "title": "Implement Code Splitting",
+      "description": "Implement code splitting to improve performance and reduce payload size.",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "performance",
+      "recommendation": "Use a code splitting library to split code into smaller chunks and improve performance.",
+      "category": "Implement Code Splitting",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Implement code splitting to improve performance and reduce payload size.",
+      "impact": "Implement code splitting to improve performance and reduce payload size."
+    },
+    {
+      "title": "Maintain ARIA Attributes",
+      "description": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "priority": "P3",
+      "severity": "low",
+      "dimension": "accessibility",
+      "recommendation": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "category": "Maintain ARIA Attributes",
+      "priority_class": "p3",
+      "estimated_effort": "1 day",
+      "evidence": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+      "impact": "Continue to ensure ARIA attributes are used correctly to maintain accessibility."
+    }
+  ],
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://stripe.com/in",
+      "hostname": "stripe.com",
+      "score": 42,
+      "summary": "The page has significant performance issues, with a low performance score and multiple failing audits. The largest contentful paint is slow, and the total blocking time is high. Optimizing images, reducing JavaScript usage, and improving server response times can help improve performance.",
+      "findings": [
+        {
+          "category": "core-web-vitals",
+          "evidence": "Largest Contentful Paint (LCP): 6.6 s (mobile), 2.6 s (desktop); budget 2.5 s",
+          "impact": "Slow LCP can lead to a poor user experience and negatively impact search engine rankings.",
+          "recommendation": "Optimize images, reduce JavaScript usage, and improve server response times to improve LCP.",
+          "severity": "high",
+          "priority": "high",
+          "extensions": {
+            "cwv_metric": "lcp"
+          }
+        },
+        {
+          "category": "render-blocking",
+          "evidence": "Total Blocking Time (TBT): 900 ms (mobile), 280 ms (desktop); budget 200 ms",
+          "impact": "High TBT can cause delays in page loading and interactive elements, leading to a poor user experience.",
+          "recommendation": "Minify and compress CSS and JavaScript files, and consider using a CDN to reduce TBT.",
+          "severity": "medium",
+          "priority": "medium"
+        },
+        {
+          "category": "javascript",
+          "evidence": "Duplicated JavaScript: estimated savings of 0 bytes (mobile), 0 bytes (desktop)",
+          "impact": "Duplicated JavaScript can increase page load times and slow down page interactions.",
+          "recommendation": "Remove duplicated JavaScript modules from bundles to reduce unnecessary bytes consumed by network activity.",
+          "severity": "low",
+          "priority": "low"
+        },
+        {
+          "category": "images",
+          "evidence": "No image optimization issues detected.",
+          "impact": "Optimizing images can reduce page load times and improve user experience.",
+          "recommendation": "Consider using image compression tools to reduce image file sizes.",
+          "severity": "low",
+          "priority": "low"
+        },
+        {
+          "category": "network",
+          "evidence": "Server response time: not available",
+          "impact": "Slow server response times can increase page load times and negatively impact user experience.",
+          "recommendation": "Consider optimizing server response times by reducing database queries, using caching, and optimizing server configuration.",
+          "severity": "medium",
+          "priority": "medium"
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    },
+    "accessibility": {
+      "dimension": "accessibility",
+      "url": "https://stripe.com/in",
+      "hostname": "stripe.com",
+      "score": 100,
+      "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The page has a perfect accessibility score, but this does not guarantee full accessibility.",
+      "findings": [
+        {
+          "category": "aria-allowed-attr",
+          "evidence": "The page uses ARIA attributes that match their roles.",
+          "impact": "Screen readers can accurately interpret the page's interactive elements.",
+          "recommendation": "Continue to ensure ARIA attributes are used correctly to maintain accessibility.",
+          "severity": "low",
+          "priority": "low",
+          "extensions": {
+            "wcag": []
+          }
+        },
+        {
+          "category": "aria-conditional-attr",
+          "evidence": "The page uses ARIA attributes as specified for the element's role.",
+          "impact": "Assistive technologies can process the page's interactive elements correctly.",
+          "recommendation": "Maintain the correct usage of ARIA attributes to ensure accessibility.",
+          "severity": "low",
+          "priority": "low",
+          "extensions": {
+            "wcag": []
+          }
+        },
+        {
+          "category": "aria-deprecated-role",
+          "evidence": "The page does not use deprecated ARIA roles.",
+          "impact": "Assistive technologies can process the page's interactive elements correctly.",
+          "recommendation": "Continue to avoid using deprecated ARIA roles to maintain accessibility.",
+          "severity": "low",
+          "priority": "low",
+          "extensions": {
+            "wcag": []
+          }
+        },
+        {
+          "category": "aria-hidden-body",
+          "evidence": "The page does not have `[aria-hidden=\"true\"]` set on the document `<body>`.",
+          "impact": "Assistive technologies can work consistently with the page.",
+          "recommendation": "Maintain this practice to ensure accessibility.",
+          "severity": "low",
+          "priority": "low",
+          "extensions": {
+            "wcag": []
+          }
+        },
+        {
+          "category": "aria-hidden-focus",
+          "evidence": "The page does not have focusable descendents within `[aria-hidden=\"true\"]` elements.",
+          "impact": "Interactive elements are available to users of assistive technologies like screen readers.",
+          "recommendation": "Continue to ensure that focusable elements are not hidden from assistive technologies.",
+          "severity": "low",
+          "priority": "low",
+          "extensions": {
+            "wcag": []
+          }
+        }
+      ],
+      "metadata": {
+        "extensions": {
+          "manual_review_required": [
+            "Screen-reader announcement quality",
+            "Focus order beyond DOM order",
+            "Video and audio captions",
+            "Error-message clarity",
+            "Motion and animation sensitivity",
+            "Cognitive load and reading level"
+          ]
+        }
+      }
+    },
+    "seo": {
+      "dimension": "seo",
+      "url": "https://stripe.com/in",
+      "hostname": "stripe.com",
+      "score": 92,
+      "summary": "Score adjusted from 92 to 92, as no crawlability or indexability issues were found. However, 2 links were found without descriptive text.",
+      "findings": [
+        {
+          "category": "content",
+          "evidence": "2 links were found without descriptive text",
+          "impact": "Search engines may have difficulty understanding the content of these links, potentially affecting the page's search engine ranking",
+          "recommendation": "Add descriptive text to the links to improve search engine understanding and accessibility",
+          "severity": "medium",
+          "priority": "medium"
+        }
+      ],
+      "metadata": {
+        "gaps": [
+          "sitemap_xml"
+        ]
+      }
+    },
+    "security": {
+      "dimension": "security",
+      "url": "https://stripe.com/in",
+      "hostname": "stripe.com",
+      "score": 92,
+      "summary": "The site has a good security posture, with some minor issues to address.",
+      "findings": [
+        {
+          "category": "transport",
+          "evidence": "TLS protocol version is TLSv1.3, which is the latest version.",
+          "impact": "Using the latest TLS version ensures the site is protected against known vulnerabilities.",
+          "recommendation": "Continue to use the latest TLS version to ensure the site remains secure.",
+          "severity": "low",
+          "priority": "low"
+        },
+        {
+          "category": "headers",
+          "evidence": "The site is missing the 'permissions-policy' header.",
+          "impact": "Not having this header may allow unnecessary permissions to be granted to scripts.",
+          "recommendation": "Add the 'permissions-policy' header to restrict unnecessary permissions.",
+          "severity": "low",
+          "priority": "low"
+        },
+        {
+          "category": "headers",
+          "evidence": "The site is missing the 'cross-origin-resource-policy' header.",
+          "impact": "Not having this header may allow cross-origin resource sharing issues.",
+          "recommendation": "Add the 'cross-origin-resource-policy' header to restrict cross-origin resource sharing.",
+          "severity": "low",
+          "priority": "low"
+        },
+        {
+          "category": "information-disclosure",
+          "evidence": "The robots.txt file contains a sitemap URL.",
+          "impact": "Exposing the sitemap URL may allow attackers to discover sensitive information.",
+          "recommendation": "Remove the sitemap URL from the robots.txt file to prevent information disclosure.",
+          "severity": "medium",
+          "priority": "medium"
+        }
+      ],
+      "metadata": {
+        "analyzed_at": "2026-05-20T08:08:02Z",
+        "fetch_time": "2026-05-20T08:06:20.879Z"
+      }
+    }
+  }
+}

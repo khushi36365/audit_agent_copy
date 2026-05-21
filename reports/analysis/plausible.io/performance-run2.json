@@ -1,0 +1,42 @@
+{
+  "dimension": "performance",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 100,
+  "summary": "The page scores 100/100 on performance, with all metrics meeting the recommended thresholds.",
+  "findings": [
+    {
+      "title": "Largest Contentful Paint (LCP)",
+      "severity": "pass",
+      "description": "LCP: 1.5 s (mobile) / 0.4 s (desktop); budget 2.5 s",
+      "recommendation": "No action needed; LCP is within the recommended threshold."
+    },
+    {
+      "title": "Cumulative Layout Shift (CLS)",
+      "severity": "pass",
+      "description": "CLS: 0 (mobile and desktop); budget 0.1",
+      "recommendation": "No action needed; CLS is within the recommended threshold."
+    },
+    {
+      "title": "Total Blocking Time (TBT)",
+      "severity": "pass",
+      "description": "TBT: 0 ms (mobile and desktop); budget 200 ms",
+      "recommendation": "No action needed; TBT is within the recommended threshold."
+    },
+    {
+      "title": "Cache Insight",
+      "severity": "low",
+      "description": "Estimated savings of 14 KiB by using efficient cache lifetimes",
+      "recommendation": "Consider implementing efficient cache lifetimes to reduce repeat visit load times."
+    },
+    {
+      "title": "DOM Size Insight",
+      "severity": "low",
+      "description": "DOM size: 660 elements; recommended < 1500",
+      "recommendation": "Consider optimizing DOM size to improve page responsiveness and reduce memory usage."
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "executive_summary": {
+    "summary": "The website https://plausible.io/ scores 100/100 on performance, with all metrics meeting the recommended thresholds.",
+    "top_issues": [
+      {
+        "title": "Implement security measures",
+        "description": "Implement security measures to protect the website and its users from potential threats.",
+        "priority": "high",
+        "category": "Implement security measures",
+        "dimension": "Performance",
+        "severity": "high",
+        "recommendation": "Review and monitor this finding.",
+        "evidence": "Implement security measures to protect the website and its users from potential threats.",
+        "impact": "Implement security measures to protect the website and its users from potential threats."
+      },
+      {
+        "title": "Review and implement recommendations",
+        "description": "Review the recommendations provided and implement them to improve the website's performance, accessibility, SEO, security, and maintainability.",
+        "priority": "high",
+        "category": "Review and implement recommendations",
+        "dimension": "Performance",
+        "severity": "high",
+        "recommendation": "Review and monitor this finding.",
+        "evidence": "Review the recommendations provided and implement them to improve the website's performance, accessibility, SEO, security, and maintainability.",
+        "impact": "Review the recommendations provided and implement them to improve the website's performance, accessibility, SEO, security, and maintainability."
+      },
+      {
+        "title": "Implement accessibility features",
+        "description": "Add accessibility features to the website to improve user experience and comply with accessibility standards.",
+        "priority": "medium",
+        "category": "Implement accessibility features",
+        "dimension": "Performance",
+        "severity": "medium",
+        "recommendation": "Review and monitor this finding.",
+        "evidence": "Add accessibility features to the website to improve user experience and comply with accessibility standards.",
+        "impact": "Add accessibility features to the website to improve user experience and comply with accessibility standards."
+      }
+    ],
+    "next_step": {
+      "title": "Implement security measures",
+      "description": "Implement security measures to protect the website and its users from potential threats.",
+      "priority": "high",
+      "category": "Implement security measures",
+      "dimension": "Performance",
+      "severity": "high",
+      "recommendation": "Review and monitor this finding.",
+      "evidence": "Implement security measures to protect the website and its users from potential threats.",
+      "impact": "Implement security measures to protect the website and its users from potential threats."
+    }
+  },
+  "severity_overview": {
+    "total_findings": 11,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 2,
+      "P2": 6,
+      "P3": 3
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "dimension": "performance",
+      "title": "Largest Contentful Paint (LCP)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "LCP: 1.5 s (mobile) / 0.4 s (desktop); budget 2.5 s",
+      "recommendation": "No action needed; LCP is within the recommended threshold."
+    },
+    {
+      "dimension": "performance",
+      "title": "Cumulative Layout Shift (CLS)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "CLS: 0 (mobile and desktop); budget 0.1",
+      "recommendation": "No action needed; CLS is within the recommended threshold."
+    },
+    {
+      "dimension": "performance",
+      "title": "Total Blocking Time (TBT)",
+      "severity": "pass",
+      "priority": "low",
+      "description": "TBT: 0 ms (mobile and desktop); budget 200 ms",
+      "recommendation": "No action needed; TBT is within the recommended threshold."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Implement security measures",
+        "description": "Implement security measures to protect the website and its users from potential threats.",
+        "recommendation": "Review and monitor this finding.",
+        "priority": "high",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Review and implement recommendations",
+        "description": "Review the recommendations provided and implement them to improve the website's performance, accessibility, SEO, security, and maintainability.",
+        "recommendation": "Review and monitor this finding.",
+        "priority": "high",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Implement accessibility features",
+        "description": "Add accessibility features to the website to improve user experience and comply with accessibility standards.",
+        "recommendation": "Review and monitor this finding.",
+        "priority": "medium",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Conduct SEO audit",
+        "description": "Perform an SEO audit to identify areas for improvement and optimize the website's content and structure for search engines.",
+        "recommendation": "Review and monitor this finding.",
+        "priority": "medium",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Implement best practices",
+        "description": "Implement best practices for web development to ensure the website is maintainable, efficient, and user-friendly.",
+        "recommendation": "Review and monitor this finding.",
+        "priority": "medium",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Infer scalability improvements",
+        "description": "Plan for potential scalability issues by designing the website's architecture to handle increased traffic and user demand.",
+        "recommendation": "Review and monitor this finding.",
+        "priority": "medium",
+        "dimension": "Performance"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Monitor performance regularly",
+        "description": "Regularly check the website's performance to ensure it remains optimal.",
+        "priority": "low",
+        "category": "Monitor performance regularly",
+        "dimension": "Performance",
+        "severity": "low",
+        "recommendation": "Review and monitor this finding.",
+        "evidence": "Regularly check the website's performance to ensure it remains optimal.",
+        "impact": "Regularly check the website's performance to ensure it remains optimal."
+      },
+      {
+        "title": "Infer monitoring improvements",
+        "description": "Consider implementing monitoring tools to track the website's performance and identify potential issues before they become critical.",
+        "priority": "low",
+        "category": "Infer monitoring improvements",
+        "dimension": "Performance",
+        "severity": "low",
+        "recommendation": "Review and monitor this finding.",
+        "evidence": "Consider implementing monitoring tools to track the website's performance and identify potential issues before they become critical.",
+        "impact": "Consider implementing monitoring tools to track the website's performance and identify potential issues before they become critical."
+      },
+      {
+        "title": "Infer future optimization opportunities",
+        "description": "Continuously monitor the website's performance and identify areas for optimization to ensure it remains fast and efficient.",
+        "priority": "low",
+        "category": "Infer future optimization opportunities",
+        "dimension": "Performance",
+        "severity": "low",
+        "recommendation": "Review and monitor this finding.",
+        "evidence": "Continuously monitor the website's performance and identify areas for optimization to ensure it remains fast and efficient.",
+        "impact": "Continuously monitor the website's performance and identify areas for optimization to ensure it remains fast and efficient."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Infer monitoring improvements",
+        "description": "Consider implementing monitoring tools to track the website's performance and identify potential issues before they become critical."
+      },
+      {
+        "title": "Infer scalability improvements",
+        "description": "Plan for potential scalability issues by designing the website's architecture to handle increased traffic and user demand."
+      },
+      {
+        "title": "Infer maintainability recommendations",
+        "description": "Regularly review and refactor the website's code to ensure it remains maintainable and easy to update."
+      },
+      {
+        "title": "Infer observability improvements",
+        "description": "Implement logging and analytics tools to gain insights into the website's performance and user behavior."
+      },
+      {
+        "title": "Infer future optimization opportunities",
+        "description": "Continuously monitor the website's performance and identify areas for optimization to ensure it remains fast and efficient."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Implement accessibility features",
+        "description": "Add accessibility features to the website to improve user experience and comply with accessibility standards.",
+        "recommendation": "Consider hiring an accessibility expert to review and implement accessibility features."
+      },
+      {
+        "title": "Conduct SEO audit",
+        "description": "Perform an SEO audit to identify areas for improvement and optimize the website's content and structure for search engines.",
+        "recommendation": "Consider hiring an SEO expert to conduct the audit and provide recommendations."
+      },
+      {
+        "title": "Implement security measures",
+        "description": "Implement security measures to protect the website and its users from potential threats.",
+        "recommendation": "Consider hiring a security expert to review and implement security measures."
+      },
+      {
+        "title": "Implement best practices",
+        "description": "Implement best practices for web development to ensure the website is maintainable, efficient, and user-friendly.",
+        "recommendation": "Consider hiring a web development expert to review and implement best practices."
+      }
+    ]
+  },
+  "action_items": {
+    "total": 11,
+    "items": [
+      {
+        "title": "Monitor performance regularly",
+        "description": "Regularly check the website's performance to ensure it remains optimal.",
+        "priority": "low"
+      },
+      {
+        "title": "Implement accessibility features",
+        "description": "Add accessibility features to the website to improve user experience and comply with accessibility standards.",
+        "priority": "medium"
+      },
+      {
+        "title": "Conduct SEO audit",
+        "description": "Perform an SEO audit to identify areas for improvement and optimize the website's content and structure for search engines.",
+        "priority": "medium"
+      },
+      {
+        "title": "Implement security measures",
+        "description": "Implement security measures to protect the website and its users from potential threats.",
+        "priority": "high"
+      },
+      {
+        "title": "Implement best practices",
+        "description": "Implement best practices for web development to ensure the website is maintainable, efficient, and user-friendly.",
+        "priority": "medium"
+      },
+      {
+        "title": "Infer monitoring improvements",
+        "description": "Consider implementing monitoring tools to track the website's performance and identify potential issues before they become critical.",
+        "priority": "low"
+      },
+      {
+        "title": "Infer scalability improvements",
+        "description": "Plan for potential scalability issues by designing the website's architecture to handle increased traffic and user demand.",
+        "priority": "medium"
+      },
+      {
+        "title": "Infer maintainability recommendations",
+        "description": "Regularly review and refactor the website's code to ensure it remains maintainable and easy to update.",
+        "priority": "medium"
+      },
+      {
+        "title": "Infer observability improvements",
+        "description": "Implement logging and analytics tools to gain insights into the website's performance and user behavior.",
+        "priority": "medium"
+      },
+      {
+        "title": "Infer future optimization opportunities",
+        "description": "Continuously monitor the website's performance and identify areas for optimization to ensure it remains fast and efficient.",
+        "priority": "low"
+      },
+      {
+        "title": "Review and implement recommendations",
+        "description": "Review the recommendations provided and implement them to improve the website's performance, accessibility, SEO, security, and maintainability.",
+        "priority": "high"
+      }
+    ]
+  },
+  "meta": {
+    "audited_at": "2023-12-01T12:00:00Z",
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-14T12:25:31Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=11",
+      "5 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ]
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page scores 100/100 on performance, with all metrics meeting the recommended thresholds.",
+      "findings": [
+        {
+          "title": "Largest Contentful Paint (LCP)",
+          "severity": "pass",
+          "description": "LCP: 1.5 s (mobile) / 0.4 s (desktop); budget 2.5 s",
+          "recommendation": "No action needed; LCP is within the recommended threshold."
+        },
+        {
+          "title": "Cumulative Layout Shift (CLS)",
+          "severity": "pass",
+          "description": "CLS: 0 (mobile and desktop); budget 0.1",
+          "recommendation": "No action needed; CLS is within the recommended threshold."
+        },
+        {
+          "title": "Total Blocking Time (TBT)",
+          "severity": "pass",
+          "description": "TBT: 0 ms (mobile and desktop); budget 200 ms",
+          "recommendation": "No action needed; TBT is within the recommended threshold."
+        },
+        {
+          "title": "Cache Insight",
+          "severity": "low",
+          "description": "Estimated savings of 14 KiB by using efficient cache lifetimes",
+          "recommendation": "Consider implementing efficient cache lifetimes to reduce repeat visit load times."
+        },
+        {
+          "title": "DOM Size Insight",
+          "severity": "low",
+          "description": "DOM size: 660 elements; recommended < 1500",
+          "recommendation": "Consider optimizing DOM size to improve page responsiveness and reduce memory usage."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    }
+  }
+}

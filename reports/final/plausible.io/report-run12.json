@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "audited_at": "2023-12-01T12:00:00Z",
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "generated_at": "2026-05-14T12:24:39Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=5",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ]
+  },
+  "executive_summary": {
+    "summary": "The page scores 100/100 on performance, with no major issues found. However, there are some minor opportunities for improvement.",
+    "top_issues": [
+      {
+        "title": "Optimize cache lifetimes",
+        "description": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "category": "Optimize cache lifetimes",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "impact": "Increase the cache lifetime for static resources to reduce the number of requests made to the server."
+      },
+      {
+        "title": "Optimize DOM size",
+        "description": "Reduce the number of elements in the DOM to improve page performance.",
+        "recommendation": "Consider reducing the number of elements in the DOM to improve page performance.",
+        "category": "Optimize DOM size",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Reduce the number of elements in the DOM to improve page performance.",
+        "impact": "Reduce the number of elements in the DOM to improve page performance."
+      },
+      {
+        "title": "Implement monitoring tools",
+        "description": "Implement monitoring tools to track performance and identify areas for improvement.",
+        "recommendation": "Consider implementing monitoring tools to track performance and identify areas for improvement.",
+        "category": "Implement monitoring tools",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Implement monitoring tools to track performance and identify areas for improvement.",
+        "impact": "Implement monitoring tools to track performance and identify areas for improvement."
+      }
+    ],
+    "next_step": {
+      "title": "Optimize cache lifetimes",
+      "description": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+      "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server.",
+      "category": "Optimize cache lifetimes",
+      "dimension": "Performance",
+      "priority": "low",
+      "severity": "info",
+      "evidence": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+      "impact": "Increase the cache lifetime for static resources to reduce the number of requests made to the server."
+    }
+  },
+  "severity_overview": {
+    "total_findings": 5,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 2,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0,
+      "P3": 5
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "dimension": "performance",
+      "title": "Optimize cache lifetimes",
+      "severity": "low",
+      "priority": "low",
+      "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+      "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+    },
+    {
+      "dimension": "performance",
+      "title": "Optimize DOM size",
+      "severity": "low",
+      "priority": "low",
+      "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+      "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Optimize cache lifetimes",
+        "description": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "priority": "low",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Optimize DOM size",
+        "description": "Reduce the number of elements in the DOM to improve page performance.",
+        "recommendation": "Consider reducing the number of elements in the DOM to improve page performance.",
+        "priority": "low",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Implement monitoring tools",
+        "description": "Implement monitoring tools to track performance and identify areas for improvement.",
+        "recommendation": "Consider implementing monitoring tools to track performance and identify areas for improvement.",
+        "priority": "low",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Implement scalable solutions",
+        "description": "Implement scalable solutions to handle increased traffic and improve performance.",
+        "recommendation": "Consider implementing scalable solutions to handle increased traffic and improve performance.",
+        "priority": "low",
+        "dimension": "Performance"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Implement maintainable code practices",
+        "description": "Implement maintainable code practices to improve the overall quality of the codebase.",
+        "recommendation": "Consider implementing coding standards and code reviews to improve maintainability.",
+        "priority": "low",
+        "dimension": "Performance"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Optimize cache lifetimes",
+        "description": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "category": "Optimize cache lifetimes",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "impact": "Increase the cache lifetime for static resources to reduce the number of requests made to the server."
+      },
+      {
+        "title": "Optimize DOM size",
+        "description": "Reduce the number of elements in the DOM to improve page performance.",
+        "recommendation": "Consider reducing the number of elements in the DOM to improve page performance.",
+        "category": "Optimize DOM size",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Reduce the number of elements in the DOM to improve page performance.",
+        "impact": "Reduce the number of elements in the DOM to improve page performance."
+      },
+      {
+        "title": "Implement monitoring tools",
+        "description": "Implement monitoring tools to track performance and identify areas for improvement.",
+        "recommendation": "Consider implementing monitoring tools to track performance and identify areas for improvement.",
+        "category": "Implement monitoring tools",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Implement monitoring tools to track performance and identify areas for improvement.",
+        "impact": "Implement monitoring tools to track performance and identify areas for improvement."
+      },
+      {
+        "title": "Implement scalable solutions",
+        "description": "Implement scalable solutions to handle increased traffic and improve performance.",
+        "recommendation": "Consider implementing scalable solutions to handle increased traffic and improve performance.",
+        "category": "Implement scalable solutions",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Implement scalable solutions to handle increased traffic and improve performance.",
+        "impact": "Implement scalable solutions to handle increased traffic and improve performance."
+      },
+      {
+        "title": "Implement maintainable code practices",
+        "description": "Implement maintainable code practices to improve the overall quality of the codebase.",
+        "recommendation": "Consider implementing coding standards and code reviews to improve maintainability.",
+        "category": "Implement maintainable code practices",
+        "dimension": "Performance",
+        "priority": "low",
+        "severity": "info",
+        "evidence": "Implement maintainable code practices to improve the overall quality of the codebase.",
+        "impact": "Implement maintainable code practices to improve the overall quality of the codebase."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Monitoring improvements",
+        "description": "Implement monitoring tools to track performance and identify areas for improvement."
+      },
+      {
+        "title": "Scalability improvements",
+        "description": "Implement scalable solutions to handle increased traffic and improve performance."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Maintainability recommendations",
+        "description": "Implement maintainable code practices to improve the overall quality of the codebase.",
+        "recommendation": "Consider implementing coding standards and code reviews to improve maintainability."
+      },
+      {
+        "title": "Observability improvements",
+        "description": "Implement observability tools to track performance and identify areas for improvement.",
+        "recommendation": "Consider implementing logging and monitoring tools to improve observability."
+      }
+    ]
+  },
+  "action_items": {
+    "total": 5,
+    "items": [
+      {
+        "title": "Optimize cache lifetimes",
+        "description": "Increase the cache lifetime for static resources to reduce the number of requests made to the server.",
+        "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+      },
+      {
+        "title": "Optimize DOM size",
+        "description": "Reduce the number of elements in the DOM to improve page performance.",
+        "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+      },
+      {
+        "title": "Implement monitoring tools",
+        "description": "Implement monitoring tools to track performance and identify areas for improvement.",
+        "recommendation": "Consider implementing monitoring tools to track performance and identify areas for improvement."
+      },
+      {
+        "title": "Implement scalable solutions",
+        "description": "Implement scalable solutions to handle increased traffic and improve performance.",
+        "recommendation": "Consider implementing scalable solutions to handle increased traffic and improve performance."
+      },
+      {
+        "title": "Implement maintainable code practices",
+        "description": "Implement maintainable code practices to improve the overall quality of the codebase.",
+        "recommendation": "Consider implementing coding standards and code reviews to improve maintainability."
+      }
+    ]
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page scores 100/100 on performance, with no major issues found. However, there are some minor opportunities for improvement.",
+      "findings": [
+        {
+          "title": "Optimize cache lifetimes",
+          "severity": "low",
+          "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+          "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+        },
+        {
+          "title": "Optimize DOM size",
+          "severity": "low",
+          "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+          "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    }
+  }
+}

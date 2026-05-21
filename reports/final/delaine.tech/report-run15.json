@@ -1,0 +1,692 @@
+{
+  "executive_summary": {
+    "summary": "The website https://delaine.tech/ has significant performance issues, security vulnerabilities, and some accessibility and SEO concerns. The site scores 59 in performance, 92 in accessibility, 92 in SEO, 55 in security, and 100 in best practices.",
+    "top_issues": [
+      {
+        "title": "Optimize images",
+        "description": "Compress and optimize images to reduce page load times",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Compress and optimize images to reduce page load times",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Compress and optimize images to reduce page load times",
+        "impact": "Compress and optimize images to reduce page load times"
+      },
+      {
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Implement the missing security headers to protect against potential attacks",
+        "category": "Implement missing security headers",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Implement the missing security headers to protect against potential attacks",
+        "impact": "Implement the missing security headers to protect against potential attacks"
+      },
+      {
+        "title": "Add a valid rel=canonical link",
+        "description": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "seo",
+        "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "category": "Add a valid rel=canonical link",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "impact": "Add a valid rel=canonical link to the page to specify the preferred version"
+      }
+    ],
+    "next_step": {
+      "title": "Optimize images",
+      "description": "Compress and optimize images to reduce page load times",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Compress and optimize images to reduce page load times",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Compress and optimize images to reduce page load times",
+      "impact": "Compress and optimize images to reduce page load times"
+    },
+    "headline_score": 80
+  },
+  "severity_overview": {
+    "total_findings": 10,
+    "by_severity": {
+      "critical": 0,
+      "high": 3,
+      "medium": 3,
+      "low": 5,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 4,
+      "P2": 3,
+      "P3": 3
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "title": "Optimize images",
+      "description": "Compress and optimize images to reduce page load times",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "performance",
+      "recommendation": "Compress and optimize images to reduce page load times",
+      "category": "Optimize images",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Compress and optimize images to reduce page load times",
+      "impact": "Compress and optimize images to reduce page load times"
+    },
+    {
+      "title": "Implement missing security headers",
+      "description": "Implement the missing security headers to protect against potential attacks",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "security",
+      "recommendation": "Implement the missing security headers to protect against potential attacks",
+      "category": "Implement missing security headers",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Implement the missing security headers to protect against potential attacks",
+      "impact": "Implement the missing security headers to protect against potential attacks"
+    },
+    {
+      "title": "Add a valid rel=canonical link",
+      "description": "Add a valid rel=canonical link to the page to specify the preferred version",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "seo",
+      "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version",
+      "category": "Add a valid rel=canonical link",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Add a valid rel=canonical link to the page to specify the preferred version",
+      "impact": "Add a valid rel=canonical link to the page to specify the preferred version"
+    },
+    {
+      "title": "Conduct a security audit",
+      "description": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+      "priority": "P1",
+      "severity": "high",
+      "dimension": "security",
+      "recommendation": "Conduct a security audit and implement recommendations to improve the website's security",
+      "category": "Conduct a security audit",
+      "priority_class": "p1",
+      "estimated_effort": "1 day",
+      "evidence": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+      "impact": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations"
+    },
+    {
+      "title": "Minify CSS and JavaScript",
+      "description": "Minify and compress CSS and JavaScript files to reduce page load times",
+      "priority": "P2",
+      "severity": "medium",
+      "dimension": "performance",
+      "recommendation": "Minify and compress CSS and JavaScript files to reduce page load times",
+      "category": "Minify CSS and JavaScript",
+      "priority_class": "p2",
+      "estimated_effort": "1 day",
+      "evidence": "Minify and compress CSS and JavaScript files to reduce page load times",
+      "impact": "Minify and compress CSS and JavaScript files to reduce page load times"
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Optimize images",
+        "description": "Compress and optimize images to reduce page load times",
+        "recommendation": "Compress and optimize images to reduce page load times",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks",
+        "recommendation": "Implement the missing security headers to protect against potential attacks",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "security",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Add a valid rel=canonical link",
+        "description": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "seo",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Conduct a security audit",
+        "description": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+        "recommendation": "Conduct a security audit and implement recommendations to improve the website's security",
+        "priority": "P1",
+        "priority_class": "p1",
+        "severity": "high",
+        "dimension": "security",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Minify CSS and JavaScript",
+        "description": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "recommendation": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "priority": "P2",
+        "priority_class": "p2",
+        "severity": "medium",
+        "dimension": "performance",
+        "estimated_effort": "1 day"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Add descriptive text to links",
+        "description": "Add descriptive text to links to improve accessibility and search engine understanding",
+        "recommendation": "Add descriptive text to links to improve accessibility and search engine understanding",
+        "priority": "P2",
+        "priority_class": "p2",
+        "severity": "medium",
+        "dimension": "seo",
+        "estimated_effort": "1 day"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Optimize images",
+        "description": "Compress and optimize images to reduce page load times",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Compress and optimize images to reduce page load times",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Compress and optimize images to reduce page load times",
+        "impact": "Compress and optimize images to reduce page load times"
+      },
+      {
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Implement the missing security headers to protect against potential attacks",
+        "category": "Implement missing security headers",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Implement the missing security headers to protect against potential attacks",
+        "impact": "Implement the missing security headers to protect against potential attacks"
+      },
+      {
+        "title": "Add a valid rel=canonical link",
+        "description": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "seo",
+        "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "category": "Add a valid rel=canonical link",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "impact": "Add a valid rel=canonical link to the page to specify the preferred version"
+      },
+      {
+        "title": "Conduct a security audit",
+        "description": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Conduct a security audit and implement recommendations to improve the website's security",
+        "category": "Conduct a security audit",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+        "impact": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations"
+      },
+      {
+        "title": "Minify CSS and JavaScript",
+        "description": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "category": "Minify CSS and JavaScript",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "impact": "Minify and compress CSS and JavaScript files to reduce page load times"
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Monitoring and maintenance",
+        "description": "Regularly monitor the website's performance, accessibility, and security to identify areas for improvement"
+      },
+      {
+        "title": "Scalability and performance",
+        "description": "Improve the website's scalability and performance by leveraging browser caching, optimizing server response times, and minimizing render-blocking resources"
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Implement a content delivery network (CDN)",
+        "description": "Implement a CDN to reduce the distance between users and resources, improving page load times",
+        "recommendation": "Research and implement a CDN to improve page load times",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "medium",
+        "dimension": "Architecture",
+        "estimated_effort": "1–2 weeks"
+      },
+      {
+        "title": "Conduct a security audit",
+        "description": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+        "recommendation": "Conduct a security audit and implement recommendations to improve the website's security",
+        "priority": "P3",
+        "priority_class": "p3",
+        "severity": "medium",
+        "dimension": "Architecture",
+        "estimated_effort": "1–2 weeks"
+      }
+    ]
+  },
+  "action_items": {
+    "total": 10,
+    "items": [
+      {
+        "title": "Optimize images",
+        "description": "Compress and optimize images to reduce page load times",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "performance",
+        "recommendation": "Compress and optimize images to reduce page load times",
+        "category": "Optimize images",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Compress and optimize images to reduce page load times",
+        "impact": "Compress and optimize images to reduce page load times"
+      },
+      {
+        "title": "Implement missing security headers",
+        "description": "Implement the missing security headers to protect against potential attacks",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Implement the missing security headers to protect against potential attacks",
+        "category": "Implement missing security headers",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Implement the missing security headers to protect against potential attacks",
+        "impact": "Implement the missing security headers to protect against potential attacks"
+      },
+      {
+        "title": "Add a valid rel=canonical link",
+        "description": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "seo",
+        "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "category": "Add a valid rel=canonical link",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Add a valid rel=canonical link to the page to specify the preferred version",
+        "impact": "Add a valid rel=canonical link to the page to specify the preferred version"
+      },
+      {
+        "title": "Conduct a security audit",
+        "description": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+        "priority": "P1",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Conduct a security audit and implement recommendations to improve the website's security",
+        "category": "Conduct a security audit",
+        "priority_class": "p1",
+        "estimated_effort": "1 day",
+        "evidence": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations",
+        "impact": "Conduct a comprehensive security audit to identify vulnerabilities and implement recommendations"
+      },
+      {
+        "title": "Minify CSS and JavaScript",
+        "description": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "category": "Minify CSS and JavaScript",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Minify and compress CSS and JavaScript files to reduce page load times",
+        "impact": "Minify and compress CSS and JavaScript files to reduce page load times"
+      },
+      {
+        "title": "Add descriptive text to links",
+        "description": "Add descriptive text to links to improve accessibility and search engine understanding",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Add descriptive text to links to improve accessibility and search engine understanding",
+        "category": "Add descriptive text to links",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Add descriptive text to links to improve accessibility and search engine understanding",
+        "impact": "Add descriptive text to links to improve accessibility and search engine understanding"
+      },
+      {
+        "title": "Implement a content delivery network (CDN)",
+        "description": "Implement a CDN to reduce the distance between users and resources, improving page load times",
+        "priority": "P2",
+        "severity": "medium",
+        "dimension": "performance",
+        "recommendation": "Implement a CDN to reduce the distance between users and resources, improving page load times",
+        "category": "Implement a content delivery network (CDN)",
+        "priority_class": "p2",
+        "estimated_effort": "1 day",
+        "evidence": "Implement a CDN to reduce the distance between users and resources, improving page load times",
+        "impact": "Implement a CDN to reduce the distance between users and resources, improving page load times"
+      },
+      {
+        "title": "Ensure ARIA attributes match their roles",
+        "description": "Ensure ARIA attributes match their roles to improve accessibility",
+        "priority": "P3",
+        "severity": "low",
+        "dimension": "accessibility",
+        "recommendation": "Ensure ARIA attributes match their roles to improve accessibility",
+        "category": "Ensure ARIA attributes match their roles",
+        "priority_class": "p3",
+        "estimated_effort": "1 day",
+        "evidence": "Ensure ARIA attributes match their roles to improve accessibility",
+        "impact": "Ensure ARIA attributes match their roles to improve accessibility"
+      },
+      {
+        "title": "Avoid using deprecated ARIA roles",
+        "description": "Avoid using deprecated ARIA roles to improve accessibility",
+        "priority": "P3",
+        "severity": "low",
+        "dimension": "accessibility",
+        "recommendation": "Avoid using deprecated ARIA roles to improve accessibility",
+        "category": "Avoid using deprecated ARIA roles",
+        "priority_class": "p3",
+        "estimated_effort": "1 day",
+        "evidence": "Avoid using deprecated ARIA roles to improve accessibility",
+        "impact": "Avoid using deprecated ARIA roles to improve accessibility"
+      },
+      {
+        "title": "Review the page's layout to ensure a smooth user experience",
+        "description": "Review the page's layout to ensure a smooth user experience",
+        "priority": "P3",
+        "severity": "low",
+        "dimension": "accessibility",
+        "recommendation": "Review the page's layout to ensure a smooth user experience",
+        "category": "Review the page's layout to ensure a smooth user experience",
+        "priority_class": "p3",
+        "estimated_effort": "1 day",
+        "evidence": "Review the page's layout to ensure a smooth user experience",
+        "impact": "Review the page's layout to ensure a smooth user experience"
+      }
+    ]
+  },
+  "meta": {
+    "audited_at": "2026-05-19T08:23:58Z",
+    "url": "https://delaine.tech/",
+    "hostname": "delaine.tech",
+    "dimensions_analyzed": [
+      "accessibility",
+      "best-practices",
+      "performance",
+      "security",
+      "seo"
+    ],
+    "dimensions_missing": [],
+    "generated_at": "2026-05-19T08:25:46Z",
+    "audited_at_human": "Tue, 19 May 2026 08:23:58 UTC",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=10",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ],
+    "logo_url": "https://www.google.com/s2/favicons?domain=delaine.tech&sz=128",
+    "initial": "D"
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 59,
+      "summary": "The page has significant performance issues, with a Largest Contentful Paint (LCP) of 6.4s on mobile and 4.9s on desktop. The Total Blocking Time (TBT) is 290ms on mobile and 100ms on desktop. The Cumulative Layout Shift (CLS) is 0.023 on mobile and 0.005 on desktop.",
+      "findings": [
+        {
+          "category": "core-web-vitals",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "LCP: 6.4s mobile / 4.9s desktop; budget 2.5s",
+          "impact": "Slow page load times can lead to high bounce rates and negatively impact user experience.",
+          "recommendation": "Optimize images, minify CSS and JavaScript, and leverage browser caching to improve page load times."
+        },
+        {
+          "category": "render-blocking",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "TBT: 290ms mobile / 100ms desktop",
+          "impact": "Render-blocking resources can slow down page load times and impact user experience.",
+          "recommendation": "Minify and compress CSS and JavaScript files, and consider using a CDN to reduce the distance between users and resources."
+        },
+        {
+          "category": "cumulative-layout-shift",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "CLS: 0.023 mobile / 0.005 desktop",
+          "impact": "A low CLS score indicates that the page has minimal layout shifts, which can improve user experience.",
+          "recommendation": "Continue to monitor and optimize the page's layout to ensure a smooth user experience."
+        },
+        {
+          "category": "cache-insight",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "Estimated savings: 31,591 KiB mobile / 2,502 KiB desktop",
+          "impact": "Improving cache lifetimes can reduce the number of requests made to the server and improve page load times.",
+          "recommendation": "Implement a caching strategy to reduce the number of requests made to the server and improve page load times."
+        },
+        {
+          "category": "dom-size-insight",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "DOM size: 1,525 elements mobile / 1,739 elements desktop",
+          "impact": "A large DOM size can impact page performance and increase memory usage.",
+          "recommendation": "Monitor and optimize the page's DOM size to ensure it does not negatively impact performance."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    },
+    "accessibility": {
+      "dimension": "accessibility",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 92,
+      "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The site scores 92% on mobile and 91% on desktop.",
+      "findings": [
+        {
+          "category": "robust",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "aria-allowed-attr audit passed with no issues found.",
+          "impact": "No users are directly affected by this issue.",
+          "recommendation": "Continue to ensure ARIA attributes match their roles."
+        },
+        {
+          "category": "robust",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "aria-conditional-attr audit passed with no issues found.",
+          "impact": "No users are directly affected by this issue.",
+          "recommendation": "Continue to ensure ARIA attributes are used as specified for the element's role."
+        },
+        {
+          "category": "robust",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "aria-deprecated-role audit passed with no deprecated roles found.",
+          "impact": "No users are directly affected by this issue.",
+          "recommendation": "Continue to avoid using deprecated ARIA roles."
+        },
+        {
+          "category": "robust",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "aria-hidden-body audit passed with no issues found.",
+          "impact": "No users are directly affected by this issue.",
+          "recommendation": "Continue to avoid setting aria-hidden=true on the document body."
+        },
+        {
+          "category": "robust",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "aria-hidden-focus audit passed with no issues found.",
+          "impact": "No users are directly affected by this issue.",
+          "recommendation": "Continue to ensure [aria-hidden=true] elements do not contain focusable descendents."
+        }
+      ],
+      "metadata": {
+        "gaps": [],
+        "extensions": {
+          "manual_review_required": [
+            "Screen-reader announcement quality",
+            "Focus order beyond DOM order",
+            "Video and audio captions",
+            "Error-message clarity",
+            "Motion and animation sensitivity",
+            "Cognitive load and reading level"
+          ]
+        }
+      }
+    },
+    "seo": {
+      "dimension": "seo",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 92,
+      "summary": "Score adjusted from 92 to 92, as no crawlability issues were found. However, the page has 1 link without descriptive text.",
+      "findings": [
+        {
+          "category": "content",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "Lighthouse audit 'link-text' score: 0",
+          "impact": "Search engines may have difficulty understanding the content of the page.",
+          "recommendation": "Add descriptive text to the link to improve accessibility and search engine understanding."
+        },
+        {
+          "category": "crawlability",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "Security audit 'sitemap_xml' status: 404",
+          "impact": "Search engines may have difficulty discovering all pages on the site.",
+          "recommendation": "Create and submit a sitemap to help search engines discover all pages on the site."
+        },
+        {
+          "category": "indexability",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "Lighthouse audit 'canonical' score: null",
+          "impact": "Search engines may not know which version of the page to index.",
+          "recommendation": "Add a valid rel=canonical link to the page to specify the preferred version."
+        }
+      ],
+      "metadata": {
+        "gaps": [
+          "sitemap.xml not found"
+        ]
+      }
+    },
+    "security": {
+      "dimension": "security",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 55,
+      "summary": "Multiple security issues were found, including missing security headers and potential information disclosure through the robots.txt file.",
+      "findings": [
+        {
+          "category": "transport",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "TLS protocol version is TLSv1.3, which is the current standard.",
+          "impact": "No significant impact, but it's recommended to keep the TLS protocol up to date.",
+          "recommendation": "No action required, as the current TLS protocol version is sufficient."
+        },
+        {
+          "category": "headers",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy, permissions-policy.",
+          "impact": "The website is vulnerable to various attacks, such as XSS and clickjacking, due to the lack of security headers.",
+          "recommendation": "Implement the missing security headers to protect against potential attacks."
+        },
+        {
+          "category": "information-disclosure",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "The robots.txt file contains information about the website's content signals, which could potentially be used to gather sensitive information.",
+          "impact": "The information in the robots.txt file could be used to gather sensitive information about the website's content.",
+          "recommendation": "Review the robots.txt file and remove any sensitive information to prevent potential information disclosure."
+        },
+        {
+          "category": "redirect",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "The website upgrades to HTTPS correctly, but the redirect status code is 200, which is not the recommended 301 or 308.",
+          "impact": "No significant impact, but it's recommended to use a 301 or 308 status code for the redirect.",
+          "recommendation": "Update the redirect status code to 301 or 308 to follow best practices."
+        }
+      ],
+      "metadata": {
+        "analyzed_at": "2026-05-19T08:23:58Z",
+        "lighthouse_version": "unknown",
+        "security_scan_version": "unknown"
+      }
+    },
+    "best-practices": {
+      "dimension": "best-practices",
+      "url": "https://delaine.tech/",
+      "hostname": "delaine.tech",
+      "score": 100,
+      "summary": "No best-practices issues detected.",
+      "findings": [],
+      "metadata": {
+        "extensions": {
+          "deferred_to": [
+            "is-on-https -> security",
+            "csp-xss -> security",
+            "has-hsts -> security",
+            "clickjacking-mitigation -> security",
+            "trusted-types-xss -> security"
+          ]
+        }
+      }
+    }
+  }
+}

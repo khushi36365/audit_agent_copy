@@ -1,0 +1,469 @@
+{
+  "executive_summary": {
+    "summary": "The Plausible.io website has some accessibility and security issues, but overall it has a good performance and SEO score.",
+    "top_issues": [
+      {
+        "title": "Provide accessible names for all input fields",
+        "description": "Provide accessible names for all input fields to ensure screen reader users can interact with them.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to ensure all input fields have accessible names.",
+        "category": "Provide accessible names for all input fields",
+        "evidence": "Provide accessible names for all input fields to ensure screen reader users can interact with them.",
+        "impact": "Provide accessible names for all input fields to ensure screen reader users can interact with them."
+      },
+      {
+        "title": "Add missing security headers",
+        "description": "Add the missing security headers to the site's configuration.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Add the missing security headers to the site's configuration.",
+        "category": "Add missing security headers",
+        "evidence": "Add the missing security headers to the site's configuration.",
+        "impact": "Add the missing security headers to the site's configuration."
+      },
+      {
+        "title": "Implement a web application firewall",
+        "description": "Implement a web application firewall to protect the website against common web attacks.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Configure the web application firewall to protect against common web attacks.",
+        "category": "Implement a web application firewall",
+        "evidence": "Implement a web application firewall to protect the website against common web attacks.",
+        "impact": "Implement a web application firewall to protect the website against common web attacks."
+      }
+    ],
+    "next_step": {
+      "title": "Provide accessible names for all input fields",
+      "description": "Provide accessible names for all input fields to ensure screen reader users can interact with them.",
+      "priority": "high",
+      "severity": "high",
+      "dimension": "accessibility",
+      "recommendation": "Use automated tools and manual review to ensure all input fields have accessible names.",
+      "category": "Provide accessible names for all input fields",
+      "evidence": "Provide accessible names for all input fields to ensure screen reader users can interact with them.",
+      "impact": "Provide accessible names for all input fields to ensure screen reader users can interact with them."
+    },
+    "headline_score": 82
+  },
+  "severity_overview": {
+    "total_findings": 8,
+    "by_severity": {
+      "critical": 0,
+      "high": 2,
+      "medium": 4,
+      "low": 4,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 3,
+      "P2": 3,
+      "P3": 2
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "dimension": "accessibility",
+      "title": "Missing ARIA attributes",
+      "severity": "medium",
+      "priority": "medium",
+      "description": "ARIA attributes are not properly matched to their roles, which can make screen readers announce elements with generic names.",
+      "recommendation": "Ensure ARIA attributes match their roles to provide a better experience for screen reader users."
+    },
+    {
+      "dimension": "accessibility",
+      "title": "Insufficient input field names",
+      "severity": "high",
+      "priority": "high",
+      "description": "Some input fields are missing accessible names, which can make screen readers announce input fields with generic names.",
+      "recommendation": "Provide accessible names for all input fields to ensure screen reader users can interact with them."
+    },
+    {
+      "dimension": "security",
+      "title": "Missing security headers",
+      "severity": "high",
+      "priority": "high",
+      "description": "Missing security headers can make the site vulnerable to various attacks, such as XSS and clickjacking.",
+      "recommendation": "Add the missing security headers to the site's configuration."
+    },
+    {
+      "dimension": "seo",
+      "title": "Image elements do not have alt attributes",
+      "severity": "medium",
+      "priority": "medium",
+      "description": "Image elements do not have alt attributes, which can affect search engine understanding and accessibility.",
+      "recommendation": "Add alt attributes to image elements to improve accessibility and search engine understanding."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Provide accessible names for all input fields",
+        "description": "Provide accessible names for all input fields to ensure screen reader users can interact with them.",
+        "recommendation": "Use automated tools and manual review to ensure all input fields have accessible names.",
+        "priority": "high",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Add missing security headers",
+        "description": "Add the missing security headers to the site's configuration.",
+        "recommendation": "Add the missing security headers to the site's configuration.",
+        "priority": "high",
+        "dimension": "security"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Implement a web application firewall",
+        "description": "Implement a web application firewall to protect the website against common web attacks.",
+        "recommendation": "Configure the web application firewall to protect against common web attacks.",
+        "priority": "high",
+        "dimension": "security"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Ensure ARIA attributes match their roles",
+        "description": "Ensure ARIA attributes match their roles to provide a better experience for screen reader users.",
+        "recommendation": "Use automated tools and manual review to ensure ARIA attributes match their roles.",
+        "priority": "medium",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Conduct a thorough accessibility audit",
+        "description": "Conduct a thorough accessibility audit to identify and address any accessibility issues.",
+        "recommendation": "Use automated tools and manual review to identify and address accessibility issues.",
+        "priority": "medium",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Regularly review and update the website's security posture",
+        "description": "Regularly review and update the website's security posture to ensure it is protected against known vulnerabilities.",
+        "recommendation": "Regularly review and update the website's security posture.",
+        "priority": "medium",
+        "dimension": "security"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Add alt attributes to image elements",
+        "description": "Add alt attributes to image elements to improve accessibility and search engine understanding.",
+        "priority": "low",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Add alt attributes to image elements.",
+        "category": "Add alt attributes to image elements",
+        "evidence": "Add alt attributes to image elements to improve accessibility and search engine understanding.",
+        "impact": "Add alt attributes to image elements to improve accessibility and search engine understanding."
+      },
+      {
+        "title": "Review the meta description",
+        "description": "Review the meta description to ensure it is concise and accurately summarizes the page content.",
+        "priority": "low",
+        "severity": "low",
+        "dimension": "seo",
+        "recommendation": "Review the meta description.",
+        "category": "Review the meta description",
+        "evidence": "Review the meta description to ensure it is concise and accurately summarizes the page content.",
+        "impact": "Review the meta description to ensure it is concise and accurately summarizes the page content."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Accessibility",
+        "description": "Continuously monitor and improve the website's accessibility to ensure it is usable by all users."
+      },
+      {
+        "title": "Security",
+        "description": "Regularly review and update the website's security posture to ensure it is protected against known vulnerabilities."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "Conduct a thorough accessibility audit",
+        "description": "Conduct a thorough accessibility audit to identify and address any accessibility issues.",
+        "recommendation": "Use automated tools and manual review to identify and address accessibility issues."
+      },
+      {
+        "title": "Implement a web application firewall",
+        "description": "Implement a web application firewall to protect the website against common web attacks.",
+        "recommendation": "Configure the web application firewall to protect against common web attacks."
+      }
+    ]
+  },
+  "action_items": {
+    "total": 8,
+    "items": [
+      {
+        "title": "Ensure ARIA attributes match their roles",
+        "description": "Ensure ARIA attributes match their roles to provide a better experience for screen reader users.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to ensure ARIA attributes match their roles."
+      },
+      {
+        "title": "Provide accessible names for all input fields",
+        "description": "Provide accessible names for all input fields to ensure screen reader users can interact with them.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to ensure all input fields have accessible names."
+      },
+      {
+        "title": "Add missing security headers",
+        "description": "Add the missing security headers to the site's configuration.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Add the missing security headers to the site's configuration."
+      },
+      {
+        "title": "Add alt attributes to image elements",
+        "description": "Add alt attributes to image elements to improve accessibility and search engine understanding.",
+        "priority": "low",
+        "severity": "medium",
+        "dimension": "seo",
+        "recommendation": "Add alt attributes to image elements."
+      },
+      {
+        "title": "Review the meta description",
+        "description": "Review the meta description to ensure it is concise and accurately summarizes the page content.",
+        "priority": "low",
+        "severity": "low",
+        "dimension": "seo",
+        "recommendation": "Review the meta description."
+      },
+      {
+        "title": "Conduct a thorough accessibility audit",
+        "description": "Conduct a thorough accessibility audit to identify and address any accessibility issues.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and address accessibility issues."
+      },
+      {
+        "title": "Implement a web application firewall",
+        "description": "Implement a web application firewall to protect the website against common web attacks.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "security",
+        "recommendation": "Configure the web application firewall to protect against common web attacks."
+      },
+      {
+        "title": "Regularly review and update the website's security posture",
+        "description": "Regularly review and update the website's security posture to ensure it is protected against known vulnerabilities.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "security",
+        "recommendation": "Regularly review and update the website's security posture."
+      }
+    ]
+  },
+  "meta": {
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "accessibility",
+      "performance",
+      "security",
+      "seo"
+    ],
+    "dimensions_missing": [
+      "best-practices"
+    ],
+    "audited_at": "2026-05-15T08:03:47Z",
+    "generated_at": "2026-05-15T08:05:18Z",
+    "audited_at_human": "Fri, 15 May 2026 08:03:47 UTC",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=8",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ]
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page achieves a perfect performance score. No critical issues were found.",
+      "findings": [
+        {
+          "category": "core-web-vitals",
+          "severity": "pass",
+          "priority": "low",
+          "evidence": "LCP: 1.4 s mobile / 0.4 s desktop; budget 2.5 s. CLS: 0 mobile / 0 desktop; budget 0.1. INP: not reported.",
+          "impact": "The page meets all Core Web Vitals thresholds.",
+          "recommendation": "No action required."
+        },
+        {
+          "category": "render-blocking",
+          "severity": "pass",
+          "priority": "low",
+          "evidence": "No render-blocking resources were found.",
+          "impact": "The page does not have any render-blocking resources.",
+          "recommendation": "No action required."
+        },
+        {
+          "category": "caching",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "Estimated savings of 14 KiB from efficient cache lifetimes.",
+          "impact": "Improving cache lifetimes can reduce the page's load time.",
+          "recommendation": "Consider implementing efficient cache lifetimes to reduce the page's load time."
+        },
+        {
+          "category": "dom-size",
+          "severity": "pass",
+          "priority": "low",
+          "evidence": "The page has 660 elements in the DOM.",
+          "impact": "The page's DOM size is within acceptable limits.",
+          "recommendation": "No action required."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    },
+    "accessibility": {
+      "dimension": "accessibility",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 64,
+      "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The site has some accessibility issues, including missing ARIA attributes and insufficient input field names.",
+      "findings": [
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "ARIA attributes are not properly matched to their roles.",
+          "impact": "Screen readers may announce elements with generic names, making them unusable for users who rely on screen readers.",
+          "recommendation": "Ensure ARIA attributes match their roles to provide a better experience for screen reader users."
+        },
+        {
+          "category": "operable",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "Some input fields are missing accessible names.",
+          "impact": "Screen readers may announce input fields with generic names, making them unusable for users who rely on screen readers.",
+          "recommendation": "Provide accessible names for all input fields to ensure screen reader users can interact with them."
+        }
+      ],
+      "metadata": {
+        "gaps": [],
+        "extensions": {
+          "manual_review_required": [
+            "Screen-reader announcement quality",
+            "Focus order beyond DOM order",
+            "Video and audio captions",
+            "Error-message clarity",
+            "Motion and animation sensitivity",
+            "Cognitive load and reading level"
+          ]
+        }
+      }
+    },
+    "seo": {
+      "dimension": "seo",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 92,
+      "summary": "The page has a good SEO score, with some minor issues. The score is adjusted from 92 to 92 as there are no crawlability issues found.",
+      "findings": [
+        {
+          "category": "metadata",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "The page has a meta description, but it's not explicitly mentioned in the audit results.",
+          "impact": "Meta descriptions may be included in search results to concisely summarize page content.",
+          "recommendation": "Consider adding a meta description to the page to improve search engine results."
+        },
+        {
+          "category": "content",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "Image elements do not have [alt] attributes.",
+          "impact": "Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute.",
+          "recommendation": "Add alt attributes to image elements to improve accessibility and search engine understanding."
+        }
+      ],
+      "metadata": {
+        "gaps": [],
+        "references": [
+          "https://developer.chrome.com/docs/lighthouse/seo/is-crawlable/",
+          "https://dequeuniversity.com/rules/axe/4.11/document-title",
+          "https://developer.chrome.com/docs/lighthouse/seo/meta-description/",
+          "https://developer.chrome.com/docs/lighthouse/seo/http-status-code/",
+          "https://developer.chrome.com/docs/lighthouse/seo/link-text/",
+          "https://support.google.com/webmasters/answer/9112205",
+          "https://dequeuniversity.com/rules/axe/4.11/image-alt"
+        ]
+      }
+    },
+    "security": {
+      "dimension": "security",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 70,
+      "summary": "Plausible.io has a good security posture but lacks some security headers and has a few areas for improvement.",
+      "findings": [
+        {
+          "category": "transport",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "TLS protocol is TLSv1.3, which is a good version, but it's not the latest version available.",
+          "impact": "Using an outdated TLS version may make the site vulnerable to known attacks.",
+          "recommendation": "Consider upgrading to the latest TLS version."
+        },
+        {
+          "category": "headers",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy.",
+          "impact": "Missing security headers can make the site vulnerable to various attacks, such as XSS and clickjacking.",
+          "recommendation": "Add the missing security headers to the site's configuration."
+        },
+        {
+          "category": "headers",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "Present security header: permissions-policy with value 'interest-cohort=()'.",
+          "impact": "The permissions-policy header is present, but its value may not be optimal.",
+          "recommendation": "Consider reviewing the permissions-policy header value to ensure it's optimal for the site's needs."
+        },
+        {
+          "category": "information-disclosure",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "Sitemap.xml contains URLs that may be sensitive: https://plausible.io/data-policy.",
+          "impact": "Exposing sensitive URLs in the sitemap.xml can make the site vulnerable to information disclosure attacks.",
+          "recommendation": "Consider removing sensitive URLs from the sitemap.xml or restricting access to them."
+        },
+        {
+          "category": "dependencies",
+          "severity": "info",
+          "priority": "info",
+          "evidence": "No vulnerable libraries were detected by Lighthouse.",
+          "impact": "The site may still have vulnerable libraries that are not detected by Lighthouse.",
+          "recommendation": "Consider using a more comprehensive vulnerability scanning tool to detect potential issues."
+        }
+      ],
+      "metadata": {
+        "analyzed_at": "2026-05-15T08:03:47Z",
+        "lighthouse_version": "unknown",
+        "security_scan_version": "unknown"
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "origin": "https://delaine.tech",
+  "scheme": "https",
+  "port": 443,
+  "run": 4,
+  "collected_at": "2026-05-20T06:03:33Z",
+  "tls": {
+    "checked": true,
+    "reachable": true,
+    "protocol": "TLSv1.3",
+    "cipher": null,
+    "certificate": {
+      "subject": "CN=delaine.tech",
+      "issuer": "C=US, O=Google Trust Services, CN=WE1",
+      "notBefore": "Apr  7 10:09:42 2026 GMT",
+      "notAfter": "Jul  6 11:08:21 2026 GMT"
+    }
+  },
+  "headers": {
+    "checked": true,
+    "reachable": true,
+    "present": {
+      "strict_transport_security": null,
+      "content_security_policy": null,
+      "x_frame_options": null,
+      "x_content_type_options": null,
+      "referrer_policy": null,
+      "permissions_policy": null,
+      "x_xss_protection": null,
+      "cross_origin_opener_policy": null,
+      "cross_origin_resource_policy": null,
+      "cross_origin_embedder_policy": null
+    }
+  },
+  "robots_txt": {
+    "url": "https://delaine.tech/robots.txt",
+    "status": 200,
+    "found": true,
+    "size_bytes": 1248,
+    "snippet": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a content-signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a content-signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a content signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via content signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tu"
+  },
+  "sitemap_xml": {
+    "url": "https://delaine.tech/sitemap.xml",
+    "status": 404,
+    "found": false,
+    "size_bytes": 170342,
+    "snippet": null
+  },
+  "http_redirect": {
+    "probed": "http://delaine.tech",
+    "final_url": "https://delaine.tech/",
+    "final_status": 200,
+    "num_redirects": 1,
+    "upgrades_to_https": true
+  },
+  "mixed_content": {
+    "checked": true,
+    "fetched": true,
+    "insecure_asset_refs": 0,
+    "sample": []
+  }
+}

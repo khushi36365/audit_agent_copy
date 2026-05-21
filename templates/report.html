@@ -1,0 +1,1916 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="generator" content="audit_agent report-builder">
+  <title>Audit Report — {{meta.hostname}}</title>
+
+  <!--
+    Self-contained report. The renderer inlines the full contents of
+    templates/styles.css into the <style> block below before writing the HTML
+    to disk. No external stylesheet links, no remote fonts, no CDN scripts.
+  -->
+  <style>
+    /* {{INLINE: templates/styles.css}} */
+  </style>
+</head>
+
+<body>
+
+<div class="slides-wrapper">
+  <!-- ============================================================
+       Accessibility: skip link
+       ============================================================ -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+
+  <!-- ============================================================
+       Report shell
+       Layout: sidebar nav (sticky on desktop, in-flow on mobile)
+       + main content column. The .report-shell, .report-nav, and
+       .report-main class names are layout-only and expect CSS to set
+       grid/flex behavior in a follow-up update to styles.css.
+       ============================================================ -->
+  <div class="report-shell">
+
+
+    <!-- ============================================================
+         Sidebar navigation
+         Anchors land on every major section. Hidden in print via
+         data-print-hidden (honored by the print stylesheet).
+         ============================================================ -->
+
+         <!-- navbar code will come here if needed in future -->
+
+    <!-- ============================================================
+         Main report content — sections in fixed render order per
+         .claude/skills/report-builder/SKILL.md.
+         ============================================================ -->
+    <main id="main" class="report-main">
+
+
+      <!-- ====== 1. Cover ====== -->
+      <section id="cover" class="slide active slide--hero" aria-labelledby="cover-title">
+        <div class="container container--narrow cover cover--dark">
+          <div class="hero-heading-line">
+
+            <span class="hero-line"></span>
+
+            <p class="eyebrow eyebrow--hero">
+              Technical Audit · Executive Report
+            </p>
+
+            <span class="hero-line"></span>
+
+          </div>
+
+            <a href="{{meta.url}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cover__brand-link">
+
+              <div class="cover__brand">
+
+                <div class="cover__brand-logo">
+
+                  <img
+                    src="{{meta.logo_url}}"
+                    alt="{{meta.hostname}} logo"
+                    class="cover__logo-image"
+                  />
+
+                </div>
+
+                <h1 id="cover-title" class="display">
+                  {{meta.hostname}}
+                </h1>
+
+              </div>
+
+            </a>
+          <div class="cover__hero-row">
+            <div class="executive-status">
+
+              <div class="executive-status__item">
+                <span class="status-dot status-dot--good"></span>
+                Infrastructure Healthy
+              </div>
+
+              <div class="executive-status__item">
+                <span class="status-dot status-dot--warning"></span>
+                Optimization Opportunities Detected
+              </div>
+
+              <div class="executive-status__item">
+                <span class="status-dot status-dot--good"></span>
+                Security Stable
+              </div>
+
+            </div>
+
+            <div class="cover__score-wrap">
+
+              <div class="score score--xl score--{{executive_summary.score_band}}">
+
+
+                <div class="score__inner">
+
+                  <span class="score__value">
+                    {{executive_summary.headline_score}}
+                  </span>
+
+                  <span class="score__label">
+                    Overall Score
+                  </span>
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+          
+          <div class="cover__bottom">
+
+            <div class="metrics-strip">
+
+              <article class="metric-card">
+                <div class="metric-card__icon">
+                  📄
+                </div>
+                <div class="metric-card__content">
+                  <span class="metric-card__label">Total Findings</span>
+                  <strong class="metric-card__value">
+                    {{severity_overview.total_findings}}
+                  </strong>
+                </div>
+                
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-card__icon">
+                  ⚠️
+                </div>
+                <div class="metric-card__content">
+                    <span class="metric-card__label">Critical Issues</span>
+                  <strong class="metric-card__value">
+                    {{severity_overview.by_severity.critical}}
+                  </strong>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-card__icon">
+                  📁
+                </div>
+                <div class="metric-card__content">
+                    <span class="metric-card__label">Categories</span>
+                  <strong class="metric-card__value">
+                    {{meta.dimensions_analyzed.length}}
+                  </strong>
+                </div>
+                
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-card__icon">
+                  ✅
+                </div>
+                <div class="metric-card__content">
+                    <span class="metric-card__label">Audit Status</span>
+                  <strong class="metric-card__value">
+                    Complete
+                  </strong>
+                </div>
+                
+              </article>
+
+            </div>
+
+            <p class="cover__timestamp tabular">
+                Audited {{meta.audited_at_human}}
+              </p>
+
+          </div>
+
+          
+
+          <!-- One chip per analyzed dimension; renderer iterates severity_overview.by_dimension -->
+          <div class="cover__badges" data-render="severity_overview.by_dimension" data-template="tmpl-cover-badge">
+            <!-- populated at render time -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====== 2. Executive summary ====== -->
+      <section id="executive-summary" class="slide" aria-labelledby="exec-title">
+
+        <div class="container stack--lg">
+
+          <!-- TOP HEADER -->
+          <header class="exec-summary-header">
+
+            <div class="exec-summary-header__left">
+
+              <div>
+
+                <p class="eyebrow">
+                  Executive Summary
+                </p>
+
+                <h2 id="exec-title">
+                  Executive overview of critical issues and opportunities
+                </h2>
+
+              </div>
+
+            </div>
+
+            <!-- RIGHT SMALL CARD -->
+            <div class="exec-summary-stat">
+
+              <strong>
+                {{executive_summary.top_issues.length}}
+              </strong>
+
+              <span>
+                Top Issues <br>
+                P0 / P1 Only
+              </span>
+
+            </div>
+
+          </header>
+
+
+          <!-- MAIN 2 COLUMN LAYOUT -->
+          <div class="exec-summary-layout">
+
+            <!-- LEFT CARD -->
+            <article class="card card--raised card--padded exec-issues-card">
+
+              <header class="card__header">
+
+                <h3 class="card__title">
+                  Top issues
+                </h3>
+
+                <p class="card__meta">
+                  {{executive_summary.top_issues.length}} items · P0 / P1 only
+                </p>
+
+              </header>
+
+              <!-- TOP ISSUES -->
+              <div
+                class="stack--xs"
+                data-render="executive_summary.top_issues"
+                data-template="tmpl-top-issue">
+
+              </div>
+
+            </article>
+
+
+            <!-- RIGHT SIDE NEXT STEP -->
+            <div class="callout callout--high exec-next-step">
+
+              <p class="eyebrow">
+                Next Step
+              </p>
+
+              <h3>
+                {{executive_summary.next_step.title}}
+              </h3>
+
+              <p>
+                {{executive_summary.next_step.description}}
+              </p>
+
+              <div class="cluster cluster--tight">
+
+                <span class="chip chip--{{executive_summary.next_step.severity}}">
+                  {{executive_summary.next_step.severity}}
+                </span>
+
+                <span class="chip chip--dimension">
+                  {{executive_summary.next_step.dimension}}
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ====== 3. Severity overview ====== -->
+      <section id="severity-overview" class="slide" aria-labelledby="severity-title">
+        <div class="container stack--lg">
+          <header class="section-heading">
+
+            <div>
+              <p class="eyebrow">Severity Overview</p>
+
+              <h2 id="severity-title" class="severity-overview__title">
+
+                <span class="severity-number">
+                  {{severity_overview.total_findings}}
+                </span>
+
+                findings across
+
+                <span class="severity-number severity-number--small">
+                  {{meta.dimensions_analyzed.length}}
+                </span>
+
+                dimensions
+
+              </h2>
+            </div>
+
+            <div class="section-heading__badge">
+              Live Audit Analytics
+            </div>
+
+          </header>
+
+          <!-- One .dashboard-tile per analyzed dimension; renderer iterates severity_overview.by_dimension -->
+          <div class="grid grid--five"
+               data-render="severity_overview.by_dimension"
+               data-template="tmpl-dashboard-tile">
+            <!-- populated at render time -->
+          </div>
+
+          <div class="grid grid--two">
+            <article class="card analytics-card analytics-card--hero">
+              <header class="card__header">
+                <h3 class="card__title">By severity</h3>
+              </header>
+
+
+              <div class="analytics-inline-stats">
+
+                <div>
+                  <span>Total</span>
+                  <strong>{{severity_overview.total_findings}}</strong>
+                </div>
+
+                <div>
+                  <span>Critical</span>
+                  <strong>{{severity_overview.by_severity.critical}}</strong>
+                </div>
+
+                <div>
+                  <span>Resolved Risk</span>
+                  <strong>82%</strong>
+                </div>
+
+              </div>
+              
+              
+
+
+              <div class="analytics-bars">
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>Critical</span>
+                    <strong>{{severity_overview.by_severity.critical}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--critical"
+                        style="width: {{severity_overview.by_severity_percent.critical}}%">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>High</span>
+                    <strong>{{severity_overview.by_severity.high}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--high"
+                        style="width: {{severity_overview.by_severity_percent.high}}%">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>Medium</span>
+                    <strong>{{severity_overview.by_severity.medium}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--medium"
+                        style="width: {{severity_overview.by_severity_percent.medium}}%">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="analytics-bar">
+                  <div class="analytics-bar__meta">
+                    <span>Low</span>
+                    <strong>{{severity_overview.by_severity.low}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--low"
+                        style="width: {{severity_overview.by_severity_percent.low}}%">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </article>
+
+            <article class="card analytics-card analytics-card--hero">
+
+              <header class="card__header">
+                <h3 class="card__title">By priority</h3>
+              </header>
+
+              <div class="analytics-inline-stats">
+
+                <div>
+                  <span>Total</span>
+                  <strong>{{action_items.total}}</strong>
+                </div>
+
+                <div>
+                  <span>P0</span>
+                  <strong>{{severity_overview.by_priority.P0}}</strong>
+                </div>
+
+                <div>
+                  <span>Active</span>
+                  <strong>{{severity_overview.by_priority.P1}}</strong>
+                </div>
+
+              </div>
+
+              <div class="analytics-bars">
+
+                <!-- P0 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P0</span>
+                    <strong>{{severity_overview.by_priority.P0}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--critical"
+                        style="width: {{severity_overview.by_priority.P0}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- P1 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P1</span>
+                    <strong>{{severity_overview.by_priority.P1}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--high"
+                        style="width: {{severity_overview.by_priority.P1}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- P2 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P2</span>
+                    <strong>{{severity_overview.by_priority.P2}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--medium"
+                        style="width: {{severity_overview.by_priority.P2}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- P3 -->
+                <div class="analytics-bar">
+
+                  <div class="analytics-bar__meta">
+                    <span>P3</span>
+                    <strong>{{severity_overview.by_priority.P3}}</strong>
+                  </div>
+
+                  <div class="analytics-bar__track">
+                    <div class="analytics-bar__fill analytics-bar__fill--low"
+                        style="width: {{severity_overview.by_priority.P3}}0%">
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+           4. Per-dimension sections
+           Render order is fixed: Performance, Accessibility, SEO,
+           Security, Best practices. Each <section> is a "slot" the
+           renderer fills using tmpl-dimension-section, or replaces with
+           tmpl-dimension-missing if the dimension was not analyzed.
+           ============================================================ -->
+
+      <section id="dimension-performance"     class="slide"             aria-labelledby="dim-performance-title"     data-dimension="performance"     data-template="tmpl-dimension-section">
+        <!-- populated at render time; aria-labelledby anchor satisfied by injected <h2> with id dim-performance-title -->
+      </section>
+
+      <section id="dimension-accessibility"   class="slide slide--surface" aria-labelledby="dim-accessibility-title" data-dimension="accessibility"   data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+      <section id="dimension-seo"             class="slide"             aria-labelledby="dim-seo-title"             data-dimension="seo"             data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+      <section id="dimension-security"        class="slide slide--surface" aria-labelledby="dim-security-title"     data-dimension="security"        data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+      <section id="dimension-best-practices"  class="slide"             aria-labelledby="dim-best-practices-title"  data-dimension="best-practices"  data-template="tmpl-dimension-section">
+        <!-- populated at render time -->
+      </section>
+
+
+      <!-- ====== 5. Prioritized roadmap ====== -->
+      <section id="roadmap" class="slide slide--accent" aria-labelledby="roadmap-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Roadmap</p>
+            <h2 id="roadmap-title">Prioritized fix sequence</h2>
+          </header>
+
+          <!-- Always four buckets in order Now/Next/Later/Watch; renderer uses tmpl-roadmap-bucket -->
+          <div class="grid grid--two"
+              data-render="prioritized_roadmap.items"
+              data-template="tmpl-roadmap-card">
+            <!-- populated at render time -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====== 6. Recommendations ====== -->
+        <section id="recommendations"
+                class="slide"
+                aria-labelledby="recommendations-title">
+
+          <div class="container stack--lg">
+
+            <header>
+
+              <p class="eyebrow">
+                Recommendations
+              </p>
+
+              <h2 id="recommendations-title">
+                Priority improvements and strategic fixes
+              </h2>
+
+              <p class="text-muted">
+                Immediate fixes and long-term improvements identified during the audit.
+              </p>
+
+            </header>
+
+
+            <!-- Immediate Actions -->
+            <div class="recommendation-section">
+
+              <div class="recommendation-section__header">
+
+                <h3>
+                  Immediate Actions
+                </h3>
+
+              </div>
+
+              <div class="recommendation-rows"
+                  data-render="quick_wins.items"
+                  data-template="tmpl-recommendation-row">
+              </div>
+
+            </div>
+
+
+            <!-- Strategic Improvements -->
+            <div class="recommendation-section">
+
+              <div class="recommendation-section__header">
+
+                <h3>
+                  Strategic Improvements
+                </h3>
+
+              </div>
+
+              <div class="recommendation-rows"
+                  data-render="long_term_improvements.multi_day_items"
+                  data-template="tmpl-recommendation-row">
+              </div>
+
+            </div>
+
+          </div>
+
+      </section>
+
+
+      <!-- ====== 7. Action items ====== -->
+      <section id="action-items" class="slide" aria-labelledby="action-items-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Action Items</p>
+            <h2>
+              <span class="severity-number">
+                {{action_items.total}}
+              </span>
+              findings · the complete list
+            </h2>
+            <p class="text-muted">Sorted by {{action_items.sort}}. This table is the single source of truth — every issue in the report appears here.</p>
+          </header>
+
+          <!-- Optional sort/filter controls; rendered or omitted by the renderer. Hidden in print. -->
+          <div class="cluster" data-section="filters" data-print-hidden>
+            <!-- e.g. <select data-filter="priority"> ... </select> -->
+          </div>
+
+          <article class="card" data-section="action-items-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Severity</th>
+                  <th scope="col">Dimension</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Issue</th>
+                  <th scope="col">Recommendation</th>
+                </tr>
+              </thead>
+              <!-- One <tr> per item; renderer iterates action_items.items using tmpl-action-item -->
+              <tbody data-render="action_items.items"
+                     data-template="tmpl-action-item">
+                <!-- populated at render time -->
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+
+
+      <!-- ====== 8. Appendix ====== -->
+      <section id="appendix" class="slide slide--surface" aria-labelledby="appendix-title">
+        <div class="container stack--lg">
+          <header>
+            <p class="eyebrow">Appendix</p>
+            <h2 id="appendix-title">Methodology and references</h2>
+          </header>
+
+          <article>
+            <h3>Methodology</h3>
+            <p>{{appendix.methodology}}</p>
+          </article>
+
+          <article>
+            <h3>Consumed artifacts</h3>
+            <ul class="mono" data-render="appendix.artifacts_consumed" data-template="tmpl-artifact-ref">
+              <!-- one <li> per artifact path; populated at render time -->
+            </ul>
+          </article>
+
+          <article>
+            <h3>Glossary</h3>
+
+            <h4>Severity</h4>
+            <dl class="dl">
+              <dt><span class="chip chip--critical">critical</span></dt><dd>Active failure or security exposure. Total breakage for at least one user population.</dd>
+              <dt><span class="chip chip--high">high</span></dt>        <dd>Major degradation or compliance failure with measurable harm.</dd>
+              <dt><span class="chip chip--medium">medium</span></dt>    <dd>Noticeable degradation; partial compliance.</dd>
+              <dt><span class="chip chip--low">low</span></dt>           <dd>Minor nit; correctness or hygiene issue with little user impact.</dd>
+              <dt><span class="chip chip--info">info</span></dt>         <dd>Observation only. Not a defect.</dd>
+            </dl>
+
+            <h4>Priority</h4>
+            <dl class="dl">
+              <dt><span class="chip chip--p0">P0</span></dt><dd>Address immediately. Security incidents, production-blocking defects, compliance exposure.</dd>
+              <dt><span class="chip chip--p1">P1</span></dt><dd>Address in the next release or sprint.</dd>
+              <dt><span class="chip chip--p2">P2</span></dt><dd>Plan for the current quarter.</dd>
+              <dt><span class="chip chip--p3">P3</span></dt><dd>Backlog.</dd>
+            </dl>
+
+            <h4>Effort</h4>
+
+            <dl class="dl">
+
+              <dt>
+                <span class="chip chip--info">&lt; 1 hour</span>
+              </dt>
+              <dd>
+                Quick Fix — Small config or isolated change.
+              </dd>
+
+              <dt>
+                <span class="chip chip--info">1 day</span>
+              </dt>
+              <dd>
+                Short Fix — Minor implementation or focused update.
+              </dd>
+
+              <dt>
+                <span class="chip chip--info">2–5 days</span>
+              </dt>
+              <dd>
+                Medium Fix — Refactor or coordinated improvements.
+              </dd>
+
+              <dt>
+                <span class="chip chip--info">1–2 weeks</span>
+              </dt>
+              <dd>
+                Major Fix — Architectural or large-scale implementation.
+              </dd>
+
+            </dl>
+
+            <h4>Score bands</h4>
+            <dl class="dl">
+              <dt><span class="score score--excellent" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">90</span></dt><dd>Excellent (90+).</dd>
+              <dt><span class="score score--good" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">80</span></dt><dd>Good (75-89).</dd>
+              <dt><span class="score score--needs-work" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">60</span></dt><dd>Needs work (50-74).</dd>
+              <dt><span class="score score--poor" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">35</span></dt><dd>Poor (25-49).</dd>
+              <dt><span class="score score--critical" aria-hidden="true" style="inline-size:2.25rem;block-size:2.25rem;font-size:.75rem;border-width:3px;">15</span></dt><dd>Critical (under 25).</dd>
+            </dl>
+          </article>
+
+          <article class="text-muted" style="font-size: var(--fs-small);">
+            <p>Report generated {{meta.generated_at_human}} by audit_agent report-builder. Run identifier: {{meta.run_id}}. Source artifacts under <code>reports/analysis/{{meta.hostname}}/</code>.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- ============================================================
+       Reusable component templates
+       The renderer clones each <template>'s contents into the matching
+       data-render container above (paired via data-template="tmpl-..").
+       These are the canonical, single-source structures for every
+       repeated element in the report.
+       ============================================================ -->
+
+  <!-- Cover-page severity badge per dimension -->
+  <template id="tmpl-cover-badge">
+    <a href="#dimension-{{dimension}}" class="chip chip--dimension">
+      {{dimension_title}}: {{score}}
+    </a>
+  </template>
+
+
+  <!-- Top-issue row in the executive summary -->
+  <template id="tmpl-top-issue">
+    <a class="top-issue" href="#finding-{{dimension}}-{{id}}">
+      <span class="chip chip--{{priority_class}}">{{priority}}</span>
+      <span class="top-issue__title">{{issue}}</span>
+      <span class="chip chip--dimension">{{dimension_title}}</span>
+    </a>
+  </template>
+
+
+  <!-- Dashboard tile in the severity overview grid -->
+  <template id="tmpl-dashboard-tile">
+    <a href="#dimension-{{dimension}}" class="dashboard-tile">
+      <div class="score score--{{score_band}}" aria-hidden="true">{{score}}</div>
+      <p class="dashboard-tile__label">{{dimension_title}}</p>
+      <p class="dashboard-tile__headline">{{headline}}</p>
+    </a>
+  </template>
+
+
+  <!-- Per-dimension section body (one of these is injected into each
+       <section data-dimension="..."> slot in the main flow). -->
+  <template id="tmpl-dimension-section">
+    <div class="container stack--lg">
+      <header class="cluster" data-layout="space-between">
+        <div>
+          <p class="eyebrow">Audit Category</p>
+          <h2 id="dim-{{dimension}}-title">{{dimension_title}}</h2>
+        </div>
+        <div 
+          class="mini-score mini-score--{{score_band}}"
+        >
+
+          <div class="mini-score__inner">
+
+            <span class="mini-score__value">
+              {{score}}
+            </span>
+
+            <span class="mini-score__label">
+              SCORE
+            </span>
+
+          </div>
+
+        </div>
+      </header>
+
+      <p class="lead">{{summary}}</p>
+
+      <!-- Optional extensions (e.g. manual_review_required for accessibility) -->
+      <div data-section="extensions"
+           data-render="extensions"
+           data-template="tmpl-dimension-extension">
+        <!-- populated when present -->
+      </div>
+
+      <details open>
+        <summary>
+          <strong>{{finding_count}} findings</strong>
+          <span class="text-muted">— grouped by category</span>
+        </summary>
+        <div class="stack--md"
+             data-render="findings"
+             data-template="tmpl-finding">
+          <!-- one .card per finding -->
+        </div>
+      </details>
+
+    </div>
+  </template>
+
+
+  <!-- Placeholder for a dimension that was not analyzed (missing input) -->
+  <template id="tmpl-dimension-missing">
+    <div class="container">
+      <header class="cluster" data-layout="space-between">
+        <div>
+          <p class="eyebrow">Audit Category</p>
+          <h2 id="dim-{{dimension}}-title">{{dimension_title}}</h2>
+        </div>
+        <span class="chip chip--info">Not analyzed</span>
+      </header>
+      <div class="callout callout--medium">
+        <p class="eyebrow">Gap</p>
+        <p>No analyzer output found for <code>{{dimension}}</code>. {{reason}}</p>
+      </div>
+    </div>
+  </template>
+
+
+  <!-- Dimension extension item (skill-specific metadata, e.g. manual_review_required) -->
+  <template id="tmpl-dimension-extension">
+    <div class="callout">
+      <p class="eyebrow">{{key}}</p>
+      <ul data-render="value" data-template="tmpl-string-list-item"></ul>
+    </div>
+  </template>
+
+
+  <!-- template - roadmap -->
+<template id="tmpl-roadmap-card">
+
+  <article class="roadmap-card roadmap-card--{{priority_class}}">
+
+    <div class="roadmap-card__glow"></div>
+
+    <div class="roadmap-card__top">
+
+      <div class="roadmap-card__badges">
+
+        <span class="badge badge--priority">
+          {{priority}}
+        </span>
+
+        <span class="badge badge--severity">
+          {{severity}}
+        </span>
+
+        <span class="badge badge--dimension">
+          {{dimension_title}}
+        </span>
+
+      </div>
+
+    </div>
+
+    <h3 class="roadmap-card__title">
+      {{title}}
+    </h3>
+
+    <p class="roadmap-card__recommendation">
+      {{recommendation}}
+    </p>
+
+  </article>
+
+</template>
+
+  <!-- Full finding card (used by key_findings + per-dimension findings list) -->
+  <template id="tmpl-finding">
+    <article class="card finding-card" id="finding-{{dimension}}-{{id}}">
+      <header class="card__header">
+        <h3 class="card__title">{{issue}}</h3>
+        <div class="cluster cluster--tight">
+          <span class="chip chip--{{priority_class}}">{{priority}}</span>
+          <span class="chip chip--{{severity}}">{{severity}}</span>
+        </div>
+      </header>
+
+      <dl class="dl">
+        <dt>Category</dt>      <dd>{{category}}</dd>
+        <dt>Evidence</dt>      <dd>{{evidence}}</dd>
+        <dt>Impact</dt>        <dd>{{impact}}</dd>
+        <dt>Recommendation</dt><dd><strong>{{recommendation}}</strong></dd>
+      </dl>
+
+      <!-- Optional per-finding extensions block (wcag, savings_ms, cve, etc.) -->
+      <details data-section="extensions" data-render-if-present="extensions">
+        <summary>Additional context</summary>
+        <dl class="dl" data-render="extensions" data-template="tmpl-extension-pair">
+          <!-- dt/dd pairs -->
+        </dl>
+      </details>
+
+      <!-- References -->
+      <p class="text-muted" data-section="references" data-render-if-present="references">
+        References:
+        <span data-render="references" data-template="tmpl-reference-link"></span>
+      </p>
+    </article>
+  </template>
+
+
+  <!-- Per-finding extensions key/value (e.g. wcag: ["1.4.3"]) -->
+  <template id="tmpl-extension-pair">
+    <dt>{{key}}</dt><dd>{{value}}</dd>
+  </template>
+
+
+  <!-- Reference link (in finding.references) -->
+  <template id="tmpl-reference-link">
+    <a href="{{href}}" rel="noopener">{{label}}</a>
+  </template>
+
+
+  <!-- Roadmap bucket — Now / Next / Later / Watch -->
+  <template id="tmpl-roadmap-bucket">
+    <div class="roadmap-bucket roadmap-bucket--{{label_class}}">
+      <p class="roadmap-bucket__label">{{label}}</p>
+      <p class="roadmap-bucket__count tabular">{{count}} item(s) · {{priority}}</p>
+
+      <!-- Populated for Now/Next; empty for Later/Watch (those use the summary slot below) -->
+      <div class="stack--sm"
+           data-render="items"
+           data-template="tmpl-roadmap-item">
+        <!-- one compact card per item -->
+      </div>
+
+      <!-- Used for Later/Watch when items[] is empty by design -->
+      <div data-section="summary" data-render-if-present="summary">
+        <p class="text-muted">
+          {{summary.total}} total
+          <span data-render-if-present="summary.top_categories"> · top: <span data-render="summary.top_categories" data-template="tmpl-string-comma"></span></span>
+        </p>
+      </div>
+
+      <p class="empty-state" data-render-if-present="empty_state">{{empty_state}}</p>
+    </div>
+  </template>
+
+
+  <!-- Roadmap item — compact card -->
+  <template id="tmpl-roadmap-item">
+    <a href="#finding-{{dimension}}-{{id}}" class="card" data-variant="roadmap-item">
+      <div class="cluster cluster--tight">
+        <span class="chip chip--{{severity}}">{{severity}}</span>
+        <span class="chip chip--dimension">{{dimension_title}}</span>
+      </div>
+      <p class="top-issue__title">{{issue}}</p>
+      <p class="text-secondary truncate-2">{{recommendation_short}}</p>
+    </a>
+  </template>
+
+
+  <!-- Quick-win card -->
+  <template id="tmpl-quick-win">
+    <article class="card">
+      <header class="cluster cluster--tight">
+        <span class="chip chip--{{severity}}">{{severity}}</span>
+        <span class="chip chip--dimension">{{dimension_title}}</span>
+        <span class="chip chip--info">{{estimated_effort}}</span>
+      </header>
+      <h3 class="card__title">
+        <a href="#finding-{{dimension}}-{{id}}">{{issue}}</a>
+      </h3>
+      <p>{{recommendation}}</p>
+      <div class="quick-win-impact">
+        <span>Impact</span>
+        <p>{{impact_summary}}</p>
+      </div>
+    </article>
+  </template>
+
+
+  <!-- Theme card (long-term improvements) -->
+  <template id="tmpl-theme">
+    <article class="card card--accent" id="{{theme_id}}">
+      <header class="card__header">
+        <h3 class="card__title">{{title}}</h3>
+        <span class="chip chip--info">{{estimated_effort}}</span>
+      </header>
+
+      <p>{{description}}</p>
+
+      <p class="text-muted">
+        Spans
+        <span class="cluster cluster--tight"
+              data-render="spans_dimensions"
+              data-template="tmpl-dimension-chip">
+          <!-- dimension chips -->
+        </span>
+      </p>
+
+      <details>
+        <summary>{{supporting_finding_refs.length}} supporting findings</summary>
+        <ul data-render="supporting_finding_refs" data-template="tmpl-finding-ref-link">
+          <!-- one <li> per ref -->
+        </ul>
+      </details>
+    </article>
+  </template>
+
+
+  <!-- Long-term L/XL item (non-theme) -->
+  <template id="tmpl-longterm-item">
+    <article class="card longterm-card">
+
+      <header class="cluster cluster--tight longterm-card__meta">
+
+        <span class="chip chip--{{priority_class}}">
+          {{priority}}
+        </span>
+
+        <span class="chip chip--{{severity}}">
+          {{severity}}
+        </span>
+
+        <span class="chip chip--dimension">
+          {{dimension_title}}
+        </span>
+
+        <span class="chip chip--info">
+          {{estimated_effort}}
+        </span>
+
+      </header>
+
+      <h3 class="card__title">
+        <a href="#finding-{{dimension}}-{{id}}">{{issue}}</a>
+      </h3>
+      <p class="longterm-card__desc">
+        {{description}}
+      </p>
+
+      <p class="text-muted">
+        <em>{{recommendation}}</em>
+      </p>
+    </article>
+  </template>
+
+
+  <!-- Action items table row -->
+  <template id="tmpl-action-item">
+    <tr data-priority="{{priority}}" data-severity="{{severity}}" data-dimension="{{dimension}}">
+
+      <!-- Priority -->
+      <td>
+        <span class="chip chip--{{priority_class}}">
+          {{priority}}
+        </span>
+      </td>
+
+      <!-- Severity -->
+      <td>
+        <span class="chip chip--{{severity}}">
+          {{severity}}
+        </span>
+      </td>
+
+      <!-- Dimension -->
+      <td>
+        <span class="chip chip--dimension">
+          {{dimension_title}}
+        </span>
+      </td>
+
+      <!-- Category -->
+      <td class="text-muted">
+        {{category}}
+      </td>
+
+      <!-- Issue -->
+      <td>
+        <a href="#finding-{{dimension}}-{{id}}">
+          {{issue}}
+        </a>
+      </td>
+
+      <!-- Recommendation -->
+      <td>
+        {{recommendation}}
+      </td>
+
+    </tr>
+  </template>
+
+
+  <!-- Build warning list item -->
+  <template id="tmpl-build-warning">
+    <li>{{message}}</li>
+  </template>
+
+
+  <!-- Artifact reference list item -->
+  <template id="tmpl-artifact-ref">
+    <li><code>{{path}}</code></li>
+  </template>
+
+
+  <!-- Finding cross-reference link (used inside themes) -->
+  <template id="tmpl-finding-ref-link">
+    <li>
+      <a href="{{anchor}}">
+        <span class="chip chip--dimension">{{dimension_title}}</span>
+        {{issue}}
+      </a>
+    </li>
+  </template>
+
+
+  <!-- Dimension chip (used for theme spans) -->
+  <template id="tmpl-dimension-chip">
+    <span class="chip chip--dimension">{{dimension_title}}</span>
+  </template>
+
+
+  <!-- Generic string-comma helper (renders "a, b, c") -->
+  <template id="tmpl-string-comma">{{value}}{{separator}}</template>
+
+
+  <!-- Generic <li> for a plain string list -->
+  <template id="tmpl-string-list-item">
+    <li>{{.}}</li>
+  </template>
+
+  <template id="tmpl-recommendation-row">
+
+    <article class="recommendation-card">
+
+      <div class="recommendation-card__top">
+
+        <div class="cluster cluster--tight">
+
+          <span class="chip chip--{{priority_class}}">
+            {{priority}}
+          </span>
+
+          <span class="chip chip--{{severity}}">
+            {{severity}}
+          </span>
+
+          <span class="chip chip--dimension">
+            {{dimension_title}}
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="recommendation-card__content">
+
+        <h4 class="recommendation-card__title">
+          {{title}}
+        </h4>
+
+        <p class="recommendation-card__description">
+          {{description}}
+        </p>
+
+      </div>
+
+    </article>
+
+  </template>
+
+  <!-- ============================================================
+       Embedded Report data.
+
+       The HTML rendering layer (or a build step) replaces the contents
+       of this <script> tag with the Report JSON read from
+       reports/final/<hostname>/report-run<N>.json. The renderer
+       immediately below parses this on DOMContentLoaded and populates
+       the template.
+
+       When unrendered (the default placeholder is present), the inline
+       renderer displays a friendly notice rather than the raw template.
+       ============================================================ -->
+  <script type="application/json" id="report-data">
+{
+  "_placeholder": true,
+  "_help": "Inject Report JSON here. See .claude/skills/report-builder/sections-schema.md for the expected shape."
+}
+  </script>
+
+  <!-- ============================================================
+       Narrative renderer — inlined, self-contained, ES2017+.
+
+       Walks the DOM for [data-render] containers and clones the
+       matching <template id="tmpl-..."> for each item in the resolved
+       JSON path. Substitutes {{path}} placeholders in cloned content.
+       Honors data-render-if-empty and data-render-if-present.
+
+       Safety: every substitution lands in a text node or attribute via
+       DOM properties (textContent / nodeValue / attr.value). No
+       innerHTML is ever built from analyzer-emitted strings, so
+       findings cannot inject markup or scripts.
+       ============================================================ -->
+  <script data-print-hidden>
+  (function () {
+    'use strict';
+
+    /* ---------- Constants ------------------------------------- */
+
+    var DIMENSION_TITLES = {
+      'seo':            'SEO',
+      'performance':    'Performance',
+      'accessibility':  'Accessibility',
+      'security':       'Security',
+      'best-practices': 'Best Practices'
+    };
+
+    var LABEL_CLASS_MAP    = { 'Now': 'now', 'Next': 'next', 'Later': 'later', 'Watch': 'watch' };
+    var PRIORITY_CLASS_MAP = { 'P0': 'p0',  'P1': 'p1',   'P2': 'p2',     'P3': 'p3' };
+
+
+    // score band function
+    function scoreBand(score) {
+      var n = parseFloat(score);
+      if (isNaN(n)) return 'info';
+      if (n >= 90) return 'excellent';
+      if (n >= 75) return 'good';
+      if (n >= 50) return 'needs-work';
+      if (n >= 25) return 'poor';
+      return 'critical';
+    }
+
+    /* ---------- Load embedded JSON ---------------------------- */
+
+    var dataEl = document.getElementById('report-data');
+    var report = null;
+
+    if (dataEl && dataEl.textContent) {
+      try {
+        report = JSON.parse(dataEl.textContent);
+      } catch (e) {
+        console.error('audit_agent: invalid Report JSON', e);
+      }
+    }
+
+    if (!report || report._placeholder === true) {
+      // Defer until DOM is ready so the notice replaces <main> contents.
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', showPlaceholderNotice);
+      } else {
+        showPlaceholderNotice();
+      }
+      return;
+    }
+
+    /* ---------- Decorate top-level meta ------------------------ */
+
+    if (!report.meta) report.meta = {};
+    report.meta.audited_at_human   = formatDate(report.meta.audited_at);
+    report.meta.generated_at_human = formatDate(report.meta.generated_at);
+    if (!Array.isArray(report.meta.dimensions_analyzed)) report.meta.dimensions_analyzed = [];
+    if (!Array.isArray(report.meta.dimensions_missing))  report.meta.dimensions_missing  = [];
+    // Compute score_band for the executive summary (overall score)
+    if (report.executive_summary) {
+      report.executive_summary.score_band = 
+        scoreBand(report.executive_summary.headline_score);
+    }
+    if (!Array.isArray(report.meta.build_warnings))      report.meta.build_warnings      = [];
+
+
+
+    /* ---------- Severity analytics percentages ---------- */
+
+    var totalSeverity =
+      (report.severity_overview.by_severity.critical || 0) +
+      (report.severity_overview.by_severity.high || 0) +
+      (report.severity_overview.by_severity.medium || 0) +
+      (report.severity_overview.by_severity.low || 0) +
+      (report.severity_overview.by_severity.info || 0);
+
+    report.severity_overview.by_severity_percent = {
+
+      critical:
+        totalSeverity
+          ? (report.severity_overview.by_severity.critical / totalSeverity) * 100
+          : 0,
+
+      high:
+        totalSeverity
+          ? (report.severity_overview.by_severity.high / totalSeverity) * 100
+          : 0,
+
+      medium:
+        totalSeverity
+          ? (report.severity_overview.by_severity.medium / totalSeverity) * 100
+          : 0,
+
+      low:
+        totalSeverity
+          ? (report.severity_overview.by_severity.low / totalSeverity) * 100
+          : 0,
+
+      info:
+        totalSeverity
+          ? (report.severity_overview.by_severity.info / totalSeverity) * 100
+          : 0
+
+    };
+
+    function formatDate(iso) {
+      if (!iso) return '';
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return iso;
+      var pad = function (n) { return String(n).padStart(2, '0'); };
+      return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) +
+             ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ' UTC';
+    }
+
+    /* ---------- Path resolution + placeholder substitution ----- */
+
+    function resolvePath(obj, path) {
+      if (!path || path === '.') return obj;
+      var parts = path.split('.');
+      var cur = obj;
+      for (var i = 0; i < parts.length; i++) {
+        if (cur === null || cur === undefined) return undefined;
+        cur = cur[parts[i]];
+      }
+      return cur;
+    }
+
+    function evalValue(ctx, path) {
+      var v = resolvePath(ctx, path);
+      if (v === undefined) v = resolvePath(report, path);
+      return v;
+    }
+
+    /* Replace {{...}} occurrences. Returns a string. Never produces HTML;
+       the caller assigns the result via textContent / nodeValue / attr.value. */
+    function substituteString(str, ctx) {
+      return str
+        .replace(/\{\{\s*\.\s*\}\}/g, function () {
+          if (ctx === null || ctx === undefined) return '';
+          if (typeof ctx === 'object')          return '';
+          return String(ctx);
+        })
+        .replace(/\{\{\s*([a-zA-Z0-9_.\-]+)\s*\}\}/g, function (m, path) {
+          var val = evalValue(ctx, path);
+          if (Array.isArray(val)) {
+            if (val.length > 0 && typeof val[0] === 'object') return String(val.length);
+            return val.join(', ');
+          }
+          if (val === undefined || val === null) return '';
+          return String(val);
+        });
+    }
+
+    function substituteInNode(node, ctx, skipTemplates) {
+      if (node.nodeType === 3 /* TEXT_NODE */) {
+        if (node.nodeValue && node.nodeValue.indexOf('{{') !== -1) {
+          node.nodeValue = substituteString(node.nodeValue, ctx);
+        }
+        return;
+      }
+      if (node.nodeType !== 1 /* ELEMENT_NODE */ && node.nodeType !== 11 /* DOCUMENT_FRAGMENT */) return;
+      if (skipTemplates && node.nodeType === 1 && node.tagName === 'TEMPLATE') return;
+
+      if (node.attributes) {
+        for (var i = 0; i < node.attributes.length; i++) {
+          var attr = node.attributes[i];
+          if (attr.value.indexOf('{{') !== -1) {
+            attr.value = substituteString(attr.value, ctx);
+          }
+        }
+      }
+
+      var children = Array.prototype.slice.call(node.childNodes);
+      for (var j = 0; j < children.length; j++) substituteInNode(children[j], ctx, skipTemplates);
+    }
+
+    /* ---------- Conditional rendering -------------------------- */
+
+    function processConditionals(root, ctx) {
+      if (!root.querySelectorAll) return;
+
+      var emptyEls = Array.prototype.slice.call(root.querySelectorAll('[data-render-if-empty]'));
+      for (var i = 0; i < emptyEls.length; i++) {
+        var el = emptyEls[i];
+        var path = el.getAttribute('data-render-if-empty');
+        var val = evalValue(ctx, path);
+        var isEmpty = (val === undefined || val === null ||
+                       (Array.isArray(val) && val.length === 0) ||
+                       (typeof val === 'string' && val.length === 0));
+        if (!isEmpty) el.remove();
+        else el.removeAttribute('data-render-if-empty');
+      }
+
+      var presentEls = Array.prototype.slice.call(root.querySelectorAll('[data-render-if-present]'));
+      for (var j = 0; j < presentEls.length; j++) {
+        var pel = presentEls[j];
+        var ppath = pel.getAttribute('data-render-if-present');
+        var pval = evalValue(ctx, ppath);
+        var isPresent = (pval !== undefined && pval !== null &&
+                         (Array.isArray(pval) ? pval.length > 0 :
+                          (typeof pval === 'string' ? pval.length > 0 : true)));
+        if (!isPresent) pel.remove();
+        else pel.removeAttribute('data-render-if-present');
+      }
+    }
+
+    /* ---------- Decoration of items ---------------------------- */
+
+    function decorateItem(item) {
+      if (item === null || item === undefined) return item;
+
+      /* Primitive: wrap so common single-field templates can access it
+         under any of the conventional names. */
+      if (typeof item !== 'object') {
+        var v = String(item);
+        return {
+          '.':              v,
+          value:            v,
+          text:             v,
+          message:          v,
+          path:             v,
+          label:            v,
+          dimension:        v,
+          dimension_title:  DIMENSION_TITLES[v] || v
+        };
+      }
+
+      var d = Object.assign({}, item);
+
+      /* Hoist FindingRef fields onto the parent so templates can use
+         {{dimension}} / {{id}} / {{anchor}} without ref.* qualification. */
+      if (item.ref && typeof item.ref === 'object') {
+        if (item.ref.dimension  && !d.dimension) d.dimension = item.ref.dimension;
+        if (item.ref.finding_id && !d.id)        d.id        = item.ref.finding_id;
+        if (item.ref.anchor     && !d.anchor)    d.anchor    = item.ref.anchor;
+      }
+
+      /* Derived fields */
+      /* Derived fields */
+      if (d.dimension && !d.dimension_title) {
+        d.dimension_title = DIMENSION_TITLES[d.dimension] || d.dimension;
+      }
+
+      /* Backward compatibility for old analyzer schema */
+      if (!d.category && d.title) {
+        d.category = d.title;
+      }
+
+      if (!d.evidence && d.description) {
+        d.evidence = d.description;
+      }
+
+      if (!d.impact && d.description) {
+        d.impact = d.description;
+      }
+
+      if (!d.issue && d.title) {
+        d.issue = d.title;
+      }
+
+      /* Auto-map severity -> priority if missing */
+      if (!d.priority) {
+        d.priority = 'P3';
+      }
+
+      if (d.priority && !d.priority_class) {
+        d.priority_class = PRIORITY_CLASS_MAP[d.priority] || String(d.priority).toLowerCase();
+      }
+
+      if (d.score !== undefined && !d.score_band) {
+        d.score_band = scoreBand(d.score);
+      }
+
+      if (d.label && !d.label_class) {
+        d.label_class = LABEL_CLASS_MAP[d.label] || String(d.label).toLowerCase();
+      }
+
+      if (d.dimension && d.id && !d.anchor) {
+        d.anchor = '#finding-' + d.dimension + '-' + d.id;
+      }
+
+      return d;
+
+
+    }
+
+    /* ---------- Template cloning ------------------------------- */
+
+    function cloneTemplate(templateId, rawCtx) {
+      var tmpl = document.getElementById(templateId);
+      if (!tmpl || !tmpl.content) {
+        console.warn('audit_agent: template not found:', templateId);
+        return null;
+      }
+
+      var ctx  = decorateItem(rawCtx);
+      var frag = tmpl.content.cloneNode(true);
+
+      /* 1. Substitute placeholders inside the clone. */
+      substituteInNode(frag, ctx, true);
+
+      /* 2. Render nested data-render containers against the local ctx. */
+      var nested = Array.prototype.slice.call(frag.querySelectorAll('[data-render]'));
+      for (var i = 0; i < nested.length; i++) renderContainer(nested[i], ctx);
+
+      /* 3. Apply conditionals against the local ctx. */
+      processConditionals(frag, ctx);
+
+      return frag;
+    }
+
+    /* ---------- Container rendering ---------------------------- */
+
+    function renderContainer(container, ctx) {
+      var path       = container.getAttribute('data-render');
+      var templateId = container.getAttribute('data-template');
+      if (!path) return;
+
+      var data = evalValue(ctx, path);
+
+      /* No template: emit the resolved value as text. */
+      if (!templateId) {
+        if (data === undefined || data === null)       container.textContent = '';
+        else if (Array.isArray(data))                  container.textContent = data.join(', ');
+        else                                            container.textContent = String(data);
+        container.removeAttribute('data-render');
+        return;
+      }
+
+      /* Coerce data into an array of items. */
+      var items;
+      if (Array.isArray(data))                items = data;
+      else if (data === undefined || data === null) items = [];
+      else if (typeof data === 'object')      items = Object.keys(data).map(function (k) { return { key: k, value: data[k] }; });
+      else                                    items = [data];
+
+      /* Wipe stub content (HTML comments etc.) then append clones. */
+      container.innerHTML = '';
+      for (var i = 0; i < items.length; i++) {
+        var clone = cloneTemplate(templateId, items[i]);
+        if (clone) container.appendChild(clone);
+      }
+
+      container.removeAttribute('data-render');
+      container.removeAttribute('data-template');
+    }
+
+    /* ---------- Per-dimension section slots -------------------- */
+
+    function renderDimensionSection(section) {
+      var dimension = section.getAttribute('data-dimension');
+      if (!dimension) return;
+
+      var dimData =
+      report.dimension_details &&
+      report.dimension_details[dimension]
+        ? report.dimension_details[dimension]
+        : null;
+
+      var isMissing = report.meta.dimensions_missing.indexOf(dimension) !== -1;
+
+      var templateId, ctx;
+      if (isMissing || !dimData) {
+        templateId = 'tmpl-dimension-missing';
+        ctx = {
+          dimension: dimension,
+          reason: 'Analyzer output was not found. Run the dimension analyzer to populate this section.'
+        };
+      } else {
+        templateId = section.getAttribute('data-template') || 'tmpl-dimension-section';
+        var findings = ((report.action_items && report.action_items.items) || []).filter(function (it) {
+          var d = (it.ref && it.ref.dimension) || it.dimension;
+          return d === dimension;
+        });
+        ctx = Object.assign({}, dimData, {
+          dimension:          dimension,
+          score_band:         scoreBand(dimData.score),
+          findings:           findings,
+          finding_count:      findings.length,
+          summary:            dimData.summary || '',
+          artifacts_consumed: [],
+          extensions:         {}
+        });
+      }
+
+      var clone = cloneTemplate(templateId, ctx);
+      if (clone) {
+        section.innerHTML = '';
+        section.appendChild(clone);
+
+        /* Set --value on the mini-score so the conic arc renders correctly */
+        var miniScore = section.querySelector('.mini-score');
+        if (miniScore && dimData.score !== undefined) {
+          miniScore.style.setProperty('--value', parseFloat(dimData.score));
+        }
+      }
+    }
+
+    /* ---------- Placeholder notice ----------------------------- */
+
+    function showPlaceholderNotice() {
+      var main = document.querySelector('main') || document.body;
+      var section = document.createElement('section');
+      section.className = 'slide slide--surface';
+
+      var container = document.createElement('div');
+      container.className = 'container container--narrow';
+
+      var callout = document.createElement('div');
+      callout.className = 'callout callout--high';
+
+      var eyebrow = document.createElement('p');
+      eyebrow.className = 'eyebrow';
+      eyebrow.textContent = 'No report data';
+
+      var body = document.createElement('p');
+      body.appendChild(document.createTextNode('This template has not been populated. Inject Report JSON (per '));
+      var code1 = document.createElement('code');
+      code1.textContent = '.claude/skills/report-builder/sections-schema.md';
+      body.appendChild(code1);
+      body.appendChild(document.createTextNode(') into the '));
+      var code2 = document.createElement('code');
+      code2.textContent = '<script id="report-data">';
+      body.appendChild(code2);
+      body.appendChild(document.createTextNode(' element before opening this file in a browser.'));
+
+      callout.appendChild(eyebrow);
+      callout.appendChild(body);
+      container.appendChild(callout);
+      section.appendChild(container);
+
+      main.innerHTML = '';
+      main.appendChild(section);
+    }
+
+    /* ---------- Main entry ------------------------------------- */
+
+    function render() {
+      var root = document.body;
+
+      /* 0. Normalize score_bands */
+      if (report.executive_summary) {
+        report.executive_summary.score_band =
+          scoreBand(report.executive_summary.headline_score);
+      }
+
+      if (report.severity_overview && Array.isArray(report.severity_overview.by_dimension)) {
+        report.severity_overview.by_dimension =
+          report.severity_overview.by_dimension.map(function(d) {
+            return Object.assign({}, d, { score_band: scoreBand(d.score) });
+          });
+      }
+
+      /* 1. Top-level {{path}} substitution (skip <template>s — they are
+            cloned and substituted on demand). */
+      substituteInNode(root, report, true);
+
+      /* 2. <title> in <head>. */
+      var titleEl = document.querySelector('title');
+      if (titleEl) titleEl.textContent = 'Audit Report — ' + (report.meta.hostname || '');
+
+      /* 3. data-render containers (depth-first, document order — nested
+            ones are handled inside cloneTemplate). */
+      var containers = Array.prototype.slice.call(root.querySelectorAll('[data-render]'));
+      for (var i = 0; i < containers.length; i++) renderContainer(containers[i], report);
+
+      /* 4. Per-dimension section slots. */
+      var dimSlots = Array.prototype.slice.call(root.querySelectorAll('section[data-dimension]'));
+      for (var j = 0; j < dimSlots.length; j++) renderDimensionSection(dimSlots[j]);
+
+      /* Set --value on the hero score--xl circle */
+      var heroScore = document.querySelector('.score--xl');
+      if (heroScore && report.executive_summary && report.executive_summary.headline_score !== undefined) {
+        heroScore.style.setProperty('--value', parseFloat(report.executive_summary.headline_score));
+      }
+
+      /* 5. Top-level conditionals (run last so they see populated data). */
+      processConditionals(root, report);
+
+      /* 6. Scroll-reveal polish (no-op when prefers-reduced-motion). */
+      setupReveal();
+    }
+
+    /* ---------- Scroll-reveal animations ----------------------- */
+    /* Marks each slide with .reveal, then toggles .is-visible as it
+       scrolls into view. The CSS handles the actual transition;
+       this script only manages the class lifecycle.
+       Hero slide is shown immediately so the cover never appears blank.
+       Falls back gracefully when IntersectionObserver is unavailable. */
+
+    function setupReveal() {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      var slides = Array.prototype.slice.call(document.querySelectorAll('main .slide'));
+      if (slides.length === 0) return;
+
+      var hero = document.querySelector('main .slide--hero');
+
+      slides.forEach(function (s) {
+        if (s !== hero) s.classList.add('reveal');
+      });
+
+      if (!('IntersectionObserver' in window)) {
+        slides.forEach(function (s) { s.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+
+      slides.forEach(function (s) {
+        if (s === hero) return;
+        if (!s.classList.contains('is-visible')) io.observe(s);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', render);
+    } else {
+      render();
+    }
+  })();
+  </script>
+  <div class="deck-controls" data-print-hidden>
+
+    <button id="prevSlide" class="nav-circle-btn" aria-label="Previous Slide">
+      &#8249;
+    </button>
+
+    <div class="deck-progress">
+      <span id="currentSlide">1</span>
+      /
+      <span id="totalSlides">1</span>
+    </div>
+
+    <button id="nextSlide" class="nav-circle-btn" aria-label="Next Slide">
+      &#8250;
+    </button>
+
+  </div>
+
+<script>
+
+window.addEventListener("DOMContentLoaded", () => {
+
+const slides = [...document.querySelectorAll('.slide')];
+
+let current = 0;
+
+const totalSlides =
+  document.getElementById("totalSlides");
+
+const currentSlide =
+  document.getElementById("currentSlide");
+
+if(totalSlides){
+  totalSlides.textContent = slides.length;
+}
+
+function showSlide(index) {
+
+  slides.forEach(slide => {
+    slide.classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+
+  if(currentSlide){
+    currentSlide.textContent = index + 1;
+  }
+
+  current = index;
+
+  updateSidebar();
+}
+
+function nextSlide() {
+  if (current < slides.length - 1) {
+    showSlide(current + 1);
+  }
+}
+
+function prevSlide() {
+  if (current > 0) {
+    showSlide(current - 1);
+  }
+}
+
+document.getElementById("nextSlide")
+?.addEventListener("click", nextSlide);
+
+document.getElementById("prevSlide")
+?.addEventListener("click", prevSlide);
+
+document.addEventListener("keydown", (e) => {
+
+  if (e.key === "ArrowRight") {
+    nextSlide();
+  }
+
+  if (e.key === "ArrowLeft") {
+    prevSlide();
+  }
+});
+
+function updateSidebar() {
+
+  const links =
+    document.querySelectorAll(".report-nav__link");
+
+  links.forEach(link => {
+    link.classList.remove("report-nav__link--active");
+  });
+
+  const activeId = slides[current].id;
+
+  const activeLink =
+    document.querySelector(`a[href="#${activeId}"]`);
+
+  if (activeLink) {
+    activeLink.classList.add("report-nav__link--active");
+  }
+}
+
+showSlide(0);
+
+});
+
+</script>
+
+</body>
+</html>

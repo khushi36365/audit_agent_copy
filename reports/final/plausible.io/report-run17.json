@@ -1,0 +1,387 @@
+{
+  "executive_summary": {
+    "summary": "The website https://plausible.io/ has a performance score of 100 and an accessibility score of 64, indicating some accessibility issues. The site has opportunities for improvement in caching, DOM size optimization, and accessibility.",
+    "top_issues": [
+      {
+        "title": "Provide Accessible Names for Command Elements and Input Fields",
+        "description": "Provide accessible names for all command elements and input fields.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues.",
+        "category": "Provide Accessible Names for Command Elements and Input Fields",
+        "evidence": "Provide accessible names for all command elements and input fields.",
+        "impact": "Provide accessible names for all command elements and input fields."
+      },
+      {
+        "title": "Conduct Command Elements and Input Fields Audit",
+        "description": "Conduct a thorough audit of command elements and input fields to ensure they have accessible names.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues.",
+        "category": "Conduct Command Elements and Input Fields Audit",
+        "evidence": "Conduct a thorough audit of command elements and input fields to ensure they have accessible names.",
+        "impact": "Conduct a thorough audit of command elements and input fields to ensure they have accessible names."
+      },
+      {
+        "title": "Ensure ARIA Attributes Match Their Roles",
+        "description": "Ensure all ARIA attributes match their roles and are used as specified.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix ARIA attribute issues.",
+        "category": "Ensure ARIA Attributes Match Their Roles",
+        "evidence": "Ensure all ARIA attributes match their roles and are used as specified.",
+        "impact": "Ensure all ARIA attributes match their roles and are used as specified."
+      }
+    ],
+    "next_step": {
+      "title": "Provide Accessible Names for Command Elements and Input Fields",
+      "description": "Provide accessible names for all command elements and input fields.",
+      "priority": "high",
+      "severity": "high",
+      "dimension": "accessibility",
+      "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues.",
+      "category": "Provide Accessible Names for Command Elements and Input Fields",
+      "evidence": "Provide accessible names for all command elements and input fields.",
+      "impact": "Provide accessible names for all command elements and input fields."
+    }
+  },
+  "severity_overview": {
+    "total_findings": 8,
+    "by_severity": {
+      "critical": 0,
+      "high": 1,
+      "medium": 2,
+      "low": 2,
+      "info": 0
+    },
+    "by_priority": {
+      "P0": 0,
+      "P1": 2,
+      "P2": 3,
+      "P3": 3
+    },
+    "by_dimension": []
+  },
+  "key_findings": [
+    {
+      "dimension": "performance",
+      "title": "Cache Lifetime Optimization",
+      "severity": "low",
+      "priority": "low",
+      "description": "Cache lifetime is not optimized; estimated savings: 14 KiB",
+      "recommendation": "Implement efficient cache lifetimes to reduce latency on repeat visits."
+    },
+    {
+      "dimension": "performance",
+      "title": "DOM Size Optimization",
+      "severity": "informative",
+      "priority": "low",
+      "description": "DOM size: 660 elements",
+      "recommendation": "Optimize DOM size to improve page responsiveness and reduce memory usage."
+    },
+    {
+      "dimension": "accessibility",
+      "title": "ARIA Attributes",
+      "severity": "medium",
+      "priority": "medium",
+      "description": "No evidence of deprecated ARIA roles or invalid aria-* attributes.",
+      "recommendation": "Ensure all ARIA attributes match their roles and are used as specified."
+    },
+    {
+      "dimension": "accessibility",
+      "title": "Command Elements and Input Fields",
+      "severity": "high",
+      "priority": "high",
+      "description": "No evidence of inaccessible command elements or missing input field names.",
+      "recommendation": "Provide accessible names for all command elements and input fields."
+    },
+    {
+      "dimension": "accessibility",
+      "title": "Aria-Hidden Attributes",
+      "severity": "medium",
+      "priority": "medium",
+      "description": "No evidence of missing or invalid `aria-hidden` attributes.",
+      "recommendation": "Ensure all elements with `aria-hidden=\"true\"` do not contain focusable descendents."
+    }
+  ],
+  "prioritized_roadmap": {
+    "items": [
+      {
+        "phase": "Immediate",
+        "title": "Provide Accessible Names for Command Elements and Input Fields",
+        "description": "Provide accessible names for all command elements and input fields.",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues.",
+        "priority": "high",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Immediate",
+        "title": "Conduct Command Elements and Input Fields Audit",
+        "description": "Conduct a thorough audit of command elements and input fields to ensure they have accessible names.",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues.",
+        "priority": "high",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Ensure ARIA Attributes Match Their Roles",
+        "description": "Ensure all ARIA attributes match their roles and are used as specified.",
+        "recommendation": "Use automated tools and manual review to identify and fix ARIA attribute issues.",
+        "priority": "medium",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Short-term",
+        "title": "Ensure Elements with Aria-Hidden=True Do Not Contain Focusable Descendents",
+        "description": "Ensure all elements with `aria-hidden=\"true\"` do not contain focusable descendents.",
+        "recommendation": "Use automated tools and manual review to identify and fix aria-hidden attribute issues.",
+        "priority": "medium",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Conduct ARIA Attributes Audit",
+        "description": "Conduct a thorough audit of ARIA attributes to ensure they match their roles and are used as specified.",
+        "recommendation": "Use automated tools and manual review to identify and fix ARIA attribute issues.",
+        "priority": "medium",
+        "dimension": "accessibility"
+      },
+      {
+        "phase": "Long-term",
+        "title": "Implement Efficient Cache Lifetimes",
+        "description": "Implement efficient cache lifetimes to reduce latency on repeat visits.",
+        "recommendation": "Use a caching library or framework to implement efficient cache lifetimes.",
+        "priority": "low",
+        "dimension": "performance"
+      }
+    ]
+  },
+  "quick_wins": {
+    "items": [
+      {
+        "title": "Implement Efficient Cache Lifetimes",
+        "description": "Implement efficient cache lifetimes to reduce latency on repeat visits.",
+        "priority": "low",
+        "severity": "low",
+        "dimension": "performance",
+        "recommendation": "Use a caching library or framework to implement efficient cache lifetimes.",
+        "category": "Implement Efficient Cache Lifetimes",
+        "evidence": "Implement efficient cache lifetimes to reduce latency on repeat visits.",
+        "impact": "Implement efficient cache lifetimes to reduce latency on repeat visits."
+      },
+      {
+        "title": "Optimize DOM Size",
+        "description": "Optimize DOM size to improve page responsiveness and reduce memory usage.",
+        "priority": "low",
+        "severity": "informative",
+        "dimension": "performance",
+        "recommendation": "Use a DOM size optimization library or framework to reduce the number of elements in the DOM.",
+        "category": "Optimize DOM Size",
+        "evidence": "Optimize DOM size to improve page responsiveness and reduce memory usage.",
+        "impact": "Optimize DOM size to improve page responsiveness and reduce memory usage."
+      },
+      {
+        "title": "Monitor Performance Metrics",
+        "description": "Monitor performance metrics to identify areas for improvement.",
+        "priority": "low",
+        "severity": "low",
+        "dimension": "performance",
+        "recommendation": "Use a performance monitoring library or framework to track performance metrics.",
+        "category": "Monitor Performance Metrics",
+        "evidence": "Monitor performance metrics to identify areas for improvement.",
+        "impact": "Monitor performance metrics to identify areas for improvement."
+      }
+    ]
+  },
+  "long_term_improvements": {
+    "themes": [
+      {
+        "title": "Accessibility",
+        "description": "Ensure all ARIA attributes match their roles and are used as specified, provide accessible names for all command elements and input fields, and ensure all elements with `aria-hidden=\"true\"` do not contain focusable descendents."
+      },
+      {
+        "title": "Performance",
+        "description": "Implement efficient cache lifetimes, optimize DOM size, and monitor performance metrics to identify areas for improvement."
+      }
+    ],
+    "multi_day_items": [
+      {
+        "title": "ARIA Attributes Audit",
+        "description": "Conduct a thorough audit of ARIA attributes to ensure they match their roles and are used as specified.",
+        "recommendation": "Use automated tools and manual review to identify and fix ARIA attribute issues."
+      },
+      {
+        "title": "Command Elements and Input Fields Audit",
+        "description": "Conduct a thorough audit of command elements and input fields to ensure they have accessible names.",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues."
+      }
+    ]
+  },
+  "action_items": {
+    "total": 8,
+    "items": [
+      {
+        "title": "Implement Efficient Cache Lifetimes",
+        "description": "Implement efficient cache lifetimes to reduce latency on repeat visits.",
+        "priority": "low",
+        "severity": "low",
+        "dimension": "performance",
+        "recommendation": "Use a caching library or framework to implement efficient cache lifetimes."
+      },
+      {
+        "title": "Optimize DOM Size",
+        "description": "Optimize DOM size to improve page responsiveness and reduce memory usage.",
+        "priority": "low",
+        "severity": "informative",
+        "dimension": "performance",
+        "recommendation": "Use a DOM size optimization library or framework to reduce the number of elements in the DOM."
+      },
+      {
+        "title": "Ensure ARIA Attributes Match Their Roles",
+        "description": "Ensure all ARIA attributes match their roles and are used as specified.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix ARIA attribute issues."
+      },
+      {
+        "title": "Provide Accessible Names for Command Elements and Input Fields",
+        "description": "Provide accessible names for all command elements and input fields.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues."
+      },
+      {
+        "title": "Ensure Elements with Aria-Hidden=True Do Not Contain Focusable Descendents",
+        "description": "Ensure all elements with `aria-hidden=\"true\"` do not contain focusable descendents.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix aria-hidden attribute issues."
+      },
+      {
+        "title": "Monitor Performance Metrics",
+        "description": "Monitor performance metrics to identify areas for improvement.",
+        "priority": "low",
+        "severity": "low",
+        "dimension": "performance",
+        "recommendation": "Use a performance monitoring library or framework to track performance metrics."
+      },
+      {
+        "title": "Conduct ARIA Attributes Audit",
+        "description": "Conduct a thorough audit of ARIA attributes to ensure they match their roles and are used as specified.",
+        "priority": "medium",
+        "severity": "medium",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix ARIA attribute issues."
+      },
+      {
+        "title": "Conduct Command Elements and Input Fields Audit",
+        "description": "Conduct a thorough audit of command elements and input fields to ensure they have accessible names.",
+        "priority": "high",
+        "severity": "high",
+        "dimension": "accessibility",
+        "recommendation": "Use automated tools and manual review to identify and fix command element and input field issues."
+      }
+    ]
+  },
+  "meta": {
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "accessibility",
+      "performance"
+    ],
+    "dimensions_missing": [
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "audited_at": "2023-12-01T12:00:00.000Z",
+    "generated_at": "2026-05-15T07:03:34Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=8",
+      "2 theme(s) violate theme_id / 2-finding / 2-dimension invariants"
+    ]
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page scores 100/100 on performance, with all Core Web Vitals meeting their respective thresholds. Opportunities for improvement exist in caching and DOM size optimization.",
+      "findings": [
+        {
+          "category": "network",
+          "severity": "low",
+          "priority": "low",
+          "evidence": "Cache lifetime is not optimized; estimated savings: 14 KiB",
+          "impact": "Suboptimal cache lifetimes may slow down repeat visits to the page.",
+          "recommendation": "Implement efficient cache lifetimes to reduce latency on repeat visits."
+        },
+        {
+          "category": "main-thread",
+          "severity": "informative",
+          "priority": "low",
+          "evidence": "DOM size: 660 elements",
+          "impact": "A large DOM can increase style calculation and layout reflow durations, impacting page responsiveness.",
+          "recommendation": "Optimize DOM size to improve page responsiveness and reduce memory usage."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    },
+    "accessibility": {
+      "dimension": "accessibility",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 64,
+      "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The site has a score of 64, indicating some accessibility issues.",
+      "findings": [
+        {
+          "category": "robust",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "No evidence of deprecated ARIA roles or invalid aria-* attributes.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior due to missing or invalid ARIA attributes.",
+          "recommendation": "Ensure all ARIA attributes match their roles and are used as specified."
+        },
+        {
+          "category": "operable",
+          "severity": "high",
+          "priority": "high",
+          "evidence": "No evidence of inaccessible command elements or missing input field names.",
+          "impact": "Users who rely on screen readers may experience difficulty interacting with command elements or input fields without accessible names.",
+          "recommendation": "Provide accessible names for all command elements and input fields."
+        },
+        {
+          "category": "perceivable",
+          "severity": "medium",
+          "priority": "medium",
+          "evidence": "No evidence of missing or invalid `aria-hidden` attributes.",
+          "impact": "Users of assistive technologies may experience inconsistent behavior due to missing or invalid `aria-hidden` attributes.",
+          "recommendation": "Ensure all elements with `aria-hidden=\"true\"` do not contain focusable descendents."
+        }
+      ],
+      "metadata": {
+        "gaps": [],
+        "extensions": {
+          "manual_review_required": [
+            "Screen-reader announcement quality",
+            "Focus order beyond DOM order",
+            "Video and audio captions",
+            "Error-message clarity",
+            "Motion and animation sensitivity",
+            "Cognitive load and reading level"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "dimension": "best-practices",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 100,
+  "summary": "No best-practices issues detected.",
+  "findings": [],
+  "metadata": {
+    "extensions": {
+      "deferred_to": [
+        "is-on-https -> security",
+        "csp-xss -> security",
+        "has-hsts -> security",
+        "clickjacking-mitigation -> security",
+        "trusted-types-xss -> security"
+      ]
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "executive_summary": "The website https://plausible.io/ scores 100/100 on performance, with no major issues found. However, there are some minor opportunities for improvement.",
+  "severity_overview": {
+    "low": 2,
+    "medium": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "key_findings": [
+    {
+      "dimension": "performance",
+      "title": "Optimize cache lifetimes",
+      "severity": "low",
+      "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+      "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+    },
+    {
+      "dimension": "performance",
+      "title": "Optimize DOM size",
+      "severity": "low",
+      "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+      "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+    }
+  ],
+  "prioritized_roadmap": [
+    {
+      "dimension": "performance",
+      "title": "Optimize cache lifetimes",
+      "severity": "low",
+      "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+      "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server.",
+      "priority": 1
+    },
+    {
+      "dimension": "performance",
+      "title": "Optimize DOM size",
+      "severity": "low",
+      "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+      "recommendation": "Consider reducing the number of elements in the DOM to improve page performance.",
+      "priority": 2
+    }
+  ],
+  "quick_wins": [
+    {
+      "dimension": "performance",
+      "title": "Optimize cache lifetimes",
+      "severity": "low",
+      "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+      "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+    }
+  ],
+  "long_term_improvements": [
+    {
+      "dimension": "performance",
+      "title": "Optimize DOM size",
+      "severity": "low",
+      "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+      "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+    }
+  ],
+  "action_items": {
+    "total": 2,
+    "items": [
+      {
+        "dimension": "performance",
+        "title": "Optimize cache lifetimes",
+        "severity": "low",
+        "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+        "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+      },
+      {
+        "dimension": "performance",
+        "title": "Optimize DOM size",
+        "severity": "low",
+        "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+        "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+      }
+    ]
+  },
+  "meta": {
+    "url": "https://plausible.io/",
+    "hostname": "plausible.io",
+    "dimensions_analyzed": [
+      "performance"
+    ],
+    "dimensions_missing": [
+      "accessibility",
+      "seo",
+      "security",
+      "best-practices"
+    ],
+    "audited_at": "2023-12-01T12:00:00.000Z",
+    "generated_at": "2026-05-14T06:17:40Z",
+    "build_warnings": [
+      "count mismatch: by_severity=0, by_priority=0, action_items.total=2"
+    ]
+  },
+  "dimension_details": {
+    "performance": {
+      "dimension": "performance",
+      "url": "https://plausible.io/",
+      "hostname": "plausible.io",
+      "score": 100,
+      "summary": "The page scores 100/100 on performance, with no major issues found. However, there are some minor opportunities for improvement.",
+      "findings": [
+        {
+          "title": "Optimize cache lifetimes",
+          "severity": "low",
+          "description": "The page has an estimated savings of 14 KiB by using efficient cache lifetimes.",
+          "recommendation": "Consider increasing the cache lifetime for static resources to reduce the number of requests made to the server."
+        },
+        {
+          "title": "Optimize DOM size",
+          "severity": "low",
+          "description": "The page has a DOM size of 660 elements, which is relatively large and can impact page responsiveness.",
+          "recommendation": "Consider reducing the number of elements in the DOM to improve page performance."
+        }
+      ],
+      "metadata": {
+        "gaps": []
+      }
+    }
+  }
+}

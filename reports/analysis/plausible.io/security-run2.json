@@ -1,0 +1,46 @@
+{
+  "dimension": "security",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 60,
+  "summary": "Plausible.io has a good security posture but lacks essential security headers and has some areas for improvement.",
+  "findings": [
+    {
+      "category": "transport",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "TLS protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384",
+      "impact": "The site uses a modern TLS protocol and cipher, but it's recommended to monitor for any potential issues.",
+      "recommendation": "Continue to use modern TLS protocols and ciphers, and monitor for any potential issues."
+    },
+    {
+      "category": "headers",
+      "severity": "high",
+      "priority": "high",
+      "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy",
+      "impact": "The lack of essential security headers increases the risk of various attacks, such as XSS and clickjacking.",
+      "recommendation": "Implement the missing security headers, such as strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, and referrer-policy, to improve the site's security posture."
+    },
+    {
+      "category": "headers",
+      "severity": "low",
+      "priority": "low",
+      "evidence": "Present security header: permissions-policy",
+      "impact": "The site has a permissions-policy header, which is a good practice, but it's not enough to fully protect against security threats.",
+      "recommendation": "Continue to use the permissions-policy header and consider implementing other security headers to further improve the site's security posture."
+    },
+    {
+      "category": "information-disclosure",
+      "severity": "medium",
+      "priority": "medium",
+      "evidence": "Sitemap.xml contains URLs that may be sensitive: https://plausible.io/ad-cost-calculator, https://plausible.io/google-analytics-script-size, etc.",
+      "impact": "The sitemap.xml file may be exposing sensitive information about the site's structure and content.",
+      "recommendation": "Review the sitemap.xml file and remove any sensitive URLs to prevent potential information disclosure."
+    }
+  ],
+  "metadata": {
+    "analyzed_at": "2026-05-15T08:09:44Z",
+    "lighthouse_version": "unknown",
+    "security_scan_version": "unknown"
+  }
+}

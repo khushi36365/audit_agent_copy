@@ -1,0 +1,53 @@
+{
+  "dimension": "accessibility",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 91,
+  "summary": "Automated tooling detects roughly a third of WCAG failures; manual review is required for the categories listed in `manual_review_required`. The site scored 91 on desktop and 92 on mobile, indicating some accessibility issues.",
+  "findings": [
+    {
+      "category": "aria-allowed-attr",
+      "evidence": "The site uses ARIA attributes that match their roles, as verified by the `aria-allowed-attr` audit.",
+      "impact": "Screen readers can correctly interpret the site's ARIA attributes, improving accessibility for users who rely on assistive technologies.",
+      "recommendation": "Continue to ensure ARIA attributes are used correctly and consistently throughout the site to maintain accessibility.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    },
+    {
+      "category": "aria-hidden-body",
+      "evidence": "The site does not have `[aria-hidden=\"true\"]` set on the document `<body>`, as verified by the `aria-hidden-body` audit.",
+      "impact": "Assistive technologies like screen readers can work consistently with the site, improving the user experience for people with disabilities.",
+      "recommendation": "Avoid setting `[aria-hidden=\"true\"]` on the document `<body>` to ensure assistive technologies can interact with the site correctly.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    },
+    {
+      "category": "aria-hidden-focus",
+      "evidence": "The site does not have focusable descendents within `[aria-hidden=\"true\"]` elements, as verified by the `aria-hidden-focus` audit.",
+      "impact": "Interactive elements within the site are available to users of assistive technologies like screen readers, improving accessibility.",
+      "recommendation": "Continue to ensure that focusable elements are not hidden from assistive technologies to maintain accessibility.",
+      "severity": "low",
+      "priority": "low",
+      "extensions": {
+        "wcag": []
+      }
+    }
+  ],
+  "metadata": {
+    "gaps": [],
+    "manual_review_required": [
+      "Screen-reader announcement quality",
+      "Focus order beyond DOM order",
+      "Video and audio captions",
+      "Error-message clarity",
+      "Motion and animation sensitivity",
+      "Cognitive load and reading level"
+    ]
+  }
+}

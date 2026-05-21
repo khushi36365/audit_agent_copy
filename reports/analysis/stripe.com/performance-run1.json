@@ -1,0 +1,55 @@
+{
+  "dimension": "performance",
+  "url": "https://stripe.com/in",
+  "hostname": "stripe.com",
+  "score": 42,
+  "summary": "The page has significant performance issues, with a low performance score and multiple failing audits. The largest contentful paint is slow, and the total blocking time is high. Optimizing images, reducing JavaScript usage, and improving server response times can help improve performance.",
+  "findings": [
+    {
+      "category": "core-web-vitals",
+      "evidence": "Largest Contentful Paint (LCP): 6.6 s (mobile), 2.6 s (desktop); budget 2.5 s",
+      "impact": "Slow LCP can lead to a poor user experience and negatively impact search engine rankings.",
+      "recommendation": "Optimize images, reduce JavaScript usage, and improve server response times to improve LCP.",
+      "severity": "high",
+      "priority": "high",
+      "extensions": {
+        "cwv_metric": "lcp"
+      }
+    },
+    {
+      "category": "render-blocking",
+      "evidence": "Total Blocking Time (TBT): 900 ms (mobile), 280 ms (desktop); budget 200 ms",
+      "impact": "High TBT can cause delays in page loading and interactive elements, leading to a poor user experience.",
+      "recommendation": "Minify and compress CSS and JavaScript files, and consider using a CDN to reduce TBT.",
+      "severity": "medium",
+      "priority": "medium"
+    },
+    {
+      "category": "javascript",
+      "evidence": "Duplicated JavaScript: estimated savings of 0 bytes (mobile), 0 bytes (desktop)",
+      "impact": "Duplicated JavaScript can increase page load times and slow down page interactions.",
+      "recommendation": "Remove duplicated JavaScript modules from bundles to reduce unnecessary bytes consumed by network activity.",
+      "severity": "low",
+      "priority": "low"
+    },
+    {
+      "category": "images",
+      "evidence": "No image optimization issues detected.",
+      "impact": "Optimizing images can reduce page load times and improve user experience.",
+      "recommendation": "Consider using image compression tools to reduce image file sizes.",
+      "severity": "low",
+      "priority": "low"
+    },
+    {
+      "category": "network",
+      "evidence": "Server response time: not available",
+      "impact": "Slow server response times can increase page load times and negatively impact user experience.",
+      "recommendation": "Consider optimizing server response times by reducing database queries, using caching, and optimizing server configuration.",
+      "severity": "medium",
+      "priority": "medium"
+    }
+  ],
+  "metadata": {
+    "gaps": []
+  }
+}

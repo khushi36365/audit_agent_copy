@@ -1,0 +1,46 @@
+{
+  "dimension": "security",
+  "url": "https://plausible.io/",
+  "hostname": "plausible.io",
+  "score": 60,
+  "summary": "The site has some security issues, including missing security headers and a potential information disclosure through the sitemap.xml file.",
+  "findings": [
+    {
+      "category": "transport",
+      "evidence": "TLS protocol version is TLSv1.3, which is the latest version.",
+      "impact": "Using the latest TLS protocol version ensures the site is protected against known vulnerabilities.",
+      "recommendation": "No action needed, the site is already using the latest TLS protocol version.",
+      "severity": "info",
+      "priority": "low"
+    },
+    {
+      "category": "headers",
+      "evidence": "The site is missing the following security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, and referrer-policy.",
+      "impact": "Missing security headers can make the site vulnerable to various attacks, such as XSS and clickjacking.",
+      "recommendation": "Add the missing security headers to the site's configuration. For example, add 'Strict-Transport-Security: max-age=31536000; includeSubDomains' to enable HSTS.",
+      "severity": "high",
+      "priority": "high"
+    },
+    {
+      "category": "information-disclosure",
+      "evidence": "The sitemap.xml file contains URLs that may be sensitive, such as https://plausible.io/data-policy.",
+      "impact": "Exposing sensitive URLs through the sitemap.xml file can provide an attacker with valuable information about the site's structure and potential vulnerabilities.",
+      "recommendation": "Remove or restrict access to sensitive URLs in the sitemap.xml file to prevent information disclosure.",
+      "severity": "medium",
+      "priority": "medium"
+    },
+    {
+      "category": "dependencies",
+      "evidence": "No vulnerable libraries were detected by Lighthouse.",
+      "impact": "The site is not vulnerable to known library vulnerabilities.",
+      "recommendation": "Continue to monitor the site's dependencies for potential vulnerabilities.",
+      "severity": "info",
+      "priority": "low"
+    }
+  ],
+  "metadata": {
+    "analyzed_at": "2026-05-20T06:54:00.681Z",
+    "lighthouse_version": "unknown",
+    "security_scan_version": "unknown"
+  }
+}

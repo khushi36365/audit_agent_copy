@@ -1,0 +1,64 @@
+{
+  "url": "https://linear.app/",
+  "hostname": "linear.app",
+  "origin": "https://linear.app",
+  "scheme": "https",
+  "port": 443,
+  "run": 1,
+  "collected_at": "2026-05-20T10:34:35Z",
+  "tls": {
+    "checked": true,
+    "reachable": true,
+    "protocol": "TLSv1.3",
+    "cipher": null,
+    "certificate": {
+      "subject": "CN=linear.app",
+      "issuer": "C=US, O=Google Trust Services, CN=WE1",
+      "notBefore": "May 10 21:01:27 2026 GMT",
+      "notAfter": "Aug  8 22:01:09 2026 GMT"
+    }
+  },
+  "headers": {
+    "checked": true,
+    "reachable": true,
+    "present": {
+      "strict_transport_security": "max-age=63072000; includeSubDomains",
+      "content_security_policy": "default-src 'self' https://static.linear.app https://static.linear.dev; connect-src 'self' https://o415358.ingest.sentry.io/api/5337513/ https://o415358.ingest.sentry.io/api/4504277957279744/ wss://ornj730p.api.sanity.io/ https://ornj730p.apicdn.sanity.io/ https://*.linear.app https://9RXBCYQ6DV-dsn.algolia.net https://linearstatus.com/ https://statuspage.incident.io/ https://app.posthog.com https://api.github.com/ https://raw.githubusercontent.com/ https://www.githubstatus.com/ https://dns.google/ http://127.0.0.1:44450/ http://127.0.0.1:18450/ http://127.0.0.1:33234/ https://api.linear.app https://client-api.linear.app wss://sync.linear.app/ https://storage.googleapis.com/uploads.linear.app/ https://storage.googleapis.com/linear-uploads-europe-west1/ https://storage.googleapis.com/linear-uploads-us-central1/ https://storage.googleapis.com/imports.linear.app/ https://storage.googleapis.com/linear-imports-europe-west1/ https://storage.googleapis.com/linear-imports-us-central1/ https://storage.googleapis.com/public.linear.app/ https://ornj730p.api.sanity.io/; script-src 'unsafe-inline' 'self' blob: https://js.stripe.com/v3 https://jobs.ashbyhq.com/Linear/embed https://e.linear.app https://challenges.cloudflare.com/turnstile/ 'wasm-unsafe-eval' https://static.linear.app https://static.linear.dev; worker-src 'self' blob: https://static.linear.app https://static.linear.dev; style-src 'self' 'unsafe-inline' https://static.linear.app https://static.linear.dev; font-src 'self' data: https://static.linear.app https://static.linear.dev; img-src 'self' data: blob: https://*.linear.app https://*.googleusercontent.com https://cdn.sanity.io/images/ornj730p/ https://webassets.linear.app https://linear.app/cdn-cgi/imagedelivery/ https://avatars.githubusercontent.com https://i.ytimg.com/vi/ https://avatars.slack-edge.com https://pbs.twimg.com/profile_images/ https://pbs.twimg.com/ext_tw_video_thumb/ https://secure.gravatar.com; frame-ancestors 'self' https://cms.linear.app; frame-src *; media-src blob: https://uploads.linear.app https://client-api.linear.app https://public.linear.app https://imports.linear.app https://static.linear.app https://webassets.linear.app https://cdn.sanity.io/files/ornj730p/ https://video.twimg.com/ext_tw_video/ https://linear.app/static/; base-uri 'self'; report-uri https://api.linear.app/report-violation",
+      "x_frame_options": null,
+      "x_content_type_options": "nosniff",
+      "referrer_policy": "same-origin",
+      "permissions_policy": null,
+      "x_xss_protection": null,
+      "cross_origin_opener_policy": null,
+      "cross_origin_resource_policy": null,
+      "cross_origin_embedder_policy": null
+    }
+  },
+  "robots_txt": {
+    "url": "https://linear.app/robots.txt",
+    "status": 200,
+    "found": true,
+    "size_bytes": 107,
+    "snippet": "User-Agent: *\nDisallow: /api/\nDisallow: /cdn-cgi/\nAllow: /api/og/\n\nSitemap: https://linear.app/sitemap.xml"
+  },
+  "sitemap_xml": {
+    "url": "https://linear.app/sitemap.xml",
+    "status": 200,
+    "found": true,
+    "size_bytes": 98680,
+    "snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://linear.app/</loc>\n</url>\n<url>\n<loc>https://linear.app/about</loc>\n</url>\n<url>\n<loc>https://linear.app/agents</loc>\n</url>\n<url>\n<loc>https://linear.app/blog</loc>\n</url>\n<url>\n<loc>https://linear.app/careers</loc>\n</url>\n<url>\n<loc>https://linear.app/changelog</loc>\n</url>\n<url>\n<loc>https://linear.app/contact</loc>\n</url>\n<url>\n<loc>https://linear.app/contact/sales</loc>\n</url>\n<url>\n<loc>https://linear.app/contact/support</loc>\n</url>\n<url>\n<loc>https://linear.app/customers</loc>\n</url>\n<url>\n<loc>https://linear.app/docs</loc>\n</url>\n<url>\n<loc>https://linear.app/developers</loc>\n</url>\n<url>\n<loc>https://linear.app/features</loc>\n</url>\n<url>\n<loc>https://linear.app/asks</loc>\n</url>\n<url>\n<loc>https://linear.app/insights</loc>\n</url>\n<url>\n<loc>https://linear.app/integrations</loc>\n</url>\n<url>\n<loc>https://linear.app/method</loc>\n</url>\n<url>\n<loc>https://linear.app/releases/2020-12</l"
+  },
+  "http_redirect": {
+    "probed": "http://linear.app",
+    "final_url": "https://linear.app/",
+    "final_status": 200,
+    "num_redirects": 1,
+    "upgrades_to_https": true
+  },
+  "mixed_content": {
+    "checked": true,
+    "fetched": true,
+    "insecure_asset_refs": 0,
+    "sample": []
+  }
+}

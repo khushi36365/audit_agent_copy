@@ -1,0 +1,46 @@
+{
+  "dimension": "security",
+  "url": "https://delaine.tech/",
+  "hostname": "delaine.tech",
+  "score": 55,
+  "summary": "Multiple security issues found, including missing security headers and potential information disclosure via robots.txt",
+  "findings": [
+    {
+      "category": "transport",
+      "severity": "low",
+      "priority": 3,
+      "evidence": "TLS protocol version is TLSv1.3, which is the current standard, but the certificate will expire on Jul 6 11:08:21 2026 GMT",
+      "impact": "The site is using a modern TLS protocol, but the certificate expiration date is relatively soon",
+      "recommendation": "Consider renewing the SSL certificate before it expires to prevent any potential disruptions"
+    },
+    {
+      "category": "headers",
+      "severity": "high",
+      "priority": 1,
+      "evidence": "Missing security headers: strict-transport-security, content-security-policy, x-frame-options, x-content-type-options, referrer-policy, permissions-policy",
+      "impact": "The site is vulnerable to various attacks, including XSS and clickjacking, due to the lack of security headers",
+      "recommendation": "Implement the missing security headers to protect against potential attacks"
+    },
+    {
+      "category": "information-disclosure",
+      "severity": "medium",
+      "priority": 2,
+      "evidence": "robots.txt contains information about the site's content signals and policies",
+      "impact": "The site may be inadvertently disclosing sensitive information via its robots.txt file",
+      "recommendation": "Review the robots.txt file and remove any sensitive information to prevent potential disclosure"
+    },
+    {
+      "category": "redirect",
+      "severity": "low",
+      "priority": 3,
+      "evidence": "The site upgrades to HTTPS, but the redirect status code is 200, which is not the recommended 301 or 308",
+      "impact": "The site is using a non-canonical redirect, which may affect search engine optimization",
+      "recommendation": "Consider changing the redirect status code to 301 or 308 to improve SEO"
+    }
+  ],
+  "metadata": {
+    "analyzed_at": "2026-05-16T05:32:49.747Z",
+    "lighthouse_version": "unknown",
+    "security_scan_version": "unknown"
+  }
+}
