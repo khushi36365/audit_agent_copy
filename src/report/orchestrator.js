@@ -55,7 +55,7 @@ const ANALYZER_DIMENSIONS = Object.freeze(
   ['performance', 'accessibility', 'seo', 'security', 'best-practices']
 );
 
-const DEFAULT_MODEL      = 'llama-3.1-8b-instant';
+const DEFAULT_MODEL      = 'llama-3.3-70b-versatile';
 const DEFAULT_MAX_TOKENS = 2000;             /* Reports can be substantial */
 const DEFAULT_TIMEOUT_MS = 300000;            /* 5 minutes — report-builder does more work */
 const DEFAULT_RETRIES    = 3;
