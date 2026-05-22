@@ -1,0 +1,17 @@
+{
+  "name": "audit-agent",
+  "version": "1.0.0",
+  "description": "AI-powered website audit framework",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "audit": "node src/index.js"
+  },
+  "dependencies": {
+    "lighthouse": "^13.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}
