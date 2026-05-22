@@ -9,12 +9,6 @@
 - curl 7.x+ (comes with Git Bash)
 - openssl 1.1+ (comes with Git Bash)
 
-## Setup
-
-git clone <your-repo>
-cd audit_agent
-npm install
-
 ## Run
 
 node src/index.js https://example.com
