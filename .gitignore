@@ -1,3 +1,10 @@
+# Dependencies
+node_modules/
+
+# Environment variables (API keys)
 .env
-reports/
-cache/
+
+# Audit cache and generated reports
+reports/.cache/
+reports/analysis/
+reports/final/
