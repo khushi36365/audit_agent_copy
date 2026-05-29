@@ -942,6 +942,7 @@ a.card:focus-visible,
   background: transparent;
 
   isolation: isolate;
+  border: none;
 }
 
 /* OUTER RING */
@@ -978,29 +979,6 @@ a.card:focus-visible,
     );
 }
 
-.score--xl::after{
-
-  content:"";
-
-  position:absolute;
-  inset:-25px;
-
-  border-radius:50%;
-
-  background:
-  radial-gradient(
-    circle,
-    rgba(71,240,200,.28),
-    rgba(105,229,255,.18),
-    transparent 72%
-  );
-
-  z-index:-1;
-
-  filter:blur(20px);
-
-  animation: pulseGlow 5s ease-in-out infinite;
-}
 
 .cover__score-wrap{
 
@@ -1972,9 +1950,7 @@ a:hover > .score {
 
 /* The hero score gets a subtle ambient drop */
 .slide--hero .score--xl {
-  box-shadow:
-    inset 0 0 0 1px rgba(10, 14, 26, 0.04),
-    0 16px 64px rgba(10, 14, 26, 0.08);
+  box-shadow: none
 }
 
 

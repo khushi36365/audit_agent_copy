@@ -376,6 +376,9 @@ function buildUserMessage(dimension, url, hostname, inputs) {
 
   `- findings must be a non-empty array`,
 
+  `- If score is less than 100, findings must contain at least one item.`,
+  `- A score below 100 with zero findings is invalid.`,
+
   `- each finding must contain:`,
 
 `  - category            → short issue name`,
@@ -598,6 +601,18 @@ function validateAnalyzerOutput(output, dimension, hostname) {
   if (!Array.isArray(output.findings)) {
     throw new AnalyzerError('VALIDATION', '.findings must be an array');
   }
+
+  /* NEW RULE */
+  if (
+    output.score < 100 &&
+    output.findings.length === 0
+  ) {
+    throw new AnalyzerError(
+      'VALIDATION',
+      `score ${output.score} requires at least one finding`
+    );
+  }
+
   if (!output.metadata || typeof output.metadata !== 'object') {
     throw new AnalyzerError('VALIDATION', '.metadata must be an object');
   }
